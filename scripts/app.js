@@ -12,7 +12,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
 
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '/home',
                 templateUrl: '/index.html',
                 controller: 'HomeCtrl'
 
