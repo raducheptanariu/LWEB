@@ -35,7 +35,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
             //})
         ;
 
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
 
     }])
 
