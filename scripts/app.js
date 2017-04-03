@@ -28,11 +28,12 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 templateUrl: '/views/login.html',
                 controller: 'LoginCtrl'
             })
-            .state('otherwise', {
-                url: '*path',
-                templateUrl: '/404.html',
-                controller: 'Error404Ctrl'
-            });
+            //.state('otherwise', {
+            //    url: '*path',
+            //    templateUrl: '/404.html',
+            //    controller: 'Error404Ctrl'
+            //})
+        ;
 
         //$locationProvider.html5Mode(true);
 
