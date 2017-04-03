@@ -13,24 +13,24 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: '/LWEB/index.html',
+                templateUrl: '/index.html',
                 controller: 'HomeCtrl'
 
             })
             .state('about', {
                 url: '/about',
-                templateUrl: '/LWEB/views/about.html',
+                templateUrl: '/views/about.html',
                 controller: 'AboutCtrl'
             })
             .state('login', {
                 url: '/login',
                 layout: 'basic',
-                templateUrl: '/LWEB/views/login.html',
+                templateUrl: '/views/login.html',
                 controller: 'LoginCtrl'
             })
             .state('otherwise', {
                 url: '*path',
-                templateUrl: '/LWEB/404.html',
+                templateUrl: '/404.html',
                 controller: 'Error404Ctrl'
             });
 
