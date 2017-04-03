@@ -10,7 +10,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
         // UI States, URL Routing & Mapping. For more info see: https://github.com/angular-ui/ui-router
         // ------------------------------------------------------------------------------------------------------------
 
-        asd$stateProvider
+        $stateProvider
             .state('home', {
                 url: '/home',
                 templateUrl: '/index.html',
