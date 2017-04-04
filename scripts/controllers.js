@@ -7,30 +7,33 @@ angular.module('app.controllers', [])
 
     // Path: /
     .controller('HomeCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
-        $scope.$root.title = 'AngularJS SPA Template for Visual Studio';
+        $scope.$root.title = 'Laura Serban';
         $scope.$on('$viewContentLoaded', function () {
-            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 
     // Path: /about
     .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
-        $scope.$root.title = 'AngularJS SPA | About';
+        $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
-            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 
-    // Path: /login
-    .controller('LoginCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
-        $scope.$root.title = 'AngularJS SPA | Sign In';
-        // TODO: Authorize a user
-        $scope.login = function () {
-            $location.path('/');
-            return false;
-        };
+    // Path: /contact
+    .controller('ContactCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'Contact';
         $scope.$on('$viewContentLoaded', function () {
-            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+    }])
+
+    // Path: /blog
+    .controller('BlogCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'Blog';
+        $scope.$on('$viewContentLoaded', function () {
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 

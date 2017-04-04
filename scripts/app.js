@@ -9,7 +9,8 @@ app.config(['$routeProvider', '$locationProvider',
            /* Root */
            when('/', { templateUrl: 'views/home.html', controller: 'HomeCtrl' }).
            when('/about', { templateUrl: 'views/about.html', controller: 'AboutCtrl' }).
-           when('/login', { templateUrl: 'views/login.html', controller: 'LoginCtrl' }).
+           when('/blog', { templateUrl: 'views/blog.html', controller: 'BlogCtrl' }).
+           when('/contact', { templateUrl: 'views/contact.html', controller: 'ContactCtrl' }).
            otherwise({
                redirectTo: '/404.html'
            });
