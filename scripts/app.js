@@ -35,8 +35,6 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
             //})
         ;
 
-        $locationProvider.html5Mode(true);
-
     }])
 
     // Gets executed after the injector is created and are used to kickstart the application. Only instances and constants
