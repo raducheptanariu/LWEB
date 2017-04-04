@@ -11,7 +11,7 @@ app.config(['$routeProvider', '$locationProvider',
            when('/about', { templateUrl: 'views/about.html', controller: 'AboutCtrl' }).
            when('/blog', { templateUrl: 'views/blog.html', controller: 'BlogCtrl' }).
            when('/contact', { templateUrl: 'views/contact.html', controller: 'ContactCtrl' }).
-           otherwise({ templateUrl: 'views/404.html', controller: 'Error404Ctrl' });
+           otherwise({ template: '<div class"container">Not found</div>', controller: 'Error404Ctrl' });
 
        $locationProvider.html5Mode(true);
    }]);
