@@ -2,7 +2,7 @@
 
     $translateProvider.translations('ro', {
         LAYOUT_HEADER_ABOUT: 'Despre mine',
-        LAYOUT_HEADER_GALLERY: 'Galerie foto',
+        LAYOUT_HEADER_GALLERY: 'Galerie',
         LAYOUT_HEADER_MUSIC: 'Muzica',
         LAYOUT_HEADER_REPERTOIRE: 'Repertoriu',
         LAYOUT_HEADER_BLOG: 'Blog',
