@@ -7,8 +7,7 @@ app.config(['$routeProvider', '$locationProvider', '$translateProvider',
    function ($routeProvider, $locationProvider, $translateProvider) {
        $routeProvider.
            /* Root */
-           when('/', { templateUrl: 'views/home.html', controller: 'HomeCtrl' }).
-           when('/about', { templateUrl: 'views/about.html', controller: 'AboutCtrl' }).
+           when('/', { templateUrl: 'views/about.html', controller: 'AboutCtrl' }).
            when('/blog', { templateUrl: 'views/blog.html', controller: 'BlogCtrl' }).
            when('/contact', { templateUrl: 'views/contact.html', controller: 'ContactCtrl' }).
            otherwise({ template: '<div class"container">Not found</div>', controller: 'Error404Ctrl' });
