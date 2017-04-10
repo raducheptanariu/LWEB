@@ -13,7 +13,7 @@ app.config(['$routeProvider', '$locationProvider', '$translateProvider',
            when('/repertoire', { templateUrl: 'views/repertoire.html', controller: 'RepertoireCtrl' }).
            when('/blog', { templateUrl: 'views/blog.html', controller: 'BlogCtrl' }).
            when('/contact', { templateUrl: 'views/contact.html', controller: 'ContactCtrl' }).
-           otherwise({ template: '<div class"container row box">Not found</div>', controller: 'Error404Ctrl' });
+           otherwise({ template: '<div class"container><div class="row"><div class="box">Not found</div></div></div>', controller: 'Error404Ctrl' });
 
        $locationProvider.html5Mode(true);
 
