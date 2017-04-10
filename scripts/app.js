@@ -26,7 +26,11 @@ app.config(['$routeProvider', '$locationProvider', '$translateProvider',
        var lang = navigator.languages
             ? navigator.languages[0]
             : (navigator.language || navigator.userLanguage);
-
-       $translateProvider.preferredLanguage('ro');
+       if (lang.indexOf('ro') >= 0) {
+           $translateProvider.preferredLanguage('ro');
+       }
+       else {
+           $translateProvider.preferredLanguage('en');
+       }
    }
 ]);
