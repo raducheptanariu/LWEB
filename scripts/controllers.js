@@ -43,4 +43,12 @@ angular.module('app.controllers', [])
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
-    }]);
+    }])
+
+    //.controller('LocalCtrl', ['$scope', '$translate', function ($scope, $translate) {
+    //    $scope.changeLanguage = function (key) {
+    //        $translate.use(key);
+    //    }
+    //}])
+
+;
