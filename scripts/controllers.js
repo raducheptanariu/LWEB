@@ -13,6 +13,38 @@ angular.module('app.controllers', [])
         });
     }])
 
+    // Path: /gallery
+    .controller('GalleryCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'Gallery';
+        $scope.$on('$viewContentLoaded', function () {
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+    }])
+
+    // Path: /Music
+    .controller('MusicCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'Music';
+        $scope.$on('$viewContentLoaded', function () {
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+    }])
+
+    // Path: /about
+    .controller('RepertoireCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'Repertoire';
+        $scope.$on('$viewContentLoaded', function () {
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+    }])
+
+    // Path: /about
+    .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'About';
+        $scope.$on('$viewContentLoaded', function () {
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+    }])
+
     // Path: /contact
     .controller('ContactCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Contact';
