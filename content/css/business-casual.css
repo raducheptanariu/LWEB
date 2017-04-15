@@ -207,20 +207,26 @@ footer p {
     }
 }
 
+/*.animationIf{
+   max-height: 0;
+}*/
 /* ngIf animation */
 .animationIf.ng-enter,
 .animationIf.ng-leave {
-  -webkit-transition: opacity ease-in-out 1s;
-  -moz-transition: opacity ease-in-out 1s;
-  -ms-transition: opacity ease-in-out 1s;
-  -o-transition: opacity ease-in-out 1s;
-  transition: opacity ease-in-out 1s;
+  -webkit-transition: opacity ease-in-out 2s, max-height 1s ease-in-out;
+  -moz-transition: opacity ease-in-out 2s, max-height 1s ease-in-out;
+  -ms-transition: opacity ease-in-out 2s, max-height 1s ease-in-out;
+  -o-transition: opacity ease-in-out 2s, max-height 1s ease-in-out;
+  transition: opacity ease-in-out 2s, max-height 1s ease-in-out;
+  /*transition: max-height ease-in-out 0.15s;*/
 }
 .animationIf.ng-enter,
 .animationIf.ng-leave.ng-leave-active {
   opacity: 0;
+  max-height: 0px;
 }
 .animationIf.ng-leave,
 .animationIf.ng-enter.ng-enter-active {
   opacity: 1;
+  max-height: 550px
 }
