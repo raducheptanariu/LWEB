@@ -37,11 +37,17 @@
     </script>
 </head>
 <body>
-    <div class="brand">Laura Serban</div>
+    <div class="brand" id="stickyTarget" sticky-margin="stickyHeight">Laura Serban</div>
     <!--<div class="address-bar">subtitle</div>-->
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default fixedElement" role="navigation">
+    <nav class="navbar navbar-default" 
+         sticky-on-scroll="110" 
+         sticky-class="navbar-fixed" 
+         sticky-height="stickyHeight" 
+         sticky-adapt-margin="stickyTarget"
+         ng-init="stickyHeight = 0" 
+         role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">

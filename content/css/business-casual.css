@@ -4,14 +4,6 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
-.fixedElement {
-    /*background-color: #c0c0c0;*/
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
-}
-
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     /*background: url('../img/bg.jpg') no-repeat center center fixed;*/
@@ -47,6 +39,11 @@ hr {
 .brand,
 .address-bar {
     display: none;
+    color: #000;
+}
+
+.navbar-nav{
+    background-color: #555555;
 }
 
 .navbar-brand {
@@ -131,7 +128,7 @@ footer p {
         font-size: 5em;
         font-weight: 700;
         line-height: normal;
-        color: #fff;
+        color: #777;
     }
 
     .top-divider {
@@ -175,11 +172,15 @@ footer p {
     }
 
     .nav>li>a {
-        padding: 35px;
+        padding: 20px;
     }
 
     .navbar-nav>li>a {
         line-height: normal;
+    }
+
+    .navbar-default .navbar-nav>li>a{
+        color: #fff;
     }
 
     .navbar-nav {
@@ -188,6 +189,13 @@ footer p {
         margin: 0 auto;
         table-layout: fixed;
         font-size: 1.25em;
+    }
+
+    .navbar-fixed {
+        position:fixed;
+        top:0;
+        width:100%;
+        z-index:100;
     }
 }
 
