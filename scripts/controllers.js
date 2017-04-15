@@ -12,61 +12,35 @@ angular.module('app.controllers', [])
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
 
-        var path = "content/img/slider/";
-        $scope.slides = [];
-        populateCarouselAsync(0);
-        //var fileExists = true;
-        //var counter = 0;
-        //while (fileExists && counter < 10) {
-        //    try{
-        //        var imgPath = path + (counter + 1) + ".jpg";
-        //        var xhr = new XMLHttpRequest();
-        //        xhr.open('HEAD', imgPath, true);
-        //        xhr.onload = function (event) {
-        //            if (event.currentTarget.status == 200) {
-        //                $scope.$apply(function () {
-        //                    $scope.slides.push({
-        //                        image: imgPath,
-        //                        id: counter
-        //                    });
+        //var path = "content/img/slider/";
+        //$scope.slides = [];
+        //populateCarouselAsync(0);
+        //function populateCarouselAsync(index) {
+        //    var imgPath = path + (index + 1) + ".jpg";
+
+        //    var xhr = new XMLHttpRequest();
+        //    xhr.open('HEAD', imgPath, true);
+        //    xhr.onload = function (event) {
+        //        if (event.currentTarget.status == 200) {
+        //            $scope.$apply(function () {
+        //                $scope.slides.push({
+        //                    image: imgPath,
+        //                    id: index
         //                });
-        //            } else {
-        //                fileExists = false
-        //            }
+        //            });
+        //            populateCarouselAsync(index + 1);
         //        }
-        //        xhr.send();
         //    }
-        //    catch (ex) {
-        //    }
-        //    counter = counter + 1;
+
+        //    xhr.send();
         //}
 
-        function populateCarouselAsync(index) {
-            var imgPath = path + (index + 1) + ".jpg";
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('HEAD', imgPath, true);
-            xhr.onload = function (event) {
-                if (event.currentTarget.status == 200) {
-                    $scope.$apply(function () {
-                        $scope.slides.push({
-                            image: imgPath,
-                            id: index
-                        });
-                    });
-                    populateCarouselAsync(index + 1);
-                }
-            }
-
-            xhr.send();
-        }
-
-
-        //$scope.slides = [
-        //    { image: 'content/img/slide-1.jpg', id: 0 },
-        //    { image: 'content/img/slide-2.jpg', id: 1 },
-        //    { image: 'content/img/slide-3.jpg', id: 2 },
-        //];
+        $scope.slides = [
+            { image: 'content/img/slide-1.jpg', id: 0 },
+            { image: 'content/img/slide-2.jpg', id: 1 },
+            { image: 'content/img/slide-3.jpg', id: 2 },
+        ];
     }])
 
     // Path: /gallery
