@@ -3,38 +3,39 @@
 // Google Analytics Collection APIs Reference:
 // https://developers.google.com/analytics/devguides/collection/analyticsjs/
 
-angular.module('app.controllers', [])
+angular.module('app')
 
     // Path: /about
-    .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('AboutCtrl', ['$scope', '$rootScope', '$location', '$window', function ($scope, $rootScope, $location, $window) {
         $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
 
-        var path = "content/img/slider/";
-        $scope.slides = [];
-        populateCarouselAsync(0);
-        function populateCarouselAsync(index) {
-            var imgPath = path + (index + 1) + ".jpg";
+        if (!$rootScope.slides || $rootScope.slides.length == 0) {
+            $rootScope.slides = [];
+            populateCarouselAsync(0);
+            function populateCarouselAsync(index) {
+                var imgPath = "content/img/slider/" + (index + 1) + ".jpg";
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('HEAD', imgPath, true);
-            xhr.onload = function (event) {
-                if (event.currentTarget.status == 200) {
-                    $scope.$apply(function () {
-                        $scope.slides.push({
-                            image: imgPath,
-                            id: index
+                var xhr = new XMLHttpRequest();
+                xhr.open('HEAD', imgPath, true);
+                xhr.onload = function (event) {
+                    if (event.currentTarget.status == 200) {
+                        $scope.$apply(function () {
+                            $rootScope.slides.push({
+                                image: imgPath,
+                                id: index
+                            });
                         });
-                    });
-                    populateCarouselAsync(index + 1);
+                        $rootScope.slides = $scope.slides;
+                        populateCarouselAsync(index + 1);
+                    }
                 }
+
+                xhr.send();
             }
-
-            xhr.send();
         }
-
 
         //$scope.slides = [
         //    { image: 'content/img/slider/1.jpg', id: 0 },
