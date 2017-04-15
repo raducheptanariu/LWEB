@@ -12,35 +12,34 @@ angular.module('app.controllers', [])
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
 
-        //var path = "content/img/slider/";
-        //$scope.slides = [];
-        //populateCarouselAsync(0);
-        //function populateCarouselAsync(index) {
-        //    var imgPath = path + (index + 1) + ".jpg";
+        var path = "content/img/slider/";
+        $scope.slides = [];
+        populateCarouselAsync(0);
+        function populateCarouselAsync(index) {
+            var imgPath = path + (index + 1) + ".jpg";
 
-        //    var xhr = new XMLHttpRequest();
-        //    xhr.open('HEAD', imgPath, true);
-        //    xhr.onload = function (event) {
-        //        if (event.currentTarget.status == 200) {
-        //            $scope.$apply(function () {
-        //                $scope.slides.push({
-        //                    image: imgPath,
-        //                    id: index
-        //                });
-        //            });
-        //            populateCarouselAsync(index + 1);
-        //        }
-        //    }
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', imgPath, true);
+            xhr.onload = function (event) {
+                if (event.currentTarget.status == 200) {
+                    $scope.$apply(function () {
+                        $scope.slides.push({
+                            image: imgPath,
+                            id: index
+                        });
+                    });
+                    populateCarouselAsync(index + 1);
+                }
+            }
 
-        //    xhr.send();
-        //}
+            xhr.send();
+        }
 
 
-        $scope.slides = [
-            { image: 'content/img/slider/1.jpg', id: 0 },
-            { image: 'content/img/slider/2.jpg', id: 1 }
-            //{ image: 'content/img/slide-3.jpg', id: 2 },
-        ];
+        //$scope.slides = [
+        //    { image: 'content/img/slider/1.jpg', id: 0 },
+        //    { image: 'content/img/slider/2.jpg', id: 1 }
+        //];
     }])
 
     // Path: /gallery
