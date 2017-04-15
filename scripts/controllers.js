@@ -11,6 +11,41 @@ angular.module('app.controllers', [])
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
+
+        $scope.slides = [];
+
+        var fileExists = true;
+        var counter = 0;
+        var path = "content/img/slider/";
+        while (fileExists && counter < 10) {
+            try{
+                var imgPath = path + (counter + 1) + ".jpg";
+                var request = new XMLHttpRequest();
+                request.open('HEAD', imgPath, false);
+                request.send();
+                if (request.status == 200) {
+                    //$scope.$apply(function () {
+                        $scope.slides.push({
+                            image: imgPath,
+                            id: counter
+                        });
+                    //});
+                } else {
+                    fileExists = false
+                }
+            }
+            catch (ex) {
+
+            }
+            counter = counter + 1;
+        }
+
+
+        //$scope.slides = [
+        //    { image: 'content/img/slide-1.jpg', id: 0 },
+        //    { image: 'content/img/slide-2.jpg', id: 1 },
+        //    { image: 'content/img/slide-3.jpg', id: 2 },
+        //];
     }])
 
     // Path: /gallery
@@ -32,14 +67,6 @@ angular.module('app.controllers', [])
     // Path: /about
     .controller('RepertoireCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Repertoire';
-        $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
-        });
-    }])
-
-    // Path: /about
-    .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
-        $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });

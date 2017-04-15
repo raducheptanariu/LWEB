@@ -14,53 +14,27 @@ angular.module('app.directives', [])
             scope:{
                 stickyOnScroll: '@',
                 stickyClass: '@',
-                stickyHeight: '=',
                 stickyAdaptMargin: '@'
             },
             link: function (scope, elm, attrs) {
                 var pixels = parseInt(scope.stickyOnScroll);
                 var adapt = $('#' + scope.stickyAdaptMargin);
+                var currentMargin = parseInt(adapt.css('marginTop'));
                 adapt.css('marginTop', scope.stickyMargin);
-                var height = elm.height() + 20;
+                var newMargin = elm.height() + currentMargin + 20;
 
                 $(window).scroll(function () {
                     if ($(window).scrollTop() > pixels) {
-                        adapt.css('marginTop', height);
+                        adapt.css('marginTop', newMargin);
                         elm.addClass(scope.stickyClass);
-                        //scope.$apply(function () {
-                        //    scope.stickyHeight = elm.height();
-                        //});
                     }
                     if ($(window).scrollTop() < pixels + 1) {
                         adapt.css('marginTop', 0);
                         elm.removeClass(scope.stickyClass);
-                        //scope.$apply(function () {
-                        //    scope.stickyHeight = 0;
-                        //});
                     }
                 });
             }
         };
-    }])
-
-    .directive('stickyMargin', [function () {
-        return {
-            restrict: 'A',
-            scope: {
-                stickyMargin: '='
-            },
-            link: function (scope, elm, attrs) {
-                var initMargin = elm[0].style.marginTop;
-
-                scope.$watch(
-                    function () {
-                        return scope.stickyMargin;
-                    },
-                    function () {
-                        elm.css('marginTop', scope.stickyMargin);
-                    });
-            }
-        }
     }])
 
 ;
