@@ -27,6 +27,7 @@ angular.module('app')
                                 image: imgPath,
                                 id: index
                             });
+                            $scope.initCarousel = true;
                         });
                         $rootScope.slides = $scope.slides;
                         populateCarouselAsync(index + 1);
@@ -35,6 +36,9 @@ angular.module('app')
 
                 xhr.send();
             }
+        }
+        else {
+            $scope.initCarousel = true;
         }
 
         //$scope.slides = [
