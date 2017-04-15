@@ -42,8 +42,8 @@ hr {
     color: #000;
 }
 
-.navbar-nav{
-    background-color: #555555;
+.navbar-collapse{
+    background-color: #ddd;
 }
 
 .navbar-brand {
@@ -56,6 +56,18 @@ hr {
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 3px;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #777;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
 }
 
 .img-full {
@@ -181,6 +193,10 @@ footer p {
 
     .navbar-default .navbar-nav>li>a{
         color: #fff;
+    }
+
+    .navbar-collapse{
+        background-color: #ddd;
     }
 
     .navbar-nav {
