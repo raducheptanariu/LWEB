@@ -37,9 +37,9 @@ angular.module('app.controllers', [])
 
 
         $scope.slides = [
-            { image: 'content/img/slide-1.jpg', id: 0 },
-            { image: 'content/img/slide-2.jpg', id: 1 },
-            { image: 'content/img/slide-3.jpg', id: 2 },
+            { image: 'content/img/slider/1.jpg', id: 0 },
+            { image: 'content/img/slider/2.jpg', id: 1 }
+            //{ image: 'content/img/slide-3.jpg', id: 2 },
         ];
     }])
 
