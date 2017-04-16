@@ -48,27 +48,6 @@ angular.module('app')
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
-
-        $scope.model = null;
-        $scope.ngInstafeedModel = ngInstafeed.model;
-        $scope.ngInstafeedState = ngInstafeed.state;
-        ngInstafeed.get({
-                get: 'user',
-                userId: '1397192335',
-            },
-            function (err, res) {
-                if(err) throw err;
-                console.log(res); // see what the data is like
-                $scope.model = res;
-            });
-
-        $scope.loadMore = function () {
-            ngInstafeed.more(function (err, res) {
-                if (err) throw err;
-                console.log(res); // see what the data is like
-                $scope.model = res;
-            })
-        };
     }])
 
     // Path: /Music
@@ -109,6 +88,10 @@ angular.module('app')
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
+    }])
+
+    .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', function ($scope, $uibModalInstance, model) {
+        $scope.model = model;
     }])
 
     //.controller('LocalCtrl', ['$scope', '$translate', function ($scope, $translate) {

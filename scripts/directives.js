@@ -36,4 +36,73 @@ angular.module('app')
             }
         };
     }])
+
+    .directive('instaImageLoader', ['$uibModal', '$http', function ($uibModal, $http) {
+        return {
+            restrict: 'E',
+            scope: {
+                ngModel: '='
+            },
+            templateUrl: 'views/templates/instaImage.html',
+            link: function(scope, elm, attrs){
+                scope.model = scope.ngModel;
+
+                scope.openPopup = function () {
+
+                    var mediaId = scope.model.id;
+                    var request = "https://api.instagram.com/v1/media/" + mediaId + "?access_token=1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09";
+                    $http({
+                        method: 'GET',
+                        url: request
+                    }).then(function (data) {
+                        console.log(data);
+                    }, function (err) {
+                        console.log(err);
+                    });
+
+
+                    var modalInstance = $uibModal.open({
+                        controller: 'instaImagePopupCtrl',
+                        templateUrl: 'views/templates/instaImagePopup.html',
+                        backdrop: 'static',
+                        resolve: {
+                            model: function () { return scope.model; }
+                        }
+                    });
+
+                    modalInstance.result.then(function () { }, function () { });
+                };
+            }
+        }
+    }])
+
+    .directive('instaLoader', ['ngInstafeed', function (ngInstafeed) {
+        return {
+            restrict: 'A',
+            scope: {
+                instaModel: '=',
+                instaState: '='
+            },
+            link: function (scope, elm, attrs) {
+                scope.instaModel = ngInstafeed.model;
+                scope.instaState = ngInstafeed.state;
+
+                ngInstafeed.get({
+                    get: 'user',
+                    userId: '1397192335'
+                },
+                    function (err, res) {
+                        if (err) throw err;
+                        console.log(res); // see what the data is like
+                    });
+
+                scope.loadMore = function () {
+                    ngInstafeed.more(function (err, res) {
+                        if (err) throw err;
+                        console.log(res); // see what the data is like
+                    })
+                };
+            }
+        }
+    }])
 ;

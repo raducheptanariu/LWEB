@@ -131,6 +131,22 @@ footer p {
     padding: 50px 0;
 }
 
+.insta-image {
+    padding: 15px;
+    background-color:#f7f7f7;
+    border:solid;
+    border-color:rgba(255,255,255,0.9);
+}
+
+.insta-image:hover{
+    background-color:#ddd;
+    cursor: pointer;
+}
+
+div.insta-image>img{
+    max-width: 100%;
+}
+
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -289,17 +305,20 @@ to      { transform: translateX(0); }
     /*left:-100%;*/
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
+    opacity: 0;
 }
         
 .revealAnimation.ng-enter-active {
     /*left:0;*/
     position: absolute;
     -webkit-transform: translateX(0%);
+    opacity: 1;
 }
 
 .revealAnimation.ng-leave {
     /*left:0;*/
     -webkit-transform: translateX(0%);
+    opacity: 1;
 }
         
 .revealAnimation.ng-leave-active {
@@ -307,4 +326,5 @@ to      { transform: translateX(0); }
     position: absolute;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
+    opacity: 0;
 }

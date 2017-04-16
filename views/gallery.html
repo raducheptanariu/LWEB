@@ -1,8 +1,7 @@
-﻿<div class="container">
+﻿<div class="container" insta-loader insta-model="ngInstafeedModel" insta-state="ngInstafeedState">
 
-    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" style="padding:15px" ng-repeat="item in ngInstafeedModel.data">
-        <img ng-src="{{item.images.standard_resolution.url}}"
-             style="max-width:100%;" />
+    <div ng-repeat="item in ngInstafeedModel.data">
+        <insta-image-loader ng-model="item"></insta-image-loader>
     </div>
     <div class="col-xs-12">
         <button class="btn btn-primary form-control"
@@ -11,21 +10,4 @@
             Load More
         </button>
     </div>
-
-
-    <!--<button type="button" onclick="more()">More</button>
-    <div id="instafeed"></div>-->
 </div>
-<script type="text/javascript">
-    //var feed = new Instafeed({
-    //    get: 'user',
-    //    userId: '1397192335',
-    //    clientId: '6dec9fed9b844f809902163e95c47009',
-    //    accessToken: '1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09'
-    //});
-    //feed.run();
-
-    //function more() {
-    //    feed.next();
-    //}
-</script>
