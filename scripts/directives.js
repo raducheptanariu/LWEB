@@ -58,7 +58,7 @@ angular.module('app')
                         }
                     });
 
-                    $rootScope.$on('$locationChangeStart', function (event) {
+                    scope.$on('$locationChangeStart', function (event) {
                         modalInstance.dismiss();
                         event.preventDefault();
                     });
