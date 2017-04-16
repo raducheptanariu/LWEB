@@ -223,9 +223,6 @@ footer p {
     }
 }
 
-/*.animationIf{
-   max-height: 0;
-}*/
 /* ngIf animation */
 .animationIf.ng-enter,
 .animationIf.ng-leave {
@@ -245,4 +242,31 @@ footer p {
 .animationIf.ng-enter.ng-enter-active {
   opacity: 1;
   max-height: 550px
+}
+
+/* ngView animation*/
+@keyframes fadeIn {
+0%    { opacity: 0; }
+50%   { opacity: .5; }
+100%  { opacity: 1; }
+}
+@keyframes fadeOut {
+0%    { opacity: 1; }
+50%   { opacity: .5; }
+100%  { opacity: 0; }
+}
+@keyframes slideOutLeft {
+to      { transform: translateX(-100%); }
+}
+@keyframes slideInRight {
+from    { transform:translateX(100%); }
+to      { transform: translateX(0); }
+}
+.revealAnimation.ng-enter { 
+    animation: slideInRight 0.5s both linear, fadeIn 0.5s both linear; 
+    z-index: 8888;
+}
+.revealAnimation.ng-leave { 
+    animation: slideOutLeft 0.5s both linear, fadeOut 0.5s both linear; 
+    z-index: 9999;
 }
