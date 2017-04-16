@@ -44,6 +44,7 @@ angular.module('app')
                 ngModel: '='
             },
             templateUrl: 'views/templates/instaImage.html',
+            replace: true,
             link: function(scope, elm, attrs){
                 scope.model = scope.ngModel;
 
