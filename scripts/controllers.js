@@ -40,11 +40,6 @@ angular.module('app')
         else {
             $scope.initCarousel = true;
         }
-
-        //$scope.slides = [
-        //    { image: 'content/img/slider/1.jpg', id: 0 },
-        //    { image: 'content/img/slider/2.jpg', id: 1 }
-        //];
     }])
 
     // Path: /gallery

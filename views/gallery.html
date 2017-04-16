@@ -1,4 +1,5 @@
 ﻿<div class="container">
+    <button type="button" onclick="more()">More</button>
     <div id="instafeed"></div>
 </div>
 <script type="text/javascript" src="../scripts/vendor/instafeed.min.js"></script>
@@ -10,4 +11,8 @@
         accessToken: '1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09'
     });
     feed.run();
+
+    function more() {
+        feed.next();
+    }
 </script>
