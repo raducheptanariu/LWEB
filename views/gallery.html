@@ -1,18 +1,31 @@
 ﻿<div class="container">
-    <button type="button" onclick="more()">More</button>
-    <div id="instafeed"></div>
-</div>
-<script type="text/javascript" src="../scripts/vendor/instafeed.min.js"></script>
-<script type="text/javascript">
-    var feed = new Instafeed({
-        get: 'user',
-        userId: '1397192335',
-        clientId: '6dec9fed9b844f809902163e95c47009',
-        accessToken: '1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09'
-    });
-    feed.run();
 
-    function more() {
-        feed.next();
-    }
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" style="padding:15px" ng-repeat="item in ngInstafeedModel.data">
+        <img ng-src="{{item.images.standard_resolution.url}}"
+             style="max-width:100%;" />
+    </div>
+    <div class="col-xs-12">
+        <button class="btn btn-primary form-control"
+                ng-click="loadMore()">
+            <!--ng-disabled="!ngInstafeedState.hasNext || ngInstafeedState.loading"-->
+            Load More
+        </button>
+    </div>
+
+
+    <!--<button type="button" onclick="more()">More</button>
+    <div id="instafeed"></div>-->
+</div>
+<script type="text/javascript">
+    //var feed = new Instafeed({
+    //    get: 'user',
+    //    userId: '1397192335',
+    //    clientId: '6dec9fed9b844f809902163e95c47009',
+    //    accessToken: '1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09'
+    //});
+    //feed.run();
+
+    //function more() {
+    //    feed.next();
+    //}
 </script>
