@@ -147,6 +147,24 @@ div.insta-image>img{
     max-width: 100%;
 }
 
+/*.modal-dialog{
+    height: 90%;
+    max-width: 90%;
+}*/
+
+.modal-popup{
+    margin:25px;
+}
+
+.modal-image{
+    max-width:100%;
+    max-height:100%;
+}
+
+/*.modal-content {
+    width: 350px;
+}*/
+
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -232,6 +250,10 @@ div.insta-image>img{
         width:100%;
         z-index:100;
     }
+
+    .modal-content {
+        width: 650px;
+    }
 }
 
 @media screen and (min-width:1200px) {
@@ -239,6 +261,9 @@ div.insta-image>img{
         content: '';
         display: table;
         clear: both;
+    }
+    .modal-content {
+        width: 700px;
     }
 }
 

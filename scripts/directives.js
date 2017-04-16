@@ -49,26 +49,6 @@ angular.module('app')
 
                 scope.openPopup = function () {
 
-                    //var mediaId = scope.model.id;
-                    //var request = "https://api.instagram.com/v1/media/" + mediaId + "?access_token=1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09";
-
-                    //$.getJSON(
-                    //    "https://api.instagram.com/v1/media/" + mediaId + "?access_token=1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09&callback=?",
-                    //    function (data) {
-                    //        console.log(data);
-                    //    }
-                    //);
-
-                    //$http({
-                    //    method: 'GET',
-                    //    url: request
-                    //}).then(function (data) {
-                    //    console.log(data);
-                    //}, function (err) {
-                    //    console.log(err);
-                    //});
-
-
                     var modalInstance = $uibModal.open({
                         controller: 'instaImagePopupCtrl',
                         templateUrl: 'views/templates/instaImagePopup.html',
