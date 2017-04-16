@@ -44,6 +44,7 @@ hr {
 
 .navbar-collapse{
     background-color: #ddd;
+    /*min-height: 316px;*/
 }
 
 .navbar-brand {
@@ -197,6 +198,7 @@ footer p {
 
     .navbar-collapse{
         background-color: #ddd;
+        min-height: 50px;
     }
 
     .navbar-nav {
