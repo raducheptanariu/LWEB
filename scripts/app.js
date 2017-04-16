@@ -24,3 +24,15 @@ app.config(['$routeProvider', '$locationProvider', '$translateProvider', 'ngInst
    }
 ]);
 
+app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
+    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+        $rootScope.viewTransition = true;
+    });
+
+    $rootScope.$on("$routeChangeEnd", function (event, next, current) {
+        $timeout(function () {
+            $rootScope.viewTransition = false;
+        }, 2000);
+    })
+}]);
+

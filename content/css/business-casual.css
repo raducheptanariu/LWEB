@@ -44,7 +44,6 @@ hr {
 
 .navbar-collapse{
     background-color: #ddd;
-    /*min-height: 316px;*/
 }
 
 .navbar-brand {
@@ -122,7 +121,9 @@ hr {
 
 footer {
     background: #fff;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.9); 
+    position: relative;
+    width:100%;
 }
 
 footer p {
@@ -247,7 +248,7 @@ footer p {
 }
 
 /* ngView animation*/
-@keyframes fadeIn {
+/*@keyframes fadeIn {
 0%    { opacity: 0; }
 50%   { opacity: .5; }
 100%  { opacity: 1; }
@@ -261,14 +262,49 @@ footer p {
 to      { transform: translateX(-100%); }
 }
 @keyframes slideInRight {
-from    { transform:translateX(100%); }
+from    { transform: translateX(100%); }
 to      { transform: translateX(0); }
 }
 .revealAnimation.ng-enter { 
-    animation: slideInRight 0.5s both linear, fadeIn 0.5s both linear; 
+    animation: slideInRight 1s both linear, fadeIn 1s both linear; 
     z-index: 8888;
 }
 .revealAnimation.ng-leave { 
     animation: slideOutLeft 0.5s both linear, fadeOut 0.5s both linear; 
     z-index: 9999;
+}*/
+
+
+.revealAnimation {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    -moz-transition: linear 1s all;
+    -o-transition: linear 1s all;
+    -webkit-transition: linear 1s all;
+    transition: linear 1s all;
+}
+
+.revealAnimation.ng-enter {
+    /*left:-100%;*/
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+        
+.revealAnimation.ng-enter-active {
+    /*left:0;*/
+    position: absolute;
+    -webkit-transform: translateX(0%);
+}
+
+.revealAnimation.ng-leave {
+    /*left:0;*/
+    -webkit-transform: translateX(0%);
+}
+        
+.revealAnimation.ng-leave-active {
+    /*left:100%;*/
+    position: absolute;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
 }

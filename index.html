@@ -90,12 +90,10 @@
     <div id="ng-view" data-ng-view class="revealAnimation">
     </div>
 
-    <footer>
+    <footer ng-show="!viewTransition">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>&copy; Laura Serban 2017</p>
-                </div>
+            <div class="text-center">
+                <p>&copy; Laura Serban 2017</p>
             </div>
         </div>
     </footer>
