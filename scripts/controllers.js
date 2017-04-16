@@ -92,6 +92,10 @@ angular.module('app')
 
     .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', function ($scope, $uibModalInstance, model) {
         $scope.model = model;
+
+        $scope.close = function () {
+            $uibModalInstance.dismiss('close');
+        }
     }])
 
     //.controller('LocalCtrl', ['$scope', '$translate', function ($scope, $translate) {
