@@ -37,7 +37,7 @@ angular.module('app')
         };
     }])
 
-    .directive('instaImageLoader', ['$uibModal', '$http', function ($uibModal, $http) {
+    .directive('instaImageLoader', ['$uibModal', '$rootScope', function ($uibModal, $rootScope) {
         return {
             restrict: 'E',
             scope: {
@@ -56,6 +56,11 @@ angular.module('app')
                         resolve: {
                             model: function () { return scope.model; }
                         }
+                    });
+
+                    $rootScope.$on('$locationChangeStart', function (event) {
+                        modalInstance.dismiss();
+                        event.preventDefault();
                     });
 
                     modalInstance.result.then(function () { }, function () { });
