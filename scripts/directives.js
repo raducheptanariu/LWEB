@@ -11,7 +11,7 @@ angular.module('app')
     .directive('stickyOnScroll', [function () {
         return {
             restrict: 'A',
-            scope:{
+            scope: {
                 stickyOnScroll: '@',
                 stickyClass: '@',
                 stickyAdaptMargin: '@'
@@ -45,7 +45,7 @@ angular.module('app')
             },
             templateUrl: 'views/templates/instaImage.html',
             replace: true,
-            link: function(scope, elm, attrs){
+            link: function (scope, elm, attrs) {
                 scope.model = scope.ngModel;
 
                 scope.openPopup = function () {
@@ -112,11 +112,29 @@ angular.module('app')
                             isProcessing = false;
                         });
 
-                        $timeout(function(){
+                        $timeout(function () {
                             isProcessing = false;
                         }, 2000);
                     }
                 });
+            }
+        }
+    }])
+
+    .directive('youtubeLoader', ['youtubeService', function (youtubeService) {
+        return {
+            restrict: 'A',
+            scope: {
+                youtubeModel: '='
+            },
+            replace: true,
+            link: function (scope, elm, attrs) {
+                youtubeService.getChannelVideos().then(function (data) {
+                    if (data && data) {
+                        scope.youtubeModel = data;
+                        console.log(data);
+                    }
+                })
             }
         }
     }])

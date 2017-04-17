@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
-var app = angular.module('app', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'ngAnimate', 'ngInstafeed']);
+var app = angular.module('app', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'ngAnimate', 'ngInstafeed', 'youtube-embed']);
 
 app.config(['$routeProvider', '$locationProvider', '$translateProvider', 'ngInstafeedProvider',
    function ($routeProvider, $locationProvider, $translateProvider, ngInstafeedProvider) {
@@ -44,3 +44,13 @@ app.constant('youtubeLink', 'https://www.youtube.com/user/lauraserban16');
 app.constant('twitterLink', 'https://twitter.com/lauraserban?lang=en');
 app.constant('instagramLink', 'https://www.instagram.com/lauraserbanofficial/?hl=en');
 
+app.constant('youtubeListApi', 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIrOoqnoaKuGFMN3iuu3OClGthSii1ZZA&channelId=UCSVLGuqttMcRdGrWnABlt3Q&part=snippet,id&order=date&maxResults=20');
+
+
+/* youtubeApiKey AIzaSyCIrOoqnoaKuGFMN3iuu3OClGthSii1ZZA 
+
+YouTube User ID: SVLGuqttMcRdGrWnABlt3Q
+
+YouTube Channel ID: UCSVLGuqttMcRdGrWnABlt3Q
+
+*/
