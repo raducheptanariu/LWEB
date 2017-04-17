@@ -247,7 +247,7 @@ div.insta-image>img{
         font-size: 5em;
         font-weight: 700;
         line-height: normal;
-        color: #777;
+        color: #222;
     }
 
     .top-divider {
@@ -303,7 +303,7 @@ div.insta-image>img{
     }
 
     .navbar-collapse{
-        background-color: #ddd;
+        background-color: #777; /*#ddd;*/
         min-height: 50px;
     }
 
@@ -320,6 +320,24 @@ div.insta-image>img{
         top:0;
         width:100%;
         z-index:100;
+    }
+
+    .navbar-icon{
+        float:right;
+        padding: 10px;
+        color: #fff;
+    }
+
+    .navbar-icon>i{
+        font-size: 32px;
+    }
+
+    .navbar-icon:hover{
+        cursor:pointer;
+    }
+
+    .navbar-icon>i:hover{
+        color:#999;
     }
 
     .modal-dialog {
