@@ -5,6 +5,14 @@
 
 angular.module('app')
 
+    .controller('IndexCtrl', ['$scope', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink',
+        function ($scope, facebookLink, youtubeLink, twitterLink, instagramLink) {
+            $scope.facebookLink = facebookLink;
+            $scope.youtubeLink = youtubeLink;
+            $scope.twitterLink = twitterLink;
+            $scope.instagramLink = instagramLink;
+    }])
+
     // Path: /about
     .controller('AboutCtrl', ['$scope', '$rootScope', '$location', '$window', function ($scope, $rootScope, $location, $window) {
         $scope.$root.title = 'About';

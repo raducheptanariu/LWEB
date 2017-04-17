@@ -35,6 +35,12 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
         $timeout(function () {
             $rootScope.viewTransition--;
         }, 1500);
-    })
+    });
 }]);
+
+app.constant('userId', '1397192335');
+app.constant('facebookLink', 'https://www.facebook.com/LauraSerbanOfficial/?pnref=lhc');
+app.constant('youtubeLink', 'https://www.youtube.com/user/lauraserban16');
+app.constant('twitterLink', 'https://twitter.com/lauraserban?lang=en');
+app.constant('instagramLink', 'https://www.instagram.com/lauraserbanofficial/?hl=en');
 

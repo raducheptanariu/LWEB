@@ -246,10 +246,13 @@ div.insta-image>img{
 .navbar-icon{
     float:left;
     padding: 10px;
-    color: #333;
 }
 
-.navbar-icon>i{
+.navbar-icon>span>a{
+    color:#333;
+}
+
+.navbar-icon>span>a>i{
     margin-left: 10px;
     margin-right: 10px;
     font-size: 32px;
@@ -259,7 +262,7 @@ div.insta-image>img{
     cursor:pointer;
 }
 
-.navbar-icon>i:hover{
+.navbar-icon>span>a>i:hover{
     color:#999;
 }
 
@@ -355,11 +358,11 @@ div.insta-image>img{
         top:0;
     }
 
-    .navbar-icon{
-        color: #fff;
-    }
-    .navbar-icon>i{
+    .navbar-icon>span>a>i{
         margin: 0;
+    }
+    .navbar-icon>span>a{
+        color:#fff;
     }
 }
 

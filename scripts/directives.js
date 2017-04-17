@@ -81,7 +81,7 @@ angular.module('app')
         }
     }])
 
-    .directive('instaLoader', ['ngInstafeed', '$timeout', function (ngInstafeed, $timeout) {
+    .directive('instaLoader', ['ngInstafeed', '$timeout', 'userId', function (ngInstafeed, $timeout, userId) {
         return {
             restrict: 'A',
             scope: {
@@ -95,7 +95,7 @@ angular.module('app')
                 if (ngInstafeed.model.data.length == 0) {
                     ngInstafeed.get({
                         get: 'user',
-                        userId: '1397192335'
+                        userId: userId
                     },
                     function (err, res) {
                         if (err) throw err;

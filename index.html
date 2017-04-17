@@ -83,11 +83,11 @@
                     <li>
                         <a data-toggle="collapse" data-target=".navbar-collapse" href="/contact" data-translate="LAYOUT_HEADER_CONTACT">Contact</a>
                     </li>
-                    <li class="navbar-icon">
-                        <i class="fa fa-instagram " ria-hidden="true"></i>
-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        <i class="fa fa-youtube-square" aria-hidden="true"></i>
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <li class="navbar-icon" ng-controller="IndexCtrl">
+                        <span><a ng-href="{{instagramLink}}" target="_blank"><i class="fa fa-instagram" ria-hidden="true"></i></a></span>
+                        <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
+                        <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
+                        <span><a ng-href="{{twitterLink}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
                     </li>
                 </ul>
             </div>
