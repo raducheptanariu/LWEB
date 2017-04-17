@@ -148,7 +148,23 @@ div.insta-image>img{
 }
 
 .modal-popup{
-    margin:25px;
+    margin:20px;
+}
+
+.modal-title{
+    position: absolute;
+    /*right:40%;*/
+    top: -20px;
+    opacity: 1;
+    background-color: #eee;
+    border-color: #eee;
+    color: #333;
+
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 150px;
 }
 
 .modal-image{
@@ -187,6 +203,37 @@ div.insta-image>img{
 .image-hover > img{
     width: 25px;
     height: 25px;
+}
+
+.fade-image>img{
+    max-width:100%;
+}
+
+.fade-image:after, .fade-image:before {
+    position:absolute;
+    opacity:0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+.fade-image:after {
+    content:'\A';
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.3);
+}
+.fade-image:before {
+    content: attr(data-content);
+    width:100%;
+    color:#fff;
+    z-index:1;
+    bottom:0;
+    padding:4px 10px;
+    text-align:center;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+.fade-image:hover:after, .fade-image:hover:before {
+    opacity:1;
 }
 
 @media screen and (min-width:768px) {

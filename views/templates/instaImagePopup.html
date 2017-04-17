@@ -1,10 +1,7 @@
 ﻿<div class="modal-popup">
+    <a class="btn btn-primary modal-title" ng-href="{{model.link}}" target="_blank">See on Instagram</a>
     <button type="button" class="close close-modal" ng-click="close()">
         <img src="../../content/img/cross.png"/>
     </button>
-    <img class="modal-image" ng-src="{{model.images.standard_resolution.url | instaResizeOrig}}" />
-    <!--<div class="modal-content">
-        <div class="modal-content-wrap">
-        </div>
-    </div>-->
+    <img class="modal-image" ng-src="{{model.images.standard_resolution.url | instaResizeOrig}}"/>
 </div>

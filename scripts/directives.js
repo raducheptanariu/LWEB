@@ -81,7 +81,7 @@ angular.module('app')
         }
     }])
 
-    .directive('instaLoader', ['ngInstafeed', function (ngInstafeed) {
+    .directive('instaLoader', ['ngInstafeed', '$timeout', function (ngInstafeed, $timeout) {
         return {
             restrict: 'A',
             scope: {
@@ -92,21 +92,31 @@ angular.module('app')
                 scope.instaModel = ngInstafeed.model;
                 scope.instaState = ngInstafeed.state;
 
-                ngInstafeed.get({
-                    get: 'user',
-                    userId: '1397192335'
-                },
+                if (ngInstafeed.model.data.length == 0) {
+                    ngInstafeed.get({
+                        get: 'user',
+                        userId: '1397192335'
+                    },
                     function (err, res) {
                         if (err) throw err;
-                        console.log(res); // see what the data is like
                     });
+                }
 
-                scope.loadMore = function () {
-                    ngInstafeed.more(function (err, res) {
-                        if (err) throw err;
-                        console.log(res); // see what the data is like
-                    })
-                };
+                var isProcessing = false;
+                $(window).scroll(function () {
+                    if (!isProcessing && ($(window).scrollTop() + $(window).height() > $(document).height() - 300)) {
+                        isProcessing = true;
+
+                        ngInstafeed.more(function (err, res) {
+                            if (err) throw err;
+                            isProcessing = false;
+                        });
+
+                        $timeout(function(){
+                            isProcessing = false;
+                        }, 2000);
+                    }
+                });
             }
         }
     }])

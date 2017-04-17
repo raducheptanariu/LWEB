@@ -1,5 +1,6 @@
-﻿<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 insta-image">
-    <img ng-src="{{model.images.standard_resolution.url}}" ng-click="openPopup()" />
+﻿<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 insta-image" ng-click="openPopup()">
+    <div class="fade-image"><img ng-src="{{model.images.standard_resolution.url}}" /></div>
+
     <span class="image-hover" ng-show="isHovering==true">
         <img src="../../content/img/like.png" />
         <span> {{model.likes.count}} </span>
