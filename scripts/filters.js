@@ -20,4 +20,12 @@ angular.module('app')
         }
     }])
 
+    .filter('intToDate', [function () {
+        return function (text) {
+            var date = new Date(1000 * parseInt(text));
+
+            return date.toLocaleString();
+        }
+    }])
+
 ;

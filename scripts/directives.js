@@ -37,51 +37,28 @@ angular.module('app')
         };
     }])
 
-    .directive('instaImageLoader', ['$uibModal', '$rootScope', function ($uibModal, $rootScope) {
+    .directive('hoverApplier', [function () {
         return {
-            restrict: 'E',
+            restrict: 'A',
             scope: {
-                ngModel: '='
+                hoverApplier: '=',
             },
-            templateUrl: 'views/templates/instaImage.html',
-            replace: true,
             link: function (scope, elm, attrs) {
-                scope.model = scope.ngModel;
-
-                scope.openPopup = function () {
-
-                    var modalInstance = $uibModal.open({
-                        controller: 'instaImagePopupCtrl',
-                        templateUrl: 'views/templates/instaImagePopup.html',
-                        resolve: {
-                            model: function () { return scope.model; }
-                        }
-                    });
-
-                    var listener = scope.$on('$locationChangeStart', function (event) {
-                        modalInstance.dismiss();
-                        event.preventDefault();
-                        listener();
-                    });
-
-                    modalInstance.result.then(function () { }, function () { });
-                };
-
                 elm.bind('mouseover', function (e) {
                     scope.$apply(function () {
-                        scope.isHovering = true;
+                        scope.hoverApplier = true;
                     });
                 });
                 elm.bind('mouseleave', function (e) {
                     scope.$apply(function () {
-                        scope.isHovering = false;
+                        scope.hoverApplier = false;
                     });
                 })
             }
         }
     }])
 
-    .directive('instaLoader', ['ngInstafeed', '$timeout', 'userId', function (ngInstafeed, $timeout, userId) {
+    .directive('instaModelLoader', ['ngInstafeed', '$timeout', 'userId', function (ngInstafeed, $timeout, userId) {
         return {
             restrict: 'A',
             scope: {
@@ -121,7 +98,40 @@ angular.module('app')
         }
     }])
 
-    .directive('youtubeLoader', ['youtubeService', function (youtubeService) {
+    .directive('instaImagePopup', ['$uibModal', '$rootScope', function ($uibModal, $rootScope) {
+        return {
+            restrict: 'A',
+            scope:{
+                instaImagePopup: '='
+            },
+            link: function (scope, elm, attrs) {
+                elm.on('click', function () {
+
+                    var modalInstance = $uibModal.open({
+                        controller: 'instaImagePopupCtrl',
+                        templateUrl: 'views/templates/instaImagePopup.html',
+                        resolve: {
+                            model: function () { return scope.instaImagePopup; }
+                        }
+                    });
+
+                    var listener = scope.$on('$locationChangeStart', function (event) {
+                        listener();
+                        modalInstance.dismiss();
+                        event.preventDefault();
+                    });
+
+                    modalInstance.result.then(function () {
+                        listener();
+                    }, function () {
+                        listener();
+                    });
+                });
+            }
+        }
+    }])
+
+    .directive('youtubeModelLoader', ['youtubeService', function (youtubeService) {
         return {
             restrict: 'A',
             scope: {
@@ -129,6 +139,8 @@ angular.module('app')
             },
             replace: true,
             link: function (scope, elm, attrs) {
+                scope.youtubeModel = [];
+
                 youtubeService.getChannelVideos().then(function (data) {
                     if (data && data) {
                         scope.youtubeModel = data;

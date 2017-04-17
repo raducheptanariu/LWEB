@@ -44,7 +44,7 @@ app.constant('youtubeLink', 'https://www.youtube.com/user/lauraserban16');
 app.constant('twitterLink', 'https://twitter.com/lauraserban?lang=en');
 app.constant('instagramLink', 'https://www.instagram.com/lauraserbanofficial/?hl=en');
 
-app.constant('youtubeListApi', 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIrOoqnoaKuGFMN3iuu3OClGthSii1ZZA&channelId=UCSVLGuqttMcRdGrWnABlt3Q&part=snippet,id&order=date&maxResults=20');
+app.constant('youtubeListApi', 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIrOoqnoaKuGFMN3iuu3OClGthSii1ZZA&type=video&channelId=UCSVLGuqttMcRdGrWnABlt3Q&part=snippet,id&order=date&maxResults=20');
 
 
 /* youtubeApiKey AIzaSyCIrOoqnoaKuGFMN3iuu3OClGthSii1ZZA 

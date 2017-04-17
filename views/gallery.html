@@ -1,5 +1,15 @@
-﻿<div class="container" insta-loader insta-model="ngInstafeedModel" insta-state="ngInstafeedState">
+﻿<div class="container" insta-model-loader insta-model="ngInstafeedModel" insta-state="ngInstafeedState">
     <div ng-repeat="item in ngInstafeedModel.data">
-        <insta-image-loader ng-model="item"></insta-image-loader>
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 insta-image" insta-image-popup="item">
+            <div hover-applier="isHovering" >
+                <div class="fade-image"><img ng-src="{{item.images.standard_resolution.url}}" /></div>
+                <span class="image-hover" ng-show="isHovering == true">
+                    <img src="../../content/img/like.png" />
+                    <span> {{item.likes.count}} </span>
+                    <img src="../../content/img/comment.png" />
+                    <span> {{item.comments.count}} </span>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
