@@ -243,6 +243,26 @@ div.insta-image>img{
     opacity:1;
 }
 
+.navbar-icon{
+    float:left;
+    padding: 10px;
+    color: #333;
+}
+
+.navbar-icon>i{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 32px;
+}
+
+.navbar-icon:hover{
+    cursor:pointer;
+}
+
+.navbar-icon>i:hover{
+    color:#999;
+}
+
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -329,28 +349,17 @@ div.insta-image>img{
         z-index:100;
     }
 
-    .navbar-icon{
-        float:right;
-        padding: 10px;
-        color: #fff;
-    }
-
-    .navbar-icon>i{
-        font-size: 32px;
-    }
-
-    .navbar-icon:hover{
-        cursor:pointer;
-    }
-
-    .navbar-icon>i:hover{
-        color:#999;
-    }
-
     .modal-dialog {
         width: 650px;
         left:0;
         top:0;
+    }
+
+    .navbar-icon{
+        color: #fff;
+    }
+    .navbar-icon>i{
+        margin: 0;
     }
 }
 
