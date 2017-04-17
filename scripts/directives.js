@@ -66,6 +66,17 @@ angular.module('app')
 
                     modalInstance.result.then(function () { }, function () { });
                 };
+
+                elm.bind('mouseover', function (e) {
+                    scope.$apply(function () {
+                        scope.isHovering = true;
+                    });
+                });
+                elm.bind('mouseleave', function (e) {
+                    scope.$apply(function () {
+                        scope.isHovering = false;
+                    });
+                })
             }
         }
     }])

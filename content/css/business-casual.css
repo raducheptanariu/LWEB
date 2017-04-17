@@ -170,6 +170,25 @@ div.insta-image>img{
     top:5%;
 }
 
+.image-hover {
+    width:154px; 
+    color:#FFFFFF; 
+    float:left; 
+    padding:3px; 
+    position:absolute; 
+    top:40%; 
+    left:30%;
+}
+
+.image-hover > span {
+    font-size: 18px;
+}
+
+.image-hover > img{
+    width: 25px;
+    height: 25px;
+}
+
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
