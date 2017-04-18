@@ -230,7 +230,7 @@ div.insta-image>img{
 
 .modal-dialog {
     width:90%;
-    height:90%;
+    /*height:90%;*/
     left: 1%;
     top:5%;
 }
