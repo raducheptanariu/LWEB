@@ -55,10 +55,10 @@ function intToDate(int) {
 
 function dateToStringMonths(date) {
     var monthNames = [
-        "January", "February", "March",
+        "Jan", "Feb", "March",
         "April", "May", "June", "July",
-        "August", "September", "October",
-        "November", "December"
+        "Aug", "Sep", "Oct",
+        "Nov", "Dec"
     ];
 
     var day = date.getDate();
