@@ -1,6 +1,6 @@
 ﻿<div class="container" insta-model-loader insta-model="ngInstafeedModel" insta-state="ngInstafeedState">
     <div ng-repeat="item in ngInstafeedModel.data">
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 insta-image" insta-image-popup="item">
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box-image" insta-image-popup="item">
             <div hover-applier="isHovering" >
                 <div class="fade-image"><img ng-src="{{item.images.standard_resolution.url}}" /></div>
                 <span class="image-hover" ng-show="isHovering == true">

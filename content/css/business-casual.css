@@ -138,20 +138,16 @@ footer p {
     padding: 50px 0;
 }
 
-.insta-image {
+.box-image {
     padding: 15px;
     background-color:#f7f7f7;
     border:solid;
     border-color:rgba(255,255,255,0.9);
 }
 
-.insta-image:hover{
+.box-image:hover{
     background-color:#ddd;
     cursor: pointer;
-}
-
-div.insta-image>img{
-    max-width: 100%;
 }
 
 .modal-popup{
@@ -242,11 +238,11 @@ div.insta-image>img{
 .image-hover {
     width:154px; 
     color:#FFFFFF; 
-    float:left; 
     padding:3px; 
-    position:absolute; 
-    top:40%; 
-    left:30%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0);
 }
 
 .image-hover > span {
@@ -256,6 +252,16 @@ div.insta-image>img{
 .image-hover > img{
     width: 25px;
     height: 25px;
+}
+
+.text-hover{
+    width:90%;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    color:#fff;
+    padding:3px; 
 }
 
 .fade-image>img{
@@ -319,6 +325,28 @@ div.insta-image>img{
     color:#ef1919;
     font-size:8vw;
     
+}
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.embed-responsive.embed-responsive-16by9 {
+  padding-bottom: 56.25%;
+}
+
+.embed-responsive-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 @media screen and (min-width:768px) {

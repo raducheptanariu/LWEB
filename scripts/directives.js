@@ -72,7 +72,8 @@ angular.module('app')
                 if (ngInstafeed.model.data.length == 0) {
                     ngInstafeed.get({
                         get: 'user',
-                        userId: userId
+                        userId: userId,
+                        limit: 20
                     },
                     function (err, res) {
                         if (err) throw err;
@@ -98,7 +99,7 @@ angular.module('app')
         }
     }])
 
-    .directive('instaImagePopup', ['$uibModal', '$rootScope', function ($uibModal, $rootScope) {
+    .directive('instaImagePopup', ['$uibModal', function ($uibModal) {
         return {
             restrict: 'A',
             scope:{
@@ -147,6 +148,39 @@ angular.module('app')
                         console.log(data);
                     }
                 })
+            }
+        }
+    }])
+
+    .directive('youtubePlayerPopup', ['$uibModal', function ($uibModal) {
+        return {
+            restrict: 'A',
+            scope: {
+                youtubePlayerPopup: '='
+            },
+            link: function (scope, elm, attrs) {
+                elm.on('click', function () {
+
+                    var modalInstance = $uibModal.open({
+                        controller: 'youtubePlayerPopupCtrl',
+                        templateUrl: 'views/templates/youtubePlayerPopup.html',
+                        resolve: {
+                            model: function () { return scope.youtubePlayerPopup; }
+                        }
+                    });
+
+                    var listener = scope.$on('$locationChangeStart', function (event) {
+                        listener();
+                        modalInstance.dismiss();
+                        event.preventDefault();
+                    });
+
+                    modalInstance.result.then(function () {
+                        listener();
+                    }, function () {
+                        listener();
+                    });
+                });
             }
         }
     }])

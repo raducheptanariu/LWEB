@@ -23,29 +23,39 @@ angular.module('app')
     .filter('intToInstaDate', [function () {
         return function (text) {
             var date = intToDate(text);
-            var today = new Date();
+            return postedOnDateFormat(date);
+        }
+    }])
 
-            var timeDiff = Math.abs(today.getTime() - date.getTime());
-            var daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
-
-            if (daysDiff == 0) {
-                return "Posted today";
-            }
-            else if (daysDiff == 1) {
-                return "Posted 1 day ago";
-            }
-            else if (daysDiff <= 7) {
-                return "Posted " + daysDiff + " days ago";
-            }
-            else {
-                return "Posted on " + dateToStringMonths(date)
-            }
+    .filter('stringToYtDate', [function () {
+        return function (text) {
+            var date = new Date(Date.parse(text))
+            return postedOnDateFormat(date);
         }
     }])
 
 
-
 ;
+
+function postedOnDateFormat(date) {
+    var today = new Date();
+
+    var timeDiff = Math.abs(today.getTime() - date.getTime());
+    var daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24));
+
+    if (daysDiff == 0) {
+        return "Posted today";
+    }
+    else if (daysDiff == 1) {
+        return "Posted 1 day ago";
+    }
+    else if (daysDiff <= 7) {
+        return "Posted " + daysDiff + " days ago";
+    }
+    else {
+        return "Posted on " + dateToStringMonths(date)
+    }
+}
 
 function intToDate(int) {
     var date = new Date(1000 * parseInt(int));

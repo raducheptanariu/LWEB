@@ -106,6 +106,14 @@ angular.module('app')
         }
     }])
 
+    .controller('youtubePlayerPopupCtrl', ['$scope', '$uibModalInstance', 'model', function ($scope, $uibModalInstance, model) {
+        $scope.model = model;
+
+        $scope.close = function () {
+            $uibModalInstance.dismiss('close');
+        }
+    }])
+
     //.controller('LocalCtrl', ['$scope', '$translate', function ($scope, $translate) {
     //    $scope.changeLanguage = function (key) {
     //        $translate.use(key);

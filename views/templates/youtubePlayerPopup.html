@@ -1,0 +1,12 @@
+﻿<div class="modal-popup">
+    <a class="btn btn-primary modal-title" ng-href="{{'https://www.youtube.com/watch?v=' + model.id.videoId}}" target="_blank">See on Youtube</a>
+    <button type="button" class="close close-modal" ng-click="close()">
+        <img src="../../content/img/cross.png"/>
+    </button>
+    <div class="embed-responsive embed-responsive-16by9">
+        <youtube-video class="embed-responsive-item" video-id="model.id.videoId"></youtube-video>
+    </div>
+    <span class="modal-sub">
+        <span class="col-md-12"> {{model.snippet.publishedAt | stringToYtDate}} </span>
+    </span>
+</div>
