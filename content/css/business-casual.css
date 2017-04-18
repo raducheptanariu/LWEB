@@ -229,9 +229,11 @@ div.insta-image>img{
 }
 
 .modal-dialog {
-    width:90%;
+    width: 85%;
+    /*right: 5%;
+    left: 5%;*/
     /*height:90%;*/
-    left: 1%;
+    /*left: 1%;*/
     top:5%;
 }
 
