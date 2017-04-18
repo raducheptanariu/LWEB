@@ -1,5 +1,11 @@
-﻿<div class="container" youtube-loader ng-init="model = []" youtube-model="model">
+﻿<div class="container" youtube-model-loader youtube-model="model">
     <div ng-repeat="item in model.items">
-        item
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 insta-image" hover-applier="isHovering" insta-image ng-click="openPopup(item)">
+            <div class="fade-image"><img ng-src="{{item.snippet.thumbnails.high.url}}" /></div>
+
+            <span class="image-hover" ng-show="isHovering==true">
+                <span>{{item.snippet.title}}</span>
+            </span>
+        </div>
     </div>
 </div>
