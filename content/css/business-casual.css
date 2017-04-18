@@ -312,6 +312,15 @@ div.insta-image>img{
     color:#999;
 }
 
+.youtube-icon-large{
+    position:absolute;
+    bottom:15%;
+    left:15%;
+    color:#ef1919;
+    font-size:8vw;
+    
+}
+
 @media screen and (min-width:768px) {
     .brand {
         display: inherit;
@@ -410,6 +419,12 @@ div.insta-image>img{
     .navbar-icon>span>a{
         color:#fff;
     }
+
+    .youtube-icon-large{
+        font-size:5vw;
+        bottom:10%;
+        left:10%;
+    }
 }
 
 @media screen and (min-width:1200px) {
@@ -422,6 +437,10 @@ div.insta-image>img{
         width: 700px;
         left:0;
         top:0;
+    }
+
+    .youtube-icon-large{
+        font-size:4vw;
     }
 }
 

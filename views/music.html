@@ -2,10 +2,12 @@
     <div ng-repeat="item in model.items">
         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 insta-image" hover-applier="isHovering" insta-image ng-click="openPopup(item)">
             <div class="fade-image"><img ng-src="{{item.snippet.thumbnails.high.url}}" /></div>
+           
 
-            <span class="image-hover" ng-show="isHovering==true">
-                <span>{{item.snippet.title}}</span>
+            <span ng-show="isHovering==true">
+                <span class="image-hover"><span>{{item.snippet.title}}</span></span>
             </span>
+            <i class="fa fa-youtube-play youtube-icon-large"></i>
         </div>
     </div>
 </div>
