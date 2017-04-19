@@ -20,7 +20,7 @@ angular.module('app')
                 if (currentIndex > -1) {
                     if (direction > 0) {
                         /* go right */
-                        if (currentIndex == (navigationLinks - 1)) {
+                        if (currentIndex == (navigationLinks.length - 1)) {
                             target = navigationLinks[0];
                         }
                         else {
