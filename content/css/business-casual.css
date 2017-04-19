@@ -19,10 +19,11 @@ h3,
 h4,
 h5,
 h6 {
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
+    margin-top: 0px;
 }
 
 p {
@@ -103,7 +104,7 @@ hr {
 
 .box {
     margin-bottom: 20px;
-    padding: 30px 15px;
+    padding: 0px 15px;
     background: #fff;
     background: rgba(255,255,255,0.9);
 }
@@ -362,6 +363,14 @@ footer p {
         line-height: normal;
         color: #222;
         text-transform: uppercase;
+    }
+
+    .box {
+        padding: 30px 15px;
+    }
+
+    .view-subtitle{
+        display: none;
     }
 
     .top-divider {
