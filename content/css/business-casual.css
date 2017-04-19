@@ -365,6 +365,16 @@ footer p {
         text-transform: uppercase;
     }
 
+    .title-selected{
+        text-decoration-color:#fff;
+        text-decoration: underline;
+    }
+    
+    .nav>li>a.title-selected:focus, .nav>li>a.title-selected:hover{
+        text-decoration-color:#fff;
+        text-decoration: underline;
+    }
+
     .box {
         padding: 30px 15px;
     }

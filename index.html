@@ -66,22 +66,46 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a data-toggle="collapse" data-target=".navbar-collapse" href="/" data-translate="LAYOUT_HEADER_ABOUT">About me</a>
+                        <a ng-class="{ 'title-selected': $root.title == 'About'}"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           data-translate="LAYOUT_HEADER_ABOUT"
+                           href="/">About me</a>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-target=".navbar-collapse" href="/gallery" data-translate="LAYOUT_HEADER_GALLERY">Gallery</a>
+                        <a ng-class="{ 'title-selected': $root.title == 'Gallery'}"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           data-translate="LAYOUT_HEADER_GALLERY"
+                           href="/gallery">Gallery</a>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-target=".navbar-collapse" href="/music" data-translate="LAYOUT_HEADER_MUSIC">Music</a>
+                        <a ng-class="{ 'title-selected': $root.title == 'Music'}"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           data-translate="LAYOUT_HEADER_MUSIC"
+                           href="/music">Music</a>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-target=".navbar-collapse" href="/repertoire" data-translate="LAYOUT_HEADER_REPERTOIRE">Repertoire</a>
+                        <a ng-class="{ 'title-selected': $root.title == 'Repertoire'}"
+                           data-translate="LAYOUT_HEADER_REPERTOIRE"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           href="/repertoire">Repertoire</a>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-target=".navbar-collapse" href="/blog" data-translate="LAYOUT_HEADER_BLOG">Blog</a>
+                        <a ng-class="{ 'title-selected': $root.title == 'Blog'}"
+                           data-translate="LAYOUT_HEADER_BLOG"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           href="/blog">Blog</a>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-target=".navbar-collapse" href="/contact" data-translate="LAYOUT_HEADER_CONTACT">Contact</a>
+                        <a ng-class="{ 'title-selected': $root.title == 'Contact'}"
+                           data-translate="LAYOUT_HEADER_CONTACT"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           href="/contact">Contact</a>
                     </li>
                     <li class="navbar-icon">
                         <span><a ng-href="{{instagramLink}}" target="_blank"><i class="fa fa-instagram" ria-hidden="true"></i></a></span>

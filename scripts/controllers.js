@@ -12,8 +12,6 @@ angular.module('app')
             $scope.twitterLink = twitterLink;
             $scope.instagramLink = instagramLink;
 
-            $scope.title = $scope.$root.title;
-
             $scope.changeLocation = function (direction) {
                 var current = $scope.$root.title.toLowerCase();
                 var currentIndex = navigationLinks.indexOf(current);
@@ -131,6 +129,10 @@ angular.module('app')
 
     .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', function ($scope, $uibModalInstance, model) {
         $scope.model = model;
+
+        $scope.replaceImageTag = function (event, fallbackUrl) {
+            console.debug(event);
+        }
 
         $scope.close = function () {
             $uibModalInstance.dismiss('close');

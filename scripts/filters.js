@@ -16,7 +16,10 @@ angular.module('app')
 
     .filter('instaResizeOrig', [function () {
         return function (text) {
-            return String(text).replace('/s640x640/sh0.08/e35/c0.135.1080.1080', '');
+            var urlComponents = text.split('/');
+            // https:// + domain + location + picName
+            return urlComponents[0] + "/" + urlComponents[1] + "/" + urlComponents[2] + "/" + urlComponents[3] + "/" + urlComponents[urlComponents.length - 1];
+            //return String(text).replace('/s640x640/sh0.08/e35/c0.135.1080.1080', '');
         }
     }])
 
