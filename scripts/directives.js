@@ -143,7 +143,7 @@ angular.module('app')
                 scope.youtubeModel = [];
 
                 youtubeService.getChannelVideos().then(function (data) {
-                    if (data && data) {
+                    if (data) {
                         scope.youtubeModel = data;
                     }
                 })
