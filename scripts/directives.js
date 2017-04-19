@@ -184,4 +184,66 @@ angular.module('app')
             }
         }
     }])
+
+    .directive('animationDirector', ['$rootScope', '$location', '$timeout', 'navigationLinks',
+        function ($rootScope, $location, $timeout, navigationLinks) {
+        return {
+            restrict: 'E',
+            scope: {
+                animateClockwise: '='
+            },
+            link: function (scope, elm, attrs) {
+                var animationIsSet = false;
+
+                scope.$on('$locationChangeStart', function (event, targetUrl, currentUrl) {
+                    if (!animationIsSet) {
+                        animationIsSet = true;
+                        if (targetUrl != currentUrl) {
+                            if ($rootScope.title) {
+                                // can also get from currentUrl
+                                var current = $rootScope.title.toLowerCase();
+
+                                var url = targetUrl.split('/');
+                                var target = url[url.length - 1];
+                                target = target != '' ? target : 'about';
+
+                                var currentIndex = navigationLinks.indexOf(current);
+                                var targetIndex = navigationLinks.indexOf(target);
+
+                                if (currentIndex > -1 && targetIndex > -1) {
+
+                                    if (currentIndex < targetIndex) {
+                                        if (currentIndex == 0 && targetIndex == (navigationLinks.length - 1)) {
+                                            scope.animateClockwise = true;
+                                        }
+                                        else {
+                                            scope.animateClockwise = false;
+                                        }
+                                    }
+                                    else {
+                                        if (currentIndex == (navigationLinks.length - 1) && targetIndex == 0) {
+                                            scope.animateClockwise = false;
+                                        }
+                                        else {
+                                            scope.animateClockwise = true;
+                                        }
+                                    }
+                                }
+                            }
+
+                            event.preventDefault();
+                            $timeout(function () {
+                                target = target != 'about' ? target : '';
+                                $location.path(target);
+                            });
+                        }
+                    }
+                });
+
+                scope.$on('$locationChangeSuccess', function (event, targetUrl, currentUrl) {
+                    animationIsSet = false;
+                });
+            }
+        }
+    }])
 ;

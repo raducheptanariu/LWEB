@@ -5,12 +5,41 @@
 
 angular.module('app')
 
-    .controller('IndexCtrl', ['$scope', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink',
-        function ($scope, facebookLink, youtubeLink, twitterLink, instagramLink) {
+    .controller('IndexCtrl', ['$scope', '$location', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink', 'navigationLinks',
+        function ($scope, $location, facebookLink, youtubeLink, twitterLink, instagramLink, navigationLinks) {
             $scope.facebookLink = facebookLink;
             $scope.youtubeLink = youtubeLink;
             $scope.twitterLink = twitterLink;
             $scope.instagramLink = instagramLink;
+
+            $scope.changeLocation = function (direction) {
+                var current = $scope.$root.title.toLowerCase();
+                var currentIndex = navigationLinks.indexOf(current);
+                var target;
+
+                if (currentIndex > -1) {
+                    if (direction > 0) {
+                        /* go right */
+                        if (currentIndex == (navigationLinks - 1)) {
+                            target = navigationLinks[0];
+                        }
+                        else {
+                            target = navigationLinks[currentIndex + 1];
+                        }
+                    }
+                    else if (direction < 0) {
+                        /* go left */
+                        if (currentIndex == 0) {
+                            target = navigationLinks[navigationLinks.length - 1];
+                        }
+                        else {
+                            target = navigationLinks[currentIndex - 1];
+                        }
+                    }
+
+                    $location.path(target);
+                }
+            }
     }])
 
     // Path: /about

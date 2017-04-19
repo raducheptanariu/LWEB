@@ -558,3 +558,41 @@ to      { transform: translateX(0); }
     transform: translateX(-100%);
     opacity: 0;
 }
+
+.revealAnimationClockwise {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    -moz-transition: linear 1s all;
+    -o-transition: linear 1s all;
+    -webkit-transition: linear 1s all;
+    transition: linear 1s all;
+}
+
+.revealAnimationClockwise.ng-enter {
+    /*left:-100%;*/
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    opacity: 0;
+}
+        
+.revealAnimationClockwise.ng-enter-active {
+    /*left:0;*/
+    position: absolute;
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+}
+
+.revealAnimationClockwise.ng-leave {
+    /*left:0;*/
+    -webkit-transform: translateX(0%);
+    opacity: 1;
+}
+        
+.revealAnimationClockwise.ng-leave-active {
+    /*left:100%;*/
+    position: absolute;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    opacity: 0;
+}

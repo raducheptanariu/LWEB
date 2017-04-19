@@ -39,7 +39,7 @@
         }(window.location))
     </script>
 </head>
-<body>
+<body ng-controller="IndexCtrl">
     <div class="brand" id="stickyTarget">Laura Serban</div>
     <!--<div class="address-bar">subtitle</div>-->
 
@@ -83,7 +83,7 @@
                     <li>
                         <a data-toggle="collapse" data-target=".navbar-collapse" href="/contact" data-translate="LAYOUT_HEADER_CONTACT">Contact</a>
                     </li>
-                    <li class="navbar-icon" ng-controller="IndexCtrl">
+                    <li class="navbar-icon">
                         <span><a ng-href="{{instagramLink}}" target="_blank"><i class="fa fa-instagram" ria-hidden="true"></i></a></span>
                         <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
                         <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
@@ -96,7 +96,14 @@
         <!-- /.container -->
     </nav>
 
-    <div id="ng-view" data-ng-view class="revealAnimation">
+    <animation-director animate-clockwise="goClockwise"></animation-director>
+    <!--<button type="button" ng-init="goClockwise = false" ng-click="goClockwise = !goClockwise"></button>-->
+    <div id="ng-view"
+         ng-view
+         ng-class="{ revealAnimationClockwise: goClockwise , revealAnimation: !goClockwise }"
+         ng-swipe-left="changeLocation(1)"
+         ng-swipe-right="changeLocation(-1)"
+         ng-swipe-disable-mouse>
     </div>
 
     <footer ng-show="viewTransition <= 0">
@@ -114,6 +121,7 @@
     <script src="scripts/vendor/angular-route.min.js"></script>
     <script src="scripts/vendor/angular-translate.min.js"></script>
     <script src="scripts/vendor/angular-animate.min.js"></script>
+    <script src="scripts/vendor/angular-touch.min.js"></script>
     <script src="scripts/vendor/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="scripts/vendor/bootstrap.min.js"></script>
 
