@@ -8,6 +8,10 @@
         LAYOUT_HEADER_BLOG: 'Blog',
         LAYOUT_HEADER_CONTACT: 'Contact',
 
+        GALLERY_POPUP_SEE: "Vezi pe Instagram",
+
+        MUSIC_POPUP_SEE: "Vezi pe YouTube",
+
         REPERTOIRE_TITLE: "Titlu",
         REPERTOIRE_ARTIST: "Artist",
         REPERTOIRE_FILTER: "Cautare",
@@ -23,6 +27,10 @@
         LAYOUT_HEADER_REPERTOIRE: 'Repertoire',
         LAYOUT_HEADER_BLOG: 'Blog',
         LAYOUT_HEADER_CONTACT: 'Contact',
+
+        GALLERY_POPUP_SEE: "See on Instagram",
+
+        MUSIC_POPUP_SEE: "See on YouTube",
 
         REPERTOIRE_TITLE: "Title",
         REPERTOIRE_ARTIST: "Artist",
