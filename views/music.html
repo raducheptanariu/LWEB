@@ -6,7 +6,7 @@
             </div>
 
             <div ng-repeat="item in model.items">
-                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box-image" youtube-player-popup="item" ng-click="openPopup(item)">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box-image" youtube-player-popup="item">
                     <div hover-applier="isHovering">
                         <div class="fade-image"><img ng-src="{{item.snippet.thumbnails.high.url}}" /></div>
                         <span ng-show="isHovering==true">

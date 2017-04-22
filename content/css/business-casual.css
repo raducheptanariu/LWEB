@@ -168,7 +168,7 @@ footer p {
     margin-right: auto;
     left: 0;
     right: 0;
-    width: 150px;
+    width: 200px;
 }
 
 .modal-sub{
@@ -350,7 +350,55 @@ footer p {
   border: 0;
 }
 
+.table-responsive>.table>tbody>tr>td, 
+.table-responsive>.table>tbody>tr>th, 
+.table-responsive>.table>tfoot>tr>td, 
+.table-responsive>.table>tfoot>tr>th, 
+.table-responsive>.table>thead>tr>td,
+.table-responsive>.table>thead>tr>th {
+    white-space: pre-wrap;
+}
+    
+
+.repertoire-select{
+    width:100%
+}
+
+.repertoire-select-container{
+    padding-bottom:25px;
+}
+
+.btn-primary{
+    background-color:#fff;
+    color:#000;
+    font-size:18px;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:inset;
+    border-color:#7889d9;
+}
+.btn-primary:hover{
+    background-color:#7889d9;
+    border-color:#7889d9;
+}
+.btn-primary-selected,
+.btn-primary:focus{
+    background-color:#7889d9;
+    border-color:#7889d9;
+}
+
+.col-xs-4{
+    padding-left:10px;
+    padding-right:10px;
+}
 @media screen and (min-width:768px) {
+
+    body {
+        font-size:17px;
+        font-weight:600;
+    }
+
     .brand {
         display: inherit;
         margin: 0;

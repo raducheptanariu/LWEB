@@ -37,7 +37,27 @@ angular.module('app')
         }
     }])
 
+    .filter('repertoireFilter', [function () {
+        return function (list, type, search) {
+            if (!list || list.length == 0) return [];
 
+            var filteredList = list.filter(function(item){
+                if (type != 0 && item.type != type && item.type != 0)
+                    return false;
+
+                if (search){
+                    search = search.toLowerCase();
+                    if (item.title.toLowerCase().indexOf(search) < 0 && item.artist.toLowerCase().indexOf(search) < 0) {
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+
+            return filteredList;
+        }
+    }])
 ;
 
 function postedOnDateFormat(date) {

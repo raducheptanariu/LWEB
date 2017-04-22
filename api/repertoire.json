@@ -1,0 +1,22 @@
+﻿[
+    { "type" : 0, "title": "Mai Frumoasa", "artist": "Laura Stoica" },
+    { "type" : 0, "title": "Am Nevoie De Tine", "artist": "Directia 5" },
+    { "type" : 0, "title": "Sweat (La La La La Long Song)", "artist": "Inner Circle" },
+    { "type" : 0, "title": "I Feel Lonely", "artist": "Sasha" },
+    { "type" : 0, "title": "Ain't No Sunshine", "artist": "Bill Withers" },
+    { "type" : 2, "title": "Have You Ever Seen the Rain", "artist": "Rod Steward" },
+    { "type" : 2, "title": "Walkin' on Sunshine", "artist": "Katrina and the Waves" },
+    { "type" : 2, "title": "Neh Nah Neh", "artist": "Vaya con Dios" },
+    { "type" : 2, "title": "Get Lucky", "artist": "Daft Punk " },
+    { "type" : 2, "title": "Upside Down", "artist": "Paloma Faith" },
+    { "type" : 1, "title": "Hit the Road Jack", "artist": "Ray Charles" },
+    { "type" : 1, "title": "Save Tonight", "artist": "Eagle Eye Cherry" },
+    { "type" : 1, "title": "Counting Stars", "artist": "One Republic" },
+    { "type" : 1, "title": "Hot n Cold", "artist": "Katy Perry" },
+    { "type" : 1, "title": "Can't Remember to Forget You", "artist": "Rihanna & Shakira" },
+    { "type" : 1, "title": "I Just Died in Your Arms Tonight", "artist": "Cutting Crew" },
+    { "type" : 1, "title": "Long Train Running", "artist": "Doobie Brothers" },
+    { "type" : 1, "title": "Sex Bomb", "artist": "Tom Jones" },
+    { "type" : 1, "title": "I Feel Good", "artist": "James Brown" },
+    { "type" : 1, "title": "I Will Survive", "artist": "Gloria Gaynor" }
+]

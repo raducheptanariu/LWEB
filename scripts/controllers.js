@@ -80,7 +80,7 @@ angular.module('app')
     }])
 
     // Path: /gallery
-    .controller('GalleryCtrl', ['$scope', '$location', '$window', 'ngInstafeed', function ($scope, $location, $window, ngInstafeed) {
+    .controller('GalleryCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Gallery';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -96,10 +96,14 @@ angular.module('app')
     }])
 
     // Path: /about
-    .controller('RepertoireCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('RepertoireCtrl', ['$scope', '$location', '$window', 'repertoireService', function ($scope, $location, $window, repertoireService) {
         $scope.$root.title = 'Repertoire';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+
+        repertoireService.getRepertoireList().then(function (response) {
+            $scope.repertoireList = response;
         });
     }])
 
@@ -129,10 +133,6 @@ angular.module('app')
 
     .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', function ($scope, $uibModalInstance, model) {
         $scope.model = model;
-
-        $scope.replaceImageTag = function (event, fallbackUrl) {
-            console.debug(event);
-        }
 
         $scope.close = function () {
             $uibModalInstance.dismiss('close');
