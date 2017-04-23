@@ -48,35 +48,6 @@ angular.module('app')
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
-
-        if (!$rootScope.slides || $rootScope.slides.length == 0) {
-            $rootScope.slides = [];
-            populateCarouselAsync(0);
-            function populateCarouselAsync(index) {
-                var imgPath = "content/img/slider/" + (index + 1) + ".jpg";
-
-                var xhr = new XMLHttpRequest();
-                xhr.open('HEAD', imgPath, true);
-                xhr.onload = function (event) {
-                    if (event.currentTarget.status == 200) {
-                        $scope.$apply(function () {
-                            $rootScope.slides.push({
-                                image: imgPath,
-                                id: index
-                            });
-                            $scope.initCarousel = true;
-                        });
-                        $rootScope.slides = $scope.slides;
-                        populateCarouselAsync(index + 1);
-                    }
-                }
-
-                xhr.send();
-            }
-        }
-        else {
-            $scope.initCarousel = true;
-        }
     }])
 
     // Path: /gallery
@@ -116,10 +87,42 @@ angular.module('app')
     }])
 
     // Path: /blog
-    .controller('BlogCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('BlogCtrl', ['$scope', '$location', '$window', 'blogService', function ($scope, $location, $window, blogService) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+
+        var postsList;
+        $scope.posts = [];
+
+        blogService.getPosts().then(function (response) {
+            postsList = response;
+            for (var i = 0; i < postsList.length; i++) {
+                var name = postsList[i].name;
+
+                blogService.getPostContent(name).then(function (response) {
+                    var post = response.content;
+
+                    $scope.posts.push(post);
+                });
+            };
+        });
+    }])
+
+    // Path: /blogpost&name=
+    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'name',
+        function ($scope, $location, $window, blogService, name) {
+        $scope.$root.title = 'Blog';
+        $scope.$on('$viewContentLoaded', function () {
+            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+        });
+
+        var postsList;
+        $scope.posts = [];
+
+        blogService.getPostContent(name).then(function (response) {
+            $scope.post = response.content;
         });
     }])
 

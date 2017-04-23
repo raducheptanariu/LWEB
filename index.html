@@ -112,17 +112,18 @@
                         <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
                         <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
                         <span><a ng-href="{{twitterLink}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
+                        <span><language-applier></language-applier></span>
                     </li>
-                </ul>
+                </ul>                
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
+    <!--<button type="button" ng-init="goClockwise = false" ng-click="goClockwise = !goClockwise"></button>-->
 
     <animation-director animate-clockwise="goClockwise"></animation-director>
-    <!--<button type="button" ng-init="goClockwise = false" ng-click="goClockwise = !goClockwise"></button>-->
-    
+
     <div id="ng-view"
          ng-view
          ng-class="{ revealAnimationClockwise: goClockwise , revealAnimation: !goClockwise }"
@@ -138,14 +139,13 @@
             </div>
         </div>
     </footer>
-
-    <script src="scripts/translations.js"></script>
-
+    
     <script src="scripts/vendor/jquery.min.js"></script>
     <script src="debugging/scripts/angular.js"></script>
     <!--<script src="scripts/vendor/angular.min.js"></script>-->
     <script src="scripts/vendor/angular-route.min.js"></script>
     <script src="scripts/vendor/angular-translate.min.js"></script>
+    <script src="scripts/vendor/angular-translate-loader-static-files.min.js"></script>
     <script src="scripts/vendor/angular-animate.min.js"></script>
     <script src="scripts/vendor/angular-touch.min.js"></script>
     <script src="scripts/vendor/ui-bootstrap-tpls-2.5.0.min.js"></script>

@@ -8,6 +8,62 @@ angular.module('app')
         };
     }])
 
+    .directive('carouselLoader', ['$http', '$rootScope', function ($http, $rootScope) {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/templates/carousel.html',
+            replace: true,
+            link: function (scope, elm, attrs) {
+                if (!$rootScope.slides || $rootScope.slides.length == 0) {
+                    scope.carouselSlides = [];
+                    populateCarouselAsync(0);
+
+                    function populateCarouselAsync(index) {
+                        var imgPath = "content/img/slider/" + (index + 1) + ".jpg";
+
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('HEAD', imgPath, true);
+                        xhr.onload = function (event) {
+                            if (event.currentTarget.status == 200) {
+                                scope.$apply(function () {
+                                    scope.carouselSlides.push({
+                                        image: imgPath,
+                                        id: index
+                                    });
+                                    scope.carouselReady = true;
+                                });
+                                $rootScope.slides = scope.carouselSlides;
+                                populateCarouselAsync(index + 1);
+                            }
+                        }
+
+                        xhr.send();
+                    }
+                }
+                else {
+                    scope.carouselSlides = $rootScope.slides;
+                    scope.carouselReady = true;
+                }
+            }
+        }
+    }])
+
+    .directive('languageApplier', ['$translate', 'availableLangs', function ($translate, availableLangs) {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/templates/langDropdown.html',
+            replace: true,
+            link: function (scope, elm, attrs) {
+                scope.langs = availableLangs;
+                scope.currentLang = $translate.use();
+                scope.changeLang = function (lang) {
+                    scope.currentLang = lang;
+                    $translate.use(lang);
+                };
+            }
+        }
+    }])
+
     .directive('stickyOnScroll', [function () {
         return {
             restrict: 'A',
@@ -244,7 +300,7 @@ angular.module('app')
                 });
             }
         }
-        }])
+    }])
 
     .directive('ngError', ['$parse', function ($parse) {
         return {

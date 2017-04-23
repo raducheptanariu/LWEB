@@ -1,0 +1,19 @@
+﻿{
+    "LAYOUT_HEADER_ABOUT": "About me",
+    "LAYOUT_HEADER_GALLERY": "Gallery",
+    "LAYOUT_HEADER_MUSIC": "Music",
+    "LAYOUT_HEADER_REPERTOIRE": "Repertoire",
+    "LAYOUT_HEADER_BLOG": "Blog",
+    "LAYOUT_HEADER_CONTACT": "Contact",
+
+    "GALLERY_POPUP_SEE": "See on Instagram",
+
+    "MUSIC_POPUP_SEE": "See on YouTube",
+
+    "REPERTOIRE_TITLE": "Title",
+    "REPERTOIRE_ARTIST": "Artist",
+    "REPERTOIRE_FILTER": "Search",
+    "REPERTOIRE_ALL": "All",
+    "REPERTOIRE_W": "Weddings",
+    "REPERTOIRE_C": "Club"
+}

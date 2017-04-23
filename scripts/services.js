@@ -66,4 +66,70 @@ angular.module('app')
 
         return factory;
     }])
+
+    .factory('blogService', ['$http', '$q', 'postsListApi', 'postsApi', function ($http, $q, postsListApi, postsApi) {
+        var factory = {};
+
+        var postsList;
+        var postsContent = {};
+
+        factory.getPosts = function () {
+            if (!postsList) {
+                var request = $http({
+                    method: 'get',
+                    url: postsListApi,
+                });
+
+                return (request.then(
+                    function handleSuccess(response) {
+                        postsList = response.data;
+                        return postsList;
+                    }, handleError));
+            }
+            else {
+                var deferred = $q.defer();
+                deferred.resolve(postsList);
+                return deferred.promise;
+            }
+        }
+
+        factory.getPostContent = function (name) {
+            if (!postsContent[name]) {
+                var request = $http({
+                    method: 'get',
+                    url: postsApi + name
+                });
+
+                //var list = factory.getPosts();
+
+                return $q.all([factory.getPosts(), request]).then(
+                    function (response) {
+
+                        var matchingPost = postsList.filter(function (item) {
+                            if (item.name == name) return true;
+                            return false;
+                        });
+
+                        postsContent[name] = response[1].data;
+                        postsContent[name].content.name = name;
+                        if (matchingPost && matchingPost.date) {
+                            postsContent[name].content.date = matchingPost.date;
+                        }
+
+                        return postsContent[name];
+                    }, handleError);
+            }
+            else {
+                var deferred = $q.defer();
+                deferred.resolve(postsContent[name]);
+                return deferred.promise;
+            }
+        };
+
+        function handleError(err) {
+            //alert('err');
+        }
+
+        return factory;
+    }])
 ;

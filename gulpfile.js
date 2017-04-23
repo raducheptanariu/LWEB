@@ -7,11 +7,11 @@ var rename = require('gulp-rename');
  // Concatenate & Minify JS
 gulp.task('scripts', function() {
     return gulp.src([
-		"scripts/translations.js",
 		"scripts/vendor/jquery.min.js",
 		"scripts/vendor/angular.min.js",
 		"scripts/vendor/angular-route.min.js",
 		"scripts/vendor/angular-translate.min.js",
+		"scripts/vendor/angular-translate-loader-static-files.min.js",
 		"scripts/vendor/angular-animate.min.js",
 		"scripts/vendor/angular-touch.min.js",
 		"scripts/vendor/ui-bootstrap-tpls-2.5.0.min.js",

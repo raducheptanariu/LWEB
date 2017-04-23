@@ -1,0 +1,19 @@
+﻿{
+    "LAYOUT_HEADER_ABOUT": "Despre mine",
+    "LAYOUT_HEADER_GALLERY": "Galerie",
+    "LAYOUT_HEADER_MUSIC": "Muzica",
+    "LAYOUT_HEADER_REPERTOIRE": "Repertoriu",
+    "LAYOUT_HEADER_BLOG": "Blog",
+    "LAYOUT_HEADER_CONTACT": "Contact",
+    
+    "GALLERY_POPUP_SEE": "Vezi pe Instagram",
+    
+    "MUSIC_POPUP_SEE": "Vezi pe YouTube",
+    
+    "REPERTOIRE_TITLE": "Titlu",
+    "REPERTOIRE_ARTIST": "Artist",
+    "REPERTOIRE_FILTER": "Cautare",
+    "REPERTOIRE_ALL": "Toate",
+    "REPERTOIRE_W": "Nunta",
+    "REPERTOIRE_C": "Club"
+}
