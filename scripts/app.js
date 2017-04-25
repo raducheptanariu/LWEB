@@ -47,7 +47,8 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
 
     $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
         $timeout(function () {
-            $rootScope.viewTransition--;
+            // animation triggers 2x route change start
+            $rootScope.viewTransition -= 2;
         }, 1500);
     });
 }]);

@@ -15,5 +15,22 @@
     "REPERTOIRE_FILTER": "Cautare",
     "REPERTOIRE_ALL": "Toate",
     "REPERTOIRE_W": "Nunta",
-    "REPERTOIRE_C": "Club"
+    "REPERTOIRE_C": "Club",
+
+    "BLOG_MORE": "Mai mult",
+    "BLOG_NEWER": "Inainte",
+    "BLOG_OLDER": "Inapoi",
+
+    "CONTACT_FORM": "Scrie-mi !",
+    "CONTACT_NAME": "Nume",
+    "CONTACT_EMAIL": "Email",
+    "CONTACT_PHONE": "Telefon",
+    "CONTACT_MSG": "Mesaj",
+    "CONTACT_SUBMIT": "Trimite",
+    "CONTACT_TY": "Multumesc pentru mesaj !",
+    "CONTACT_MY_PHONE": "Telefon: ",
+    "CONTACT_MY_EMAIL": "Email: ",
+    "CONTACT_MY_ADDRESS": "Adresa: ",
+    "CONTACT_MY_COMM": "La cerere, oriunde in tara",
+    "CONTACT_MY_DESCR":  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, distinctio, possimus repudiandae cupiditate ipsum excepturi dicta neque eaque voluptates tempora veniam esse earum sapiente optio deleniti consequuntur eos voluptatem."
 }

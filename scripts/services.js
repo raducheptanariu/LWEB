@@ -82,14 +82,14 @@ angular.module('app')
 
                 return (request.then(
                     function handleSuccess(response) {
-                        postsList = response.data;
+                        postsList = response.data.sort(function (a, b) {
+                            return new Date(b.date) - new Date(a.date);
+                        });
                         return postsList;
                     }, handleError));
             }
             else {
-                var deferred = $q.defer();
-                deferred.resolve(postsList);
-                return deferred.promise;
+                return deferResult(postsList);
             }
         }
 
@@ -100,11 +100,8 @@ angular.module('app')
                     url: postsApi + name
                 });
 
-                //var list = factory.getPosts();
-
                 return $q.all([factory.getPosts(), request]).then(
                     function (response) {
-
                         var matchingPost = postsList.filter(function (item) {
                             if (item.name == name) return true;
                             return false;
@@ -120,11 +117,65 @@ angular.module('app')
                     }, handleError);
             }
             else {
-                var deferred = $q.defer();
-                deferred.resolve(postsContent[name]);
-                return deferred.promise;
+                return deferResult(postsContent[name]);
             }
         };
+
+        factory.getOlderPostName = function (name) {
+            if (!postsList) {
+                return factory.getPosts().then(function (response){
+                    for (var i = 0; i < postsList.length - 1; i++) {
+                        if (postsList[i].name == name) {
+                            return postsList[i + 1].name;
+                        }
+                    }
+                    return null;
+                }, handleError);
+            }
+            else {
+                var post = null;
+
+                for (var i = 0; i < postsList.length - 1; i++) {
+                    if (postsList[i].name == name) {
+                        post = postsList[i + 1].name;
+                        break;
+                    }
+                }
+
+                return deferResult(post);
+            }
+        };
+
+        factory.getNewerPostName = function (name) {
+            if (!postsList) {
+                return factory.getPosts().then(function (response) {
+                    for (var i = 1; i < postsList.length; i++) {
+                        if (postsList[i].name == name) {
+                            return postsList[i - 1].name;
+                        }
+                    }
+                    return null;
+                }, handleError);
+            }
+            else {
+                var post = null;
+
+                for (var i = 1; i < postsList.length; i++) {
+                    if (postsList[i].name == name) {
+                        post = postsList[i - 1].name;
+                        break;
+                    }
+                }
+
+                return deferResult(post);
+            }
+        }
+
+        function deferResult(value) {
+            var deferred = $q.defer();
+            deferred.resolve(value);
+            return deferred.promise;
+        }
 
         function handleError(err) {
             //alert('err');

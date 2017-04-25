@@ -67,7 +67,8 @@ angular.module('app')
     }])
 
     // Path: /about
-    .controller('RepertoireCtrl', ['$scope', '$location', '$window', 'repertoireService', function ($scope, $location, $window, repertoireService) {
+    .controller('RepertoireCtrl', ['$scope', '$location', '$window', 'repertoireService',
+        function ($scope, $location, $window, repertoireService) {
         $scope.$root.title = 'Repertoire';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -98,6 +99,7 @@ angular.module('app')
 
         blogService.getPosts().then(function (response) {
             postsList = response;
+
             for (var i = 0; i < postsList.length; i++) {
                 var name = postsList[i].name;
 
@@ -118,12 +120,17 @@ angular.module('app')
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
 
-        var postsList;
-        $scope.posts = [];
-
         blogService.getPostContent(name).then(function (response) {
             $scope.post = response.content;
         });
+
+        blogService.getOlderPostName(name).then(function (response) {
+            $scope.olderPost = response;
+        });
+
+        blogService.getNewerPostName(name).then(function (response) {
+            $scope.newerPost = response;
+        })
     }])
 
     // Path: /error/404
@@ -149,11 +156,5 @@ angular.module('app')
             $uibModalInstance.dismiss('close');
         }
     }])
-
-    //.controller('LocalCtrl', ['$scope', '$translate', function ($scope, $translate) {
-    //    $scope.changeLanguage = function (key) {
-    //        $translate.use(key);
-    //    }
-    //}])
 
 ;

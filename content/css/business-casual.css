@@ -6,7 +6,7 @@
 
 body {
     font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;/*"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;*/
-    /*background: url('../img/bg.jpg') no-repeat center center fixed;*/
+    /*background: url('../img/music.png') no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -328,6 +328,10 @@ footer p {
     
 }
 
+.form-smiley{
+    font-size: 30px;
+}
+
 .embed-responsive {
   position: relative;
   display: block;
@@ -442,6 +446,13 @@ footer p {
     padding-left:10px;
     padding-right:10px;
 }
+
+.img-spacing{
+    padding-top:20px;
+    padding-bottom: 20px;
+    border: none;
+}
+
 @media screen and (min-width:768px) {
 
     body {

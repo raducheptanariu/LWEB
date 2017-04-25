@@ -266,7 +266,6 @@ angular.module('app')
                                 var targetIndex = navigationLinks.indexOf(target);
 
                                 if (currentIndex > -1 && targetIndex > -1) {
-
                                     if (currentIndex < targetIndex) {
                                         if (currentIndex == 0 && targetIndex == (navigationLinks.length - 1)) {
                                             scope.animateClockwise = true;
@@ -283,6 +282,9 @@ angular.module('app')
                                             scope.animateClockwise = true;
                                         }
                                     }
+                                }
+                                else {
+                                    scope.animateClockwise = false;
                                 }
                             }
 
@@ -332,4 +334,35 @@ angular.module('app')
             }
         }
     })
+
+    .directive('formWrapper', ['$timeout', function ($timeout) {
+        return {
+            restrict: 'A',
+            scope:{
+                hideForm: '='
+            },
+            link: function (scope, elm, attrs) {
+                scope.hideForm = false;
+                elm.on("submit", function (event) {
+                    event.preventDefault();
+
+                    var data = elm.serialize();
+
+                    $.ajax({
+                        url: "https://formspree.io/raduchept@gmail.com",
+                        method: "POST",
+                        data: data,
+                        dataType: "json"
+                    });
+
+                    scope.hideForm = true;
+                    $timeout(function () {
+                        scope.hideForm = false;
+                    }, 5000);
+
+                    elm[0].reset();
+                });
+            }
+        }
+    }])
 ;

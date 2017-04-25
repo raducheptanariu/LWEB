@@ -15,5 +15,22 @@
     "REPERTOIRE_FILTER": "Search",
     "REPERTOIRE_ALL": "All",
     "REPERTOIRE_W": "Weddings",
-    "REPERTOIRE_C": "Club"
+    "REPERTOIRE_C": "Club",
+
+    "BLOG_MORE": "More",
+    "BLOG_NEWER": "Newer",
+    "BLOG_OLDER": "Older",
+
+    "CONTACT_FORM":  "Write me !",
+    "CONTACT_NAME": "Name",
+    "CONTACT_EMAIL": "Email",
+    "CONTACT_PHONE": "Phone Number",
+    "CONTACT_MSG": "Message",
+    "CONTACT_SUBMIT": "Send",
+    "CONTACT_TY": "Thanks for reaching out !",
+    "CONTACT_MY_PHONE": "Phone: ",
+    "CONTACT_MY_EMAIL": "Email: ",
+    "CONTACT_MY_ADDRESS": "Address: ",
+    "CONTACT_MY_COMM": "",
+    "CONTACT_MY_DESCR":  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, distinctio, possimus repudiandae cupiditate ipsum excepturi dicta neque eaque voluptates tempora veniam esse earum sapiente optio deleniti consequuntur eos voluptatem."
 }
