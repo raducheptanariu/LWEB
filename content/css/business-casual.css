@@ -116,6 +116,10 @@ hr {
     letter-spacing: 1px;
 }
 
+.contact-thank{
+    color:blue;
+}
+
 .img-border {
     float: none;
     margin: 0 auto 0;

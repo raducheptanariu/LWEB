@@ -355,10 +355,14 @@ angular.module('app')
                         dataType: "json"
                     });
 
-                    scope.hideForm = true;
+                    scope.$apply(function () {
+                        scope.hideForm = true;
+                    });
                     $timeout(function () {
-                        scope.hideForm = false;
-                    }, 5000);
+                        scope.$apply(function () {
+                            scope.hideForm = false;
+                        });
+                    }, 10000);
 
                     elm[0].reset();
                 });
