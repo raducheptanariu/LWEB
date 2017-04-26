@@ -52,7 +52,7 @@ angular.module('app')
         $scope.disqusConfig = {
             disqus_shortname: 'lauraserban-com',
             disqus_identifier: 'about',
-            disqus_url: 'about'
+            disqus_url: 'http://lauraserban.com/about'
         };
     }])
 
