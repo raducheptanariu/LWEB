@@ -48,6 +48,12 @@ angular.module('app')
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
+
+        $scope.disqusConfig = {
+            disqus_shortname: 'lauraserban-com',
+            disqus_identifier: 'about',
+            disqus_url: 'about'
+        };
     }])
 
     // Path: /gallery
