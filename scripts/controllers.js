@@ -43,16 +43,17 @@ angular.module('app')
     }])
 
     // Path: /about
-    .controller('AboutCtrl', ['$scope', '$rootScope', '$location', '$window', function ($scope, $rootScope, $location, $window) {
+    .controller('AboutCtrl', ['$scope', '$rootScope', '$location', '$window', 'disqusShortname',
+        function ($scope, $rootScope, $location, $window, disqusShortname) {
         $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
 
         $scope.disqusConfig = {
-            disqus_shortname: 'lauraserban-com',
-            disqus_identifier: 'about',
-            disqus_url: 'http://lauraserban.com/about'
+            disqus_shortname: disqusShortname,
+            disqus_identifier: 'About',
+            disqus_url: $location.absUrl()
         };
     }])
 
@@ -119,12 +120,18 @@ angular.module('app')
     }])
 
     // Path: /blogpost&name=
-    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'name',
-        function ($scope, $location, $window, blogService, name) {
+    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'disqusShortname', 'name',
+        function ($scope, $location, $window, blogService, disqusShortname, name) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
+
+        $scope.disqusConfig = {
+            disqus_shortname: disqusShortname,
+            disqus_identifier: name,
+            disqus_url: $location.absUrl()
+        };
 
         blogService.getPostContent(name).then(function (response) {
             $scope.post = response.content;

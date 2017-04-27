@@ -66,3 +66,5 @@ app.constant('youtubeListApi', 'https://www.googleapis.com/youtube/v3/search?key
 app.constant('repertoireListApi', 'api/repertoire.json');
 app.constant('postsListApi', 'api/blog/_posts.json');
 app.constant('postsApi', 'api/blog/');
+
+app.constant('disqusShortname', 'lauraserban-com');
