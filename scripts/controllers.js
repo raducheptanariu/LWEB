@@ -50,12 +50,9 @@ angular.module('app')
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
             
-        $scope.disqusConfig = {};
-            $scope.disqusConfig = {
-                disqus_shortname: disqusShortname,
-                disqus_identifier: 'About',
-                disqus_url: $location.absUrl()
-            };
+        $scope.disqusConfig = {
+            disqus_identifier: 'About',
+        };
     }])
 
     // Path: /gallery
@@ -129,12 +126,9 @@ angular.module('app')
 
         });
 
-        $scope.disqusConfig = {};
-            $scope.disqusConfig = {
-                disqus_shortname: disqusShortname,
-                disqus_identifier: name,
-                disqus_url: $location.absUrl()
-            };
+        $scope.disqusConfig = {
+            disqus_identifier: name,
+        };
 
         blogService.getPostContent(name).then(function (response) {
             $scope.post = response.content;

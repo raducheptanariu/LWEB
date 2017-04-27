@@ -370,7 +370,7 @@ angular.module('app')
         }
     }])
 
-    .directive('dirDisqus', ['$window', function ($window) {
+    .directive('dirDisqus', ['$window', '$location', '$timeout', 'disqusShortname', function ($window, $location, $timeout, disqusShortname) {
         return {
             restrict: 'E',
             scope: {
@@ -379,21 +379,23 @@ angular.module('app')
             template: '<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink"></a>',
             link: function (scope, elm, attrs) {
 
-                scope.$watch('config', configChanged, true);
+                scope.$watch('config', function() { 
+                    $timeout(configChanged, 1000)
+                }, true);
 
                 function configChanged() {
 
                     // Ensure that the disqus_identifier and disqus_url are both set, otherwise we will run in to identifier conflicts when using URLs with "#" in them
                     // see http://help.disqus.com/customer/portal/articles/662547-why-are-the-same-comments-showing-up-on-multiple-pages-
-                    if (!scope.config.disqus_shortname ||
-                        !scope.config.disqus_identifier ||
-                        !scope.config.disqus_url) {
+                    if (!scope.config.disqus_identifier) {
                         return;
                     }
 
-                    $window.disqus_shortname = scope.config.disqus_shortname;
+                    var url = $location.absUrl();
+
+                    $window.disqus_shortname = disqusShortname;
                     $window.disqus_identifier = scope.config.disqus_identifier;
-                    $window.disqus_url = scope.config.disqus_url;
+                    $window.disqus_url = url;
                     $window.disqus_title = scope.config.disqus_title;
                     $window.disqus_category_id = scope.config.disqus_category_id;
                     $window.disqus_disable_mobile = scope.config.disqus_disable_mobile;
@@ -411,14 +413,14 @@ angular.module('app')
                     // Get the remote Disqus script and insert it into the DOM, but only if it not already loaded (as that will cause warnings)
                     if (!$window.DISQUS) {
                         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                        dsq.src = '//' + scope.config.disqus_shortname + '.disqus.com/embed.js';
+                        dsq.src = '//' + disqusShortname + '.disqus.com/embed.js';
                         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
                     } else {
                         $window.DISQUS.reset({
                             reload: true,
                             config: function () {
                                 this.page.identifier = scope.config.disqus_identifier;
-                                this.page.url = scope.config.disqus_url;
+                                this.page.url = url;
                                 this.page.title = scope.config.disqus_title;
                                 this.language = scope.config.disqus_config_language;
                                 this.page.remote_auth_s3 = scope.config.disqus_remote_auth_s3;
