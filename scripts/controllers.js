@@ -43,18 +43,19 @@ angular.module('app')
     }])
 
     // Path: /about
-    .controller('AboutCtrl', ['$scope', '$rootScope', '$location', '$window', 'disqusShortname',
-        function ($scope, $rootScope, $location, $window, disqusShortname) {
+    .controller('AboutCtrl', ['$scope', '$rootScope', '$location', '$window', 'disqusShortname', '$timeout',
+        function ($scope, $rootScope, $location, $window, disqusShortname, $timeout) {
         $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
-
-        $scope.disqusConfig = {
-            disqus_shortname: disqusShortname,
-            disqus_identifier: 'About',
-            disqus_url: $location.absUrl()
-        };
+            
+        $scope.disqusConfig = {};
+            $scope.disqusConfig = {
+                disqus_shortname: disqusShortname,
+                disqus_identifier: 'About',
+                disqus_url: $location.absUrl()
+            };
     }])
 
     // Path: /gallery
@@ -120,18 +121,20 @@ angular.module('app')
     }])
 
     // Path: /blogpost&name=
-    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'disqusShortname', 'name',
-        function ($scope, $location, $window, blogService, disqusShortname, name) {
+    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'disqusShortname', 'name', '$timeout',
+        function ($scope, $location, $window, blogService, disqusShortname, name, $timeout) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+
         });
 
-        $scope.disqusConfig = {
-            disqus_shortname: disqusShortname,
-            disqus_identifier: name,
-            disqus_url: $location.absUrl()
-        };
+        $scope.disqusConfig = {};
+            $scope.disqusConfig = {
+                disqus_shortname: disqusShortname,
+                disqus_identifier: name,
+                disqus_url: $location.absUrl()
+            };
 
         blogService.getPostContent(name).then(function (response) {
             $scope.post = response.content;
