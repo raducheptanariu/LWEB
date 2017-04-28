@@ -50,77 +50,72 @@
          sticky-adapt-margin="stickyTarget"
          ng-init="stickyHeight = 0" 
          role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="/">Laura Serban</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a ng-class="{ 'title-selected': $root.title == 'About'}"
-                           data-toggle="collapse"
-                           data-target=".navbar-collapse"
-                           data-translate="LAYOUT_HEADER_ABOUT"
-                           href="/">About me</a>
-                    </li>
-                    <li>
-                        <a ng-class="{ 'title-selected': $root.title == 'Gallery'}"
-                           data-toggle="collapse"
-                           data-target=".navbar-collapse"
-                           data-translate="LAYOUT_HEADER_GALLERY"
-                           href="/gallery">Gallery</a>
-                    </li>
-                    <li>
-                        <a ng-class="{ 'title-selected': $root.title == 'Music'}"
-                           data-toggle="collapse"
-                           data-target=".navbar-collapse"
-                           data-translate="LAYOUT_HEADER_MUSIC"
-                           href="/music">Music</a>
-                    </li>
-                    <li>
-                        <a ng-class="{ 'title-selected': $root.title == 'Repertoire'}"
-                           data-translate="LAYOUT_HEADER_REPERTOIRE"
-                           data-toggle="collapse"
-                           data-target=".navbar-collapse"
-                           href="/repertoire">Repertoire</a>
-                    </li>
-                    <li>
-                        <a ng-class="{ 'title-selected': $root.title == 'Blog'}"
-                           data-translate="LAYOUT_HEADER_BLOG"
-                           data-toggle="collapse"
-                           data-target=".navbar-collapse"
-                           href="/blog">Blog</a>
-                    </li>
-                    <li>
-                        <a ng-class="{ 'title-selected': $root.title == 'Contact'}"
-                           data-translate="LAYOUT_HEADER_CONTACT"
-                           data-toggle="collapse"
-                           data-target=".navbar-collapse"
-                           href="/contact">Contact</a>
-                    </li>
-                    <li class="navbar-icon">
-                        <span><a ng-href="{{instagramLink}}" target="_blank"><i class="fa fa-instagram" ria-hidden="true"></i></a></span>
-                        <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
-                        <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
-                        <span><a ng-href="{{twitterLink}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
-                        <span><language-applier></language-applier></span>
-                    </li>
-                </ul>                
-            </div>
-            <!-- /.navbar-collapse -->
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+            <a class="navbar-brand" href="/">Laura Serban</a>
         </div>
-        <!-- /.container -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ng-class="{ 'title-selected': $root.title == 'About'}"
+                       data-toggle="collapse"
+                       data-target=".navbar-collapse"
+                       data-translate="LAYOUT_HEADER_ABOUT"
+                       href="/">About me</a>
+                </li>
+                <li>
+                    <a ng-class="{ 'title-selected': $root.title == 'Gallery'}"
+                       data-toggle="collapse"
+                       data-target=".navbar-collapse"
+                       data-translate="LAYOUT_HEADER_GALLERY"
+                       href="/gallery">Gallery</a>
+                </li>
+                <li>
+                    <a ng-class="{ 'title-selected': $root.title == 'Music'}"
+                       data-toggle="collapse"
+                       data-target=".navbar-collapse"
+                       data-translate="LAYOUT_HEADER_MUSIC"
+                       href="/music">Music</a>
+                </li>
+                <li>
+                    <a ng-class="{ 'title-selected': $root.title == 'Repertoire'}"
+                       data-translate="LAYOUT_HEADER_REPERTOIRE"
+                       data-toggle="collapse"
+                       data-target=".navbar-collapse"
+                       href="/repertoire">Repertoire</a>
+                </li>
+                <li>
+                    <a ng-class="{ 'title-selected': $root.title == 'Blog'}"
+                       data-translate="LAYOUT_HEADER_BLOG"
+                       data-toggle="collapse"
+                       data-target=".navbar-collapse"
+                       href="/blog">Blog</a>
+                </li>
+                <li>
+                    <a ng-class="{ 'title-selected': $root.title == 'Contact'}"
+                       data-translate="LAYOUT_HEADER_CONTACT"
+                       data-toggle="collapse"
+                       data-target=".navbar-collapse"
+                       href="/contact">Contact</a>
+                </li>
+                <li class="navbar-icon">
+                    <span><a ng-href="{{instagramLink}}" target="_blank"><i class="fa fa-instagram" ria-hidden="true"></i></a></span>
+                    <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
+                    <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
+                    <span><a ng-href="{{twitterLink}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
+                    <span><language-applier></language-applier></span>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <!--<button type="button" ng-init="goClockwise = false" ng-click="goClockwise = !goClockwise"></button>-->
 
     <animation-director animate-clockwise="goClockwise"></animation-director>
 

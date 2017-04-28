@@ -310,8 +310,8 @@ footer p {
 }
 
 .navbar-icon>span>a>i{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 6px;
+    margin-right: 6px;
     font-size: 26px;
 }
 
@@ -426,6 +426,7 @@ footer p {
     position:absolute;
     top: -1000em;
     left: 0px;
+    min-width: 100px;
 }
 .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
     color:#ddd;
@@ -455,6 +456,13 @@ footer p {
     padding-top:20px;
     padding-bottom: 20px;
     border: none;
+}
+
+.navbar-fixed {
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
 }
 
 @media (max-width: 767px){
@@ -564,13 +572,6 @@ footer p {
         margin: 0 auto;
         table-layout: fixed;
         font-size: 1.25em;
-    }
-
-    .navbar-fixed {
-        position:fixed;
-        top:0;
-        width:100%;
-        z-index:100;
     }
 
     .modal-dialog {
