@@ -64,31 +64,41 @@ angular.module('app')
         }
     }])
 
-    .directive('stickyOnScroll', [function () {
+    .directive('stickyOnScroll', ['$window', function ($window) {
         return {
             restrict: 'A',
             scope: {
                 stickyOnScroll: '@',
                 stickyClass: '@',
-                stickyAdaptMargin: '@'
+                stickyAdaptMargin: '@',
+                stickyAdaptMarginMobile: '@'
             },
             link: function (scope, elm, attrs) {
-                var pixels = parseInt(scope.stickyOnScroll);
-                var adapt = $('#' + scope.stickyAdaptMargin);
-                var currentMargin = parseInt(adapt.css('marginTop'));
-                adapt.css('marginTop', scope.stickyMargin);
-                var newMargin = elm.height() + currentMargin + 20;
+                if ($window.innerWidth < 768) {
+                    var adapt = $('#' + scope.stickyAdaptMarginMobile);
+                    var currentMargin = parseInt(adapt.css('marginTop'));
+                    var newMargin = elm.height() + currentMargin + 20;
+                    elm.addClass(scope.stickyClass);
+                    adapt.css('marginTop', newMargin);
+                }
+                else {
+                    var pixels = parseInt(scope.stickyOnScroll);
+                    var adapt = $('#' + scope.stickyAdaptMargin);
+                    var currentMargin = parseInt(adapt.css('marginTop'));
+                    adapt.css('marginTop', scope.stickyMargin);
+                    var newMargin = elm.height() + currentMargin + 20;
 
-                $(window).scroll(function () {
-                    if ($(window).scrollTop() > pixels) {
-                        adapt.css('marginTop', newMargin);
-                        elm.addClass(scope.stickyClass);
-                    }
-                    if ($(window).scrollTop() < pixels + 1) {
-                        adapt.css('marginTop', 0);
-                        elm.removeClass(scope.stickyClass);
-                    }
-                });
+                    $(window).scroll(function () {
+                        if ($(window).scrollTop() > pixels) {
+                            adapt.css('marginTop', newMargin);
+                            elm.addClass(scope.stickyClass);
+                        }
+                        if ($(window).scrollTop() < pixels + 1) {
+                            adapt.css('marginTop', 0);
+                            elm.removeClass(scope.stickyClass);
+                        }
+                    });
+                }
             }
         };
     }])
