@@ -39,11 +39,13 @@
         }(window.location))
     </script>
 </head>
-<body ng-controller="IndexCtrl">
+<body ng-controller="IndexCtrl"
+      ng-swipe-left="changeLocation(1)"
+      ng-swipe-right="changeLocation(-1)"
+      ng-swipe-disable-mouse>
     <animation-director animate-clockwise="goClockwise"></animation-director>
     <div class="brand" id="stickyTarget">Laura Serban</div>
     <!--<div class="address-bar">subtitle</div>-->
-
     <!-- Navigation -->
     <nav class="navbar navbar-default"
          sticky-on-scroll="110"
@@ -122,10 +124,7 @@
     <div id="stickyTargetMobile">
         <div id="ng-view"
              ng-view
-             ng-class="{ revealAnimationClockwise: goClockwise , revealAnimation: !goClockwise }"
-             ng-swipe-left="changeLocation(1)"
-             ng-swipe-right="changeLocation(-1)"
-             ng-swipe-disable-mouse>
+             ng-class="{ revealAnimationClockwise: goClockwise , revealAnimation: !goClockwise }">
         </div>
     </div>
 
@@ -136,7 +135,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="scripts/vendor/jquery.min.js"></script>
     <script src="debugging/scripts/angular.js"></script>
     <!--<script src="scripts/vendor/angular.min.js"></script>-->
