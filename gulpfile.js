@@ -8,7 +8,7 @@ var rename = require('gulp-rename');
 gulp.task('scripts', function() {
     return gulp.src([
 		"scripts/vendor/jquery.min.js",
-		"scripts/vendor/angular.min.js",
+		"debugging/scripts/angular.js",
 		"scripts/vendor/angular-route.min.js",
 		"scripts/vendor/angular-translate.min.js",
 		"scripts/vendor/angular-translate-loader-static-files.min.js",
@@ -18,9 +18,9 @@ gulp.task('scripts', function() {
 		"scripts/vendor/bootstrap.min.js",
 		"scripts/vendor/instafeed.min.js",
 		"scripts/vendor/ng-instafeed.min.js",
-		"scripts/vendor/touch.js" ,
-		"scripts/vendor/swipe.js" ,
-		"scripts/vendor/angular-youtube-embed.min.js" ,
+		"scripts/vendor/touch.js",
+		"scripts/vendor/swipe.js",
+		"scripts/vendor/angular-youtube-embed.min.js",
 		"scripts/app.js",
 		"scripts/services.js",
 		"scripts/filters.js",
