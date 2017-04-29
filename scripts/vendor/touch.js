@@ -572,11 +572,11 @@
                                 event.preventDefault();
                             }
                             if (endEventHandler) {
-                                setTimeout(function () { // weird workaround to avoid
+                                //setTimeout(function () { // weird workaround to avoid
                                     // delays with dom manipulations
                                     // inside the handler
                                     endEventHandler(t, event);
-                                }, 0);
+                                //}, 0);
                             }
                         }
                         resetTouch();
