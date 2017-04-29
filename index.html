@@ -40,9 +40,9 @@
     </script>
 </head>
 <body ng-controller="IndexCtrl"
-      ng-swipe-left="changeLocation(1)"
-      ng-swipe-right="changeLocation(-1)"
-      ng-swipe-disable-mouse>
+      ui-swipe-left="changeLocation(1)"
+      ui-swipe-right="changeLocation(-1)"
+      ui-swipe-disable-mouse>
     <animation-director animate-clockwise="goClockwise"></animation-director>
     <div class="brand" id="stickyTarget">Laura Serban</div>
     <nav class="navbar navbar-default"
@@ -154,6 +154,9 @@
 
     <script src="scripts/vendor/instafeed.min.js" type="text/javascript"></script>
     <script src="scripts/vendor/ng-instafeed.min.js" type="text/javascript"></script>
+
+    <script src="scripts/vendor/touch.js"></script>
+    <script src="scripts/vendor/swipe.js"></script>
 
     <script src="scripts/vendor/angular-youtube-embed.min.js" type="text/javascript"></script>
 

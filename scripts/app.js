@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
-var app = angular.module('app', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'ngAnimate', 'ngTouch', 'ngInstafeed', 'youtube-embed']);
+var app = angular.module('app', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'ngAnimate', 'ngTouch', 'ngInstafeed', 'youtube-embed', 'mobile-angular-ui.gestures.swipe']);
 
 app.config(['$routeProvider', '$locationProvider', '$translateProvider', 'ngInstafeedProvider',
    function ($routeProvider, $locationProvider, $translateProvider, ngInstafeedProvider) {
