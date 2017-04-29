@@ -5,47 +5,48 @@
 
 angular.module('app')
 
-    .controller('IndexCtrl', ['$scope', '$location', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink', 'navigationLinks',
-        function ($scope, $location, facebookLink, youtubeLink, twitterLink, instagramLink, navigationLinks) {
-            $scope.facebookLink = facebookLink;
-            $scope.youtubeLink = youtubeLink;
-            $scope.twitterLink = twitterLink;
-            $scope.instagramLink = instagramLink;
+    .controller('IndexCtrl', ['$scope', '$location', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink', 'navigationLinks', '$timeout',
+    function ($scope, $location, facebookLink, youtubeLink, twitterLink, instagramLink, navigationLinks, $timeout) {
+        $scope.facebookLink = facebookLink;
+        $scope.youtubeLink = youtubeLink;
+        $scope.twitterLink = twitterLink;
+        $scope.instagramLink = instagramLink;
 
-            $scope.changeLocation = function (direction) {
-                $scope.swipeCount++;
-                var current = $scope.$root.title.toLowerCase();
-                var currentIndex = navigationLinks.indexOf(current);
-                var target;
+        $scope.changeLocation = function (direction) {
+            $scope.swipeCount++;
+            var current = $scope.$root.title.toLowerCase();
+            var currentIndex = navigationLinks.indexOf(current);
+            var target;
 
-                if (currentIndex > -1) {
-                    if (direction > 0) {
-                        /* go right */
-                        if (currentIndex == (navigationLinks.length - 1)) {
-                            target = navigationLinks[0];
-                        }
-                        else {
-                            target = navigationLinks[currentIndex + 1];
-                        }
+            if (currentIndex > -1) {
+                if (direction > 0) {
+                    /* go right */
+                    if (currentIndex == (navigationLinks.length - 1)) {
+                        target = navigationLinks[0];
                     }
                     else {
-                        /* go left */
-                        if (currentIndex == 0) {
-                            target = navigationLinks[navigationLinks.length - 1];
-                        }
-                        else {
-                            target = navigationLinks[currentIndex - 1];
-                        }
+                        target = navigationLinks[currentIndex + 1];
                     }
-
-                    $location.path(target);
                 }
+                else {
+                    /* go left */
+                    if (currentIndex == 0) {
+                        target = navigationLinks[navigationLinks.length - 1];
+                    }
+                    else {
+                        target = navigationLinks[currentIndex - 1];
+                    }
+                }
+
+                $timeout(function() {
+                    $location.path(target);
+                });
             }
+        }
     }])
 
     // Path: /about
-    .controller('AboutCtrl', ['$scope', '$rootScope', '$location', '$window', 'disqusShortname', '$timeout',
-        function ($scope, $rootScope, $location, $window, disqusShortname, $timeout) {
+    .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
