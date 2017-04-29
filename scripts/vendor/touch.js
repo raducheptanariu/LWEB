@@ -556,6 +556,7 @@
 
                     // on touchEnd
                     onTouchEnd = function (event) {
+                        alert('touch end');
                         // don't handle multi-touch
                         if (event.touches && event.touches.length > 1) {
                             return;
