@@ -38,6 +38,7 @@ angular.module('app')
                     }
                 }
 
+                //test
                     $location.path(target);
                     $scope.swipeCount2++;
             }
