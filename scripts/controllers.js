@@ -38,11 +38,8 @@ angular.module('app')
                     }
                 }
 
-                $timeout(function () {
                     $location.path(target);
                     $scope.swipeCount2++;
-                    $scope.swipeCount2++;
-                });
             }
         }
     }])
