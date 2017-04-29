@@ -89,7 +89,7 @@
             }
         };
 
-        var POINTER_TYPES = ['mouse', 'touch'];
+        var POINTER_TYPES = ['touch'];
 
         // function or element or rect
         var SENSITIVE_AREA = function ($element) {

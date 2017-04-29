@@ -118,8 +118,8 @@ angular.module('app')
     }])
 
     // Path: /blogpost&name=
-    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'disqusShortname', 'name', '$timeout',
-        function ($scope, $location, $window, blogService, disqusShortname, name, $timeout) {
+    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'disqusShortname', 'name',
+        function ($scope, $location, $window, blogService, disqusShortname, name) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -140,7 +140,7 @@ angular.module('app')
 
         blogService.getNewerPostName(name).then(function (response) {
             $scope.newerPost = response;
-        })
+        });
     }])
 
     // Path: /error/404
