@@ -12,6 +12,8 @@ angular.module('app')
         $scope.twitterLink = twitterLink;
         $scope.instagramLink = instagramLink;
 
+        $scope.swipeCount2 = 0;
+
         $scope.changeLocation = function (direction) {
             $scope.swipeCount++;
             var current = $scope.$root.title.toLowerCase();
@@ -39,8 +41,8 @@ angular.module('app')
                 }
 
                 $timeout(function () {
-                    $route.reload();
                     $location.path(target);
+                    $scope.swipeCount2++;
                 });
             }
         }
