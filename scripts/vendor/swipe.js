@@ -35,8 +35,8 @@
     module.factory('$swipe', ['$touch', function ($touch) {
         var VELOCITY_THRESHOLD = 300; // px/sec
         var MOVEMENT_THRESHOLD = 10; // px
-        var TURNAROUND_MAX = 20; // px
-        var ANGLE_THRESHOLD = 30; // deg
+        var TURNAROUND_MAX = 100; // px
+        var ANGLE_THRESHOLD = 45; // deg
         var abs = Math.abs;
 
         var defaultOptions = {
