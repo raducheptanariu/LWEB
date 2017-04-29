@@ -5,8 +5,8 @@
 
 angular.module('app')
 
-    .controller('IndexCtrl', ['$scope', '$location', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink', 'navigationLinks', '$timeout',
-    function ($scope, $location, facebookLink, youtubeLink, twitterLink, instagramLink, navigationLinks, $timeout) {
+    .controller('IndexCtrl', ['$scope', '$location', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink', 'navigationLinks', '$timeout', '$route',
+    function ($scope, $location, facebookLink, youtubeLink, twitterLink, instagramLink, navigationLinks, $timeout, $route) {
         $scope.facebookLink = facebookLink;
         $scope.youtubeLink = youtubeLink;
         $scope.twitterLink = twitterLink;
@@ -40,6 +40,7 @@ angular.module('app')
 
                 $timeout(function() {
                     $location.path(target);
+                    $route.reload();
                 });
             }
         }
