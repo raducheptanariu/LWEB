@@ -27,7 +27,7 @@ angular.module('app')
                             target = navigationLinks[currentIndex + 1];
                         }
                     }
-                    else if (direction < 0) {
+                    else {
                         /* go left */
                         if (currentIndex == 0) {
                             target = navigationLinks[navigationLinks.length - 1];

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laura Serban</title>
     <base href="/">
+    <link rel="canonical" href="https://www.lauraserban.com" />
 
     <!-- Bootstrap Core CSS -->
     <link href="content/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +43,7 @@
 <body ng-controller="IndexCtrl"
       ui-swipe-left="changeLocation(1)"
       ui-swipe-right="changeLocation(-1)"
-      ui-swipe-disable-mouse>
+      ng-swipe-disable-mouse>
     <animation-director animate-clockwise="goClockwise"></animation-director>
     <div class="brand" id="stickyTarget">Laura Serban</div>
     <nav class="navbar navbar-default"
