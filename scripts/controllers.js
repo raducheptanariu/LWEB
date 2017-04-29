@@ -12,8 +12,6 @@ angular.module('app')
             $scope.twitterLink = twitterLink;
             $scope.instagramLink = instagramLink;
 
-            $scope.swipeCount = 0;
-
             $scope.changeLocation = function (direction) {
                 $scope.swipeCount++;
                 var current = $scope.$root.title.toLowerCase();
