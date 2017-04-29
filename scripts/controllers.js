@@ -38,9 +38,9 @@ angular.module('app')
                     }
                 }
 
-                $timeout(function() {
-                    $location.path(target);
+                $timeout(function () {
                     $route.reload();
+                    $location.path(target);
                 });
             }
         }
