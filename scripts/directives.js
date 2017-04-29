@@ -74,19 +74,20 @@ angular.module('app')
                 stickyAdaptMarginMobile: '@'
             },
             link: function (scope, elm, attrs) {
+                var newMargin, currentMargin, adapt;
                 if ($window.innerWidth < 768) {
-                    var adapt = $('#' + scope.stickyAdaptMarginMobile);
-                    var currentMargin = parseInt(adapt.css('marginTop'));
-                    var newMargin = elm.height() + currentMargin + 20;
+                    adapt = $('#' + scope.stickyAdaptMarginMobile);
+                    currentMargin = parseInt(adapt.css('marginTop'));
+                    newMargin = elm.height() + currentMargin + 20;
                     elm.addClass(scope.stickyClass);
                     adapt.css('marginTop', newMargin);
                 }
                 else {
                     var pixels = parseInt(scope.stickyOnScroll);
-                    var adapt = $('#' + scope.stickyAdaptMargin);
-                    var currentMargin = parseInt(adapt.css('marginTop'));
+                    adapt = $('#' + scope.stickyAdaptMargin);
+                    currentMargin = parseInt(adapt.css('marginTop'));
                     adapt.css('marginTop', scope.stickyMargin);
-                    var newMargin = elm.height() + currentMargin + 20;
+                    newMargin = elm.height() + currentMargin + 20;
 
                     $(window).scroll(function () {
                         if ($(window).scrollTop() > pixels) {
@@ -208,11 +209,11 @@ angular.module('app')
             link: function (scope, elm, attrs) {
                 scope.youtubeModel = [];
 
-                youtubeService.getChannelVideos().then(function (data) {
+                youtubeService.getChannelVideos().then(function(data) {
                     if (data) {
                         scope.youtubeModel = data;
                     }
-                })
+                });
             }
         }
     }])
@@ -445,5 +446,23 @@ angular.module('app')
                 });
             }
         };
+    }])
+
+    .directive('collapseOnSwipe', ['$document', function ($document) {
+        return{
+            restrict: 'A',
+            link: function(scope, elm, attrs) {
+                elm.swipe('swipeup', function () {
+                    elm.collapse('hide');
+                });
+
+                elm.swipe({
+                    swipeUp: function (event, direction, distance, duration) {
+                        elm.collapse('hide');
+                    },
+                    threshold: 100
+                });
+            }
+        }
     }])
 ;
