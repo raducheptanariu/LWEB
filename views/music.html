@@ -5,7 +5,7 @@
                 <h3 data-translate="LAYOUT_HEADER_MUSIC">Music</h3>
             </div>
 
-            <div ng-repeat="item in model.items">
+            <div ng-repeat="item in model.items | hardcodedFilter">
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box-image" youtube-player-popup="item">
                     <div hover-applier="isHovering">
                         <div class="fade-image"><img ng-src="{{item.snippet.thumbnails.high.url}}" /></div>

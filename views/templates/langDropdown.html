@@ -1,13 +1,7 @@
-﻿<div class="container-lang dropdown" uib-dropdown>
-    <button id="langDropdown"
-            type="button"
-            class="btn dropdown-toggle btn-lang"
-            uib-dropdown-toggle
-            aria-haspopup="true"
-            aria-expanded="false">
-        {{currentLang}}
-    </button>
-    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="langDropdown">
-        <li role="menuitem" ng-repeat="lang in langs" ng-click="changeLang(lang)"><a>{{lang}}</a></li>
-    </ul>
-</div>
+﻿<span>
+    <span class="flag-icon"
+          ng-repeat="lang in langs"
+          ng-click="changeLang(lang)"
+          ng-class="{ 'flag-icon-selected' : currentLang == lang, 'flag-icon-ro' : lang == 'ro', 'flag-icon-gb' : lang != 'ro' }">
+    </span>
+</span>

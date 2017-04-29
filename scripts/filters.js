@@ -58,6 +58,17 @@ angular.module('app')
             return filteredList;
         }
     }])
+
+    .filter('hardcodedFilter', [function() {
+        return function (list) {
+            if (!list)
+                return list;
+
+            return list.filter(function(item) {
+                return item.id.videoId != 'fDsYMaG6DVs';
+            });
+        };
+    }])
 ;
 
 function postedOnDateFormat(date) {

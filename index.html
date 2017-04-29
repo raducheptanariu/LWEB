@@ -66,6 +66,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li class="navbar-icon">
+                    <language-applier></language-applier>
+                    <!--<span>
+                        <span ng-repeat="lang in langs" ng-click="changeLang(lang)"
+                              class="flag-icon" ng-class="{ 'flag-icon-ro' : lang == 'ro', 'flag-icon-gb' : lang != 'ro' }">
+                        </span>
+                    </span>-->
+                </li>
                 <li>
                     <a ng-class="{ 'title-selected': $root.title == 'About'}"
                        data-toggle="collapse"
@@ -113,7 +121,6 @@
                     <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
                     <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
                     <span><a ng-href="{{twitterLink}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
-                    <span><language-applier></language-applier></span>
                 </li>
             </ul>
         </div>

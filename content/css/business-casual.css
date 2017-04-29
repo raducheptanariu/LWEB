@@ -37,6 +37,41 @@ hr {
     border-color: #999999;
 }
 
+.flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.flag-icon {
+    margin: 0 5px 0 5px;
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    width: 1.33em;
+    line-height: 1em;
+}
+.flag-icon:before {
+  content: "\00a0";
+}
+.flag-icon.flag-icon-squared {
+  width: 1em;
+}
+.flag-icon-ro {
+  background-image: url(../img/ro.svg);
+}
+.flag-icon-gb {
+  background-image: url(../img/gb.svg);
+}
+.flag-icon-selected {
+    width: 2em;
+    line-height: 1.4em;
+    border-bottom: medium;
+    border-color: white;
+    border-width: 20px;
+}
+
 .brand,
 .address-bar {
     display: none;
@@ -301,7 +336,7 @@ footer p {
 }
 
 .navbar-icon{
-    float:left;
+    /*float:left;*/
     padding: 10px;
 }
 
