@@ -39,9 +39,8 @@ angular.module('app')
                 }
 
                 $timeout(function () {
-                    $scope.swipeCount2++;
-                    $scope.swipeCount2++;
                     $location.path(target);
+                    $scope.swipeCount2++;
                 });
             }
         }
