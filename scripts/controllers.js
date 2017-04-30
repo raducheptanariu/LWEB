@@ -5,8 +5,8 @@
 
 angular.module('app')
 
-    .controller('IndexCtrl', ['$scope', '$location', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink', 'navigationLinks', '$timeout', '$route',
-    function ($scope, $location, facebookLink, youtubeLink, twitterLink, instagramLink, navigationLinks, $timeout, $route) {
+    .controller('IndexCtrl', ['$scope', '$location', 'facebookLink', 'youtubeLink', 'twitterLink', 'instagramLink', 'navigationLinks', '$state',
+    function ($scope, $location, facebookLink, youtubeLink, twitterLink, instagramLink, navigationLinks, $state) {
         $scope.facebookLink = facebookLink;
         $scope.youtubeLink = youtubeLink;
         $scope.twitterLink = twitterLink;
@@ -37,7 +37,9 @@ angular.module('app')
                     }
                 }
 
-                $location.path(target);
+                $state.go(target);
+
+                //$location.path(target);
             }
         }
     }])

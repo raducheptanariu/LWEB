@@ -1,24 +1,57 @@
 ﻿'use strict';
 
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
-var app = angular.module('app', ['ngRoute', 'pascalprecht.translate', 'ui.bootstrap', 'ngAnimate', 'ngTouch', 'ngInstafeed', 'youtube-embed', 'mobile-angular-ui.gestures.swipe']);
+var app = angular.module('app', ['ui.router', 'pascalprecht.translate', 'ui.bootstrap', 'ngAnimate', 'ngTouch', 'ngInstafeed', 'youtube-embed', 'mobile-angular-ui.gestures.swipe']);
 
-app.config(['$routeProvider', '$locationProvider', '$translateProvider', 'ngInstafeedProvider',
-   function ($routeProvider, $locationProvider, $translateProvider, ngInstafeedProvider) {
-       $routeProvider.
+app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInstafeedProvider',
+    function ($stateProvider, $locationProvider, $translateProvider, ngInstafeedProvider) {
+        $stateProvider
            /* Root */
-           when('/', { templateUrl: 'views/about.html', controller: 'AboutCtrl' }).
-           when('/gallery', { templateUrl: 'views/gallery.html', controller: 'GalleryCtrl' }).
-           when('/music', { templateUrl: 'views/music.html', controller: 'MusicCtrl' }).
-           when('/repertoire', { templateUrl: 'views/repertoire.html', controller: 'RepertoireCtrl' }).
-           when('/blog', { templateUrl: 'views/blog.html', controller: 'BlogCtrl' }).
-           when('/blog:name?', {
-               templateUrl: 'views/blogpost.html',
-               controller: 'BlogPostCtrl',
-               resolve: { name: function ($route) { return $route.current.params.name.substring(6); } }
-           }).
-           when('/contact', { templateUrl: 'views/contact.html', controller: 'ContactCtrl' }).
-           otherwise({ templateUrl: 'views/404.html', controller: 'Error404Ctrl' });
+            .state('about', {
+                url: '/',
+                templateUrl: 'views/about.html',
+                controller: 'AboutCtrl'
+            })
+            .state('gallery', {
+                url: '/gallery',
+                templateUrl: 'views/gallery.html',
+                controller: 'GalleryCtrl'
+            })
+            .state('music', {
+                url: '/music',
+                templateUrl: 'views/music.html',
+                controller: 'MusicCtrl'
+            })
+            .state('repertoire', {
+                url: '/repertoire',
+                templateUrl: 'views/repertoire.html',
+                controller: 'RepertoireCtrl'
+            })
+            .state('blog', {
+                url: '/blog',
+                templateUrl: 'views/blog.html',
+                controller: 'BlogCtrl'
+            })
+            .state('blogpost', {
+                url: '/blog:name?',
+                templateUrl: 'views/blogpost.html',
+                controller: 'BlogPostCtrl',
+                resolve: {
+                    name: function($state) {
+                        return $state.current.params.name.substring(6);
+                    }
+                }
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: 'views/contact.html',
+                controller: 'ContactCtrl'
+            })
+            .state('otherwise', {
+                url: '*path',
+                templateUrl: 'views/404.html',
+                controller: 'Error404Ctrl'
+        });
 
        $locationProvider.html5Mode(true);
 
@@ -41,14 +74,13 @@ app.config(['$routeProvider', '$locationProvider', '$translateProvider', 'ngInst
 app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
     $rootScope.viewTransition = 0;
 
-    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+    $rootScope.$on("$stateChangeStart", function () {
         $rootScope.viewTransition++;
     });
 
-    $rootScope.$on("$routeChangeSuccess", function (event, next, current) {
+    $rootScope.$on("$stateChangeSuccess", function () {
         $timeout(function () {
-            // animation triggers 2x route change start
-            $rootScope.viewTransition -= 2;
+            $rootScope.viewTransition--;
         }, 1500);
     });
 }]);

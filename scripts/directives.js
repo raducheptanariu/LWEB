@@ -3,7 +3,7 @@
 angular.module('app')
 
     .directive('appVersion', ['version', function (version) {
-        return function (scope, elm, attrs) {
+        return function (scope, elm) {
             elm.text(version);
         };
     }])
@@ -13,7 +13,7 @@ angular.module('app')
             restrict: 'E',
             templateUrl: 'views/templates/carousel.html',
             replace: true,
-            link: function (scope, elm, attrs) {
+            link: function (scope) {
                 if (!$rootScope.slides || $rootScope.slides.length == 0) {
                     scope.carouselSlides = [];
                     populateCarouselAsync(0);
@@ -53,7 +53,7 @@ angular.module('app')
             restrict: 'E',
             templateUrl: 'views/templates/langDropdown.html',
             replace: true,
-            link: function (scope, elm, attrs) {
+            link: function (scope) {
                 scope.langs = availableLangs;
                 scope.currentLang = $translate.use();
                 scope.changeLang = function (lang) {
@@ -73,7 +73,7 @@ angular.module('app')
                 stickyAdaptMargin: '@',
                 stickyAdaptMarginMobile: '@'
             },
-            link: function (scope, elm, attrs) {
+            link: function (scope, elm) {
                 var newMargin, currentMargin, adapt;
                 if ($window.innerWidth < 768) {
                     adapt = $('#' + scope.stickyAdaptMarginMobile);
@@ -110,17 +110,17 @@ angular.module('app')
             scope: {
                 hoverApplier: '=',
             },
-            link: function (scope, elm, attrs) {
-                elm.bind('mouseover', function (e) {
+            link: function (scope, elm) {
+                elm.bind('mouseover', function () {
                     scope.$apply(function () {
                         scope.hoverApplier = true;
                     });
                 });
-                elm.bind('mouseleave', function (e) {
-                    scope.$apply(function () {
+                elm.bind('mouseleave', function() {
+                    scope.$apply(function() {
                         scope.hoverApplier = false;
                     });
-                })
+                });
             }
         }
     }])
@@ -132,7 +132,7 @@ angular.module('app')
                 instaModel: '=',
                 instaState: '='
             },
-            link: function (scope, elm, attrs) {
+            link: function (scope) {
                 scope.instaModel = ngInstafeed.model;
                 scope.instaState = ngInstafeed.state;
 
@@ -142,7 +142,7 @@ angular.module('app')
                         userId: userId,
                         limit: 20
                     },
-                    function (err, res) {
+                    function (err) {
                         if (err) throw err;
                     });
                 }
@@ -152,7 +152,7 @@ angular.module('app')
                     if (!isProcessing && ($(window).scrollTop() + $(window).height() > $(document).height() - 300)) {
                         isProcessing = true;
 
-                        ngInstafeed.more(function (err, res) {
+                        ngInstafeed.more(function (err) {
                             if (err) throw err;
                             isProcessing = false;
                         });
@@ -172,7 +172,7 @@ angular.module('app')
             scope:{
                 instaImagePopup: '='
             },
-            link: function (scope, elm, attrs) {
+            link: function (scope, elm) {
                 elm.on('click', function () {
 
                     var modalInstance = $uibModal.open({
@@ -183,7 +183,7 @@ angular.module('app')
                         }
                     });
 
-                    var listener = scope.$on('$locationChangeStart', function (event) {
+                    var listener = scope.$on('$stateChangeStart', function (event) {
                         listener();
                         modalInstance.dismiss();
                         event.preventDefault();
@@ -206,7 +206,7 @@ angular.module('app')
                 youtubeModel: '='
             },
             replace: true,
-            link: function (scope, elm, attrs) {
+            link: function (scope) {
                 scope.youtubeModel = [];
 
                 youtubeService.getChannelVideos().then(function(data) {
@@ -224,7 +224,7 @@ angular.module('app')
             scope: {
                 youtubePlayerPopup: '='
             },
-            link: function (scope, elm, attrs) {
+            link: function (scope, elm) {
                 elm.on('click', function () {
 
                     var modalInstance = $uibModal.open({
@@ -235,7 +235,7 @@ angular.module('app')
                         }
                     });
 
-                    var listener = scope.$on('$locationChangeStart', function (event) {
+                    var listener = scope.$on('$stateChangeStart', function (event) {
                         listener();
                         modalInstance.dismiss();
                         event.preventDefault();
@@ -251,64 +251,56 @@ angular.module('app')
         }
     }])
 
-    .directive('animationDirector', ['$rootScope', '$location', '$timeout', 'navigationLinks',
-        function ($rootScope, $location, $timeout, navigationLinks) {
+    .directive('animationDirector', ['$rootScope', '$state', '$timeout', 'navigationLinks',
+        function ($rootScope, $state, $timeout, navigationLinks) {
         return {
             restrict: 'E',
             scope: {
                 animateClockwise: '='
             },
-            link: function (scope, elm, attrs) {
+            link: function (scope) {
                 var animationIsSet = false;
 
-                scope.$on('$locationChangeStart', function (event, targetUrl, currentUrl) {
+                scope.$on('$stateChangeStart', function (event, targetState) {
                     if (!animationIsSet) {
                         animationIsSet = true;
-                        if (targetUrl != currentUrl) {
-                            if ($rootScope.title) {
-                                // can also get from currentUrl
-                                var current = $rootScope.title.toLowerCase();
 
-                                var url = targetUrl.split('/');
-                                var target = url[url.length - 1];
-                                target = target != '' ? target : 'about';
+                        var current = $rootScope.title ? $rootScope.title.toLowerCase() : '';
+                        var target = targetState.name;
 
-                                var currentIndex = navigationLinks.indexOf(current);
-                                var targetIndex = navigationLinks.indexOf(target);
+                        var currentIndex = navigationLinks.indexOf(current);
+                        var targetIndex = navigationLinks.indexOf(target);
 
-                                if (currentIndex > -1 && targetIndex > -1) {
-                                    if (currentIndex < targetIndex) {
-                                        if (currentIndex == 0 && targetIndex == (navigationLinks.length - 1)) {
-                                            scope.animateClockwise = true;
-                                        }
-                                        else {
-                                            scope.animateClockwise = false;
-                                        }
-                                    }
-                                    else {
-                                        if (currentIndex == (navigationLinks.length - 1) && targetIndex == 0) {
-                                            scope.animateClockwise = false;
-                                        }
-                                        else {
-                                            scope.animateClockwise = true;
-                                        }
-                                    }
+                        if (currentIndex > -1 && targetIndex > -1) {
+                            if (currentIndex < targetIndex) {
+                                if (currentIndex == 0 && targetIndex == (navigationLinks.length - 1)) {
+                                    scope.animateClockwise = true;
                                 }
                                 else {
                                     scope.animateClockwise = false;
                                 }
                             }
-
-                            event.preventDefault();
-                            $timeout(function () {
-                                target = target != 'about' ? target : '';
-                                $location.path(target);
-                            });
+                            else {
+                                if (currentIndex == (navigationLinks.length - 1) && targetIndex == 0) {
+                                    scope.animateClockwise = false;
+                                }
+                                else {
+                                    scope.animateClockwise = true;
+                                }
+                            }
                         }
+                        else {
+                            scope.animateClockwise = false;
+                        }
+
+                        event.preventDefault();
+                        $timeout(function () {
+                            $state.go(target);
+                        });
                     }
                 });
 
-                scope.$on('$locationChangeSuccess', function (event, targetUrl, currentUrl) {
+                scope.$on('$stateChangeSuccess', function () {
                     animationIsSet = false;
                 });
             }
@@ -321,7 +313,7 @@ angular.module('app')
             compile: function ($element, attr) {
                 var fn = $parse(attr['ngError']);
 
-                return function (scope, element, attr) {
+                return function (scope, element) {
                     element.on('error', function (event) {
                         scope.$apply(function () {
                             fn(scope, { $event: event });
@@ -352,7 +344,7 @@ angular.module('app')
             scope:{
                 hideForm: '='
             },
-            link: function (scope, elm, attrs) {
+            link: function (scope, elm) {
                 scope.hideForm = false;
                 elm.on("submit", function (event) {
                     event.preventDefault();
@@ -388,10 +380,10 @@ angular.module('app')
                 config: '='
             },
             template: '<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink"></a>',
-            link: function (scope, elm, attrs) {
+            link: function (scope, elm) {
 
-                scope.$watch('config', function() { 
-                    $timeout(configChanged, 1000)
+                scope.$watch('config', function() {
+                    $timeout(configChanged, 1000);
                 }, true);
 
                 function configChanged() {
@@ -441,23 +433,23 @@ angular.module('app')
                     }
                 }
 
-                scope.$on('$locationChangeStart', function () {
+                scope.$on('$stateChangeStart', function () {
                     elm.remove();
                 });
             }
         };
     }])
 
-    .directive('collapseOnSwipe', ['$document', function ($document) {
+    .directive('collapseOnSwipe', [function () {
         return{
             restrict: 'A',
-            link: function(scope, elm, attrs) {
+            link: function(scope, elm) {
                 elm.swipe('swipeup', function () {
                     elm.collapse('hide');
                 });
 
                 elm.swipe({
-                    swipeUp: function (event, direction, distance, duration) {
+                    swipeUp: function () {
                         elm.collapse('hide');
                     },
                     threshold: 100

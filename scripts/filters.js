@@ -32,7 +32,7 @@ angular.module('app')
 
     .filter('stringToYtDate', [function () {
         return function (text) {
-            var date = new Date(Date.parse(text))
+            var date = new Date(Date.parse(text));
             return postedOnDateFormat(date);
         }
     }])
@@ -87,12 +87,12 @@ function postedOnDateFormat(date) {
         return "Posted " + daysDiff + " days ago";
     }
     else {
-        return "Posted on " + dateToStringMonths(date)
+        return "Posted on " + dateToStringMonths(date);
     }
 }
 
-function intToDate(int) {
-    var date = new Date(1000 * parseInt(int));
+function intToDate(nr) {
+    var date = new Date(1000 * parseInt(nr));
 
     return date;
 }

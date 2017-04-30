@@ -10,7 +10,7 @@ gulp.task('scripts', function() {
 		"scripts/vendor/jquery.min.js",
 		"scripts/vendor/jquery.touchSwipe.js",
 		"scripts/vendor/angular.min.js",
-		"scripts/vendor/angular-route.min.js",
+		"scripts/vendor/angular-ui-router.js",
 		"scripts/vendor/angular-translate.min.js",
 		"scripts/vendor/angular-translate-loader-static-files.min.js",
 		"scripts/vendor/angular-animate.min.js",

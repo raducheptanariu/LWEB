@@ -28,7 +28,7 @@ angular.module('app')
             return videos;
         };
 
-        function handleError(err) {
+        function handleError() {
             //alert('err');
         }
 
@@ -60,7 +60,7 @@ angular.module('app')
             return list;
         };
 
-        function handleError(err) {
+        function handleError() {
             //alert('err');
         }
 
@@ -177,7 +177,7 @@ angular.module('app')
             return deferred.promise;
         }
 
-        function handleError(err) {
+        function handleError() {
             //alert('err');
         }
 
