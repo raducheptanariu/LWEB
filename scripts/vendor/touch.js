@@ -398,7 +398,7 @@
         =            Factory Method            =
         ======================================*/
 
-        this.$get = ['$rootScope', function ($rootScope) {
+        this.$get = [function () {
 
             return {
                 /**
@@ -435,7 +435,6 @@
                  * @memberOf mobile-angular-ui.gestures.touch~$touch
                  */
                 bind: function ($element, eventHandlers, options) {
-                    $rootScope.swipeCount = 0;
                     // ensure element to be an angular element
                     $element = angular.element($element);
 
@@ -556,7 +555,6 @@
 
                     // on touchEnd
                     onTouchEnd = function (event) {
-                        $rootScope++;
                         // don't handle multi-touch
                         if (event.touches && event.touches.length > 1) {
                             return;

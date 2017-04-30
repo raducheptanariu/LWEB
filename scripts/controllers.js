@@ -13,7 +13,6 @@ angular.module('app')
         $scope.instagramLink = instagramLink;
 
         $scope.changeLocation = function (direction) {
-            $scope.swipeCount++;
             var current = $scope.$root.title.toLowerCase();
             var currentIndex = navigationLinks.indexOf(current);
             var target;
@@ -38,9 +37,7 @@ angular.module('app')
                     }
                 }
 
-                //test
-                    $location.path(target);
-                    $scope.swipeCount2++;
+                $location.path(target);
             }
         }
     }])
