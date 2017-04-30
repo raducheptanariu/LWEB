@@ -5,7 +5,7 @@
  */
 
 body {
-    font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;/*"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-family: 'Andika', sans-serif;/*"Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;*/
     /*background: url('/content/img/music.png') no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -89,8 +89,6 @@ hr {
     color: #000;
     font-size: 3.5em;
     line-height: 30px;
-    
-    /*text-transform: uppercase;*/
 }
 
 .navbar-nav {
@@ -116,11 +114,6 @@ hr {
 .img-full {
     min-width: 100%;
 }
-
-/*.brand-before,
-.brand-name {
-    text-transform: capitalize;
-}*/
 
 .brand-before {
     margin: 15px 0;
