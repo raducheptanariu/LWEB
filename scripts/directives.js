@@ -265,6 +265,8 @@ angular.module('app')
                 var animationIsSet = false;
 
                 scope.$on('$stateChangeStart', function (event, targetState, params) {
+                    if (targetState && targetState.name == 'otherwise') return;
+
                     if (!animationIsSet) {
                         animationIsSet = true;
                         event.preventDefault();

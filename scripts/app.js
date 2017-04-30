@@ -35,12 +35,7 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
             .state('blogpost', {
                 url: '/blogpost?name',
                 templateUrl: 'views/blogpost.html',
-                controller: 'BlogPostCtrl',
-                resolve: {
-                    name: ['$stateParams', function($stateParams) {
-                        return $stateParams.name;
-                    }]
-                }
+                controller: 'BlogPostCtrl'
             })
             .state('contact', {
                 url: '/contact',

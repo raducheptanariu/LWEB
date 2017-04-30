@@ -118,13 +118,15 @@ angular.module('app')
     }])
 
     // Path: /blogpost&name=
-    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'name',
-        function ($scope, $location, $window, blogService, name) {
+    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', '$stateParams',
+        function ($scope, $location, $window, blogService, $stateParams) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
 
         });
+
+        var name = $stateParams.name
 
         $scope.disqusConfig = {
             disqus_identifier: name,
