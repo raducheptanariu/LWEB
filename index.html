@@ -40,10 +40,15 @@
         }(window.location))
     </script>
 </head>
-<body ng-controller="IndexCtrl"
-      ui-swipe-left="changeLocation(1)"
-      ui-swipe-right="changeLocation(-1)">
-    <animation-director animate-clockwise="goClockwise"></animation-director>
+    <body ng-controller="IndexCtrl"
+          ui-swipe-left="changeLocation(1)"
+          ui-swipe-right="changeLocation(-1)">
+    <animation-director
+        animate-clockwise="goClockwise"
+        animate-clockwise-class="revealAnimationClockwise"
+        animate-counter-clockwise-class="revealAnimation"
+        animation-target="#ui-view">
+    </animation-director>
 
     <div class="brand" id="stickyTarget">Laura Serban</div>
 
@@ -129,9 +134,7 @@
     </nav>
     
     <div id="stickyTargetMobile">
-        <div id="ui-view"
-             ui-view
-             ng-class="{ revealAnimationClockwise: goClockwise , revealAnimation: !goClockwise }">
+        <div id="ui-view" ui-view ng-class="{ revealAnimationClockwise: goClockwise , revealAnimation: !goClockwise }">
         </div>
     </div>
 

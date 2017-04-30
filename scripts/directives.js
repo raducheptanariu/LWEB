@@ -256,7 +256,10 @@ angular.module('app')
         return {
             restrict: 'E',
             scope: {
-                animateClockwise: '='
+                animateClockwise: '=',
+                animationTarget: '@',
+                animateClockwiseClass: '@',
+                animateCounterClockwiseClass: '@'
             },
             link: function (scope) {
                 var animationIsSet = false;
@@ -264,12 +267,10 @@ angular.module('app')
                 scope.$on('$stateChangeStart', function (event, targetState) {
                     if (!animationIsSet) {
                         animationIsSet = true;
+                        event.preventDefault();
 
-                        var current = $rootScope.title ? $rootScope.title.toLowerCase() : '';
-                        var target = targetState.name;
-
-                        var currentIndex = navigationLinks.indexOf(current);
-                        var targetIndex = navigationLinks.indexOf(target);
+                        var currentIndex = navigationLinks.indexOf($rootScope.title ? $rootScope.title.toLowerCase() : '');
+                        var targetIndex = navigationLinks.indexOf(targetState.name);
 
                         if (currentIndex > -1 && targetIndex > -1) {
                             if (currentIndex < targetIndex) {
@@ -293,10 +294,16 @@ angular.module('app')
                             scope.animateClockwise = false;
                         }
 
-                        event.preventDefault();
-                        //$timeout(function () {
-                            $state.go(target);
-                        //});
+                        var animatedTarget = $(scope.animationTarget);
+                        if (scope.animateClockwise) {
+                            animatedTarget.removeClass(scope.animateCounterClockwiseClass);
+                            animatedTarget.addClass(scope.animateClockwiseClass);
+                        } else {
+                            animatedTarget.removeClass(scope.animateClockwiseClass);
+                            animatedTarget.addClass(scope.animateCounterClockwiseClass);
+                        }
+
+                        $state.go(targetState.name);
                     }
                 });
 
