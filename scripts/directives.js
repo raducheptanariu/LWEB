@@ -264,7 +264,7 @@ angular.module('app')
             link: function (scope) {
                 var animationIsSet = false;
 
-                scope.$on('$stateChangeStart', function (event, targetState) {
+                scope.$on('$stateChangeStart', function (event, targetState, params) {
                     if (!animationIsSet) {
                         animationIsSet = true;
                         event.preventDefault();
@@ -303,7 +303,7 @@ angular.module('app')
                             animatedTarget.addClass(scope.animateCounterClockwiseClass);
                         }
 
-                        $state.go(targetState.name);
+                        $state.go(targetState.name, params);
                     }
                 });
 

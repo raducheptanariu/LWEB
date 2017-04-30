@@ -33,12 +33,12 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
                 controller: 'BlogCtrl'
             })
             .state('blogpost', {
-                url: '/blog:name?',
+                url: '/blogpost?name',
                 templateUrl: 'views/blogpost.html',
                 controller: 'BlogPostCtrl',
                 resolve: {
-                    name: function($state) {
-                        return $state.current.params.name.substring(6);
+                    name: function($stateParams) {
+                        return $stateParams.name;
                     }
                 }
             })

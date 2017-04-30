@@ -37,9 +37,8 @@ angular.module('app')
                     }
                 }
 
-                $state.go(target);
-
-                //$location.path(target);
+                var params = {};
+                $state.go(target, params);
             }
         }
     }])
@@ -119,8 +118,8 @@ angular.module('app')
     }])
 
     // Path: /blogpost&name=
-    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'disqusShortname', 'name',
-        function ($scope, $location, $window, blogService, disqusShortname, name) {
+    .controller('BlogPostCtrl', ['$scope', '$location', '$window', 'blogService', 'name',
+        function ($scope, $location, $window, blogService, name) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
