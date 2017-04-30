@@ -78,7 +78,7 @@ angular.module('app')
                 if ($window.innerWidth < 768) {
                     adapt = $('#' + scope.stickyAdaptMarginMobile);
                     currentMargin = parseInt(adapt.css('marginTop'));
-                    newMargin = elm.height() + currentMargin + 20;
+                    newMargin = elm.height() + currentMargin - 30;
                     elm.addClass(scope.stickyClass);
                     adapt.css('marginTop', newMargin);
                 }
