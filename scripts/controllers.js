@@ -47,7 +47,7 @@ angular.module('app')
     .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
             
         $scope.disqusConfig = {
@@ -59,7 +59,7 @@ angular.module('app')
     .controller('GalleryCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Gallery';
         $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 
@@ -67,7 +67,7 @@ angular.module('app')
     .controller('MusicCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Music';
         $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 
@@ -76,7 +76,7 @@ angular.module('app')
         function ($scope, $location, $window, repertoireService) {
         $scope.$root.title = 'Repertoire';
         $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
 
         repertoireService.getRepertoireList().then(function (response) {
@@ -88,7 +88,7 @@ angular.module('app')
     .controller('ContactCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Contact';
         $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 
@@ -122,7 +122,7 @@ angular.module('app')
         function ($scope, $location, $window, blogService, $stateParams) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
 
         });
 
@@ -149,7 +149,7 @@ angular.module('app')
     .controller('Error404Ctrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Error 404: Page Not Found';
         $scope.$on('$viewContentLoaded', function () {
-            //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
+            $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
     }])
 

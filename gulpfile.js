@@ -4,6 +4,8 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var cleanCSS = require('gulp-clean-css');
+
  // Concatenate & Minify JS
 gulp.task('scripts', function() {
     return gulp.src([
@@ -29,10 +31,23 @@ gulp.task('scripts', function() {
 		"scripts/controllers.js",
 		"scripts/directives.js"
 	])
-		.pipe(concat('bundle.js'))
-			.pipe(rename({suffix: '.min'}))
-			.pipe(uglify())
-			.pipe(gulp.dest('build'));
+	.pipe(concat('bundle.js'))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(uglify())
+		.pipe(gulp.dest('scripts'));
 });
+
+gulp.task('css', function() {
+    return gulp.src([
+		"content/css/bootstrap.min.css",
+		"content/css/font-awesome.min.css",
+		"content/css/business-casual.css"
+	])
+	.pipe(concat('bundle.css'))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(cleanCSS())
+		.pipe(gulp.dest('content/css'));
+});
+
  // Default Task
-gulp.task('default', ['scripts']);
+gulp.task('default', ['scripts', 'css']);
