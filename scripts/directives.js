@@ -294,9 +294,9 @@ angular.module('app')
                         }
 
                         event.preventDefault();
-                        $timeout(function () {
+                        //$timeout(function () {
                             $state.go(target);
-                        });
+                        //});
                     }
                 });
 
