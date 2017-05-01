@@ -75,7 +75,7 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
 
     $rootScope.$on("$stateChangeSuccess", function () {
         $timeout(function () {
-            $rootScope.viewTransition--;
+            $rootScope.viewTransition -= 2;
         }, 1500);
     });
 }]);
