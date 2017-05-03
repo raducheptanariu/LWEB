@@ -7,11 +7,11 @@
     <base href="/">
     <link rel="canonical" href="https://www.lauraserban.com" />
 
-    <!--<link href="content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="content/css/bootstrap.min.css" rel="stylesheet">
     <link href="content/css/font-awesome.min.css" rel="stylesheet">
-    <link href="content/css/business-casual.css" rel="stylesheet">-->
+    <link href="content/css/business-casual.css" rel="stylesheet">
     
-    <link href="content/css/bundle.min.css?update=001" rel="stylesheet" />
+    <!--<link href="content/css/bundle.min.css?update=001" rel="stylesheet" />-->
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Italianno" rel="stylesheet">
@@ -45,98 +45,91 @@
     <body ng-controller="IndexCtrl"
           ui-swipe-left="changeLocation(1)"
           ui-swipe-right="changeLocation(-1)">
-    <p style="display:none">Singer, songwriter, make-up artist and fashion blogger. You can expect everything from original songs, covers, videos singing live as well as fashion, beauty, fitness and lifestyle posts</p>
-    <animation-director
-        animate-clockwise="goClockwise"
-        animate-clockwise-class="revealAnimationClockwise"
-        animate-counter-clockwise-class="revealAnimation"
-        animation-target="#ui-view">
-    </animation-director>
+        <p style="display:none">Singer, songwriter, make-up artist and fashion blogger. You can expect everything from original songs, covers, videos singing live as well as fashion, beauty, fitness and lifestyle posts</p>
+        <animation-director
+            animate-clockwise="goClockwise"
+            animate-clockwise-class="revealAnimationClockwise"
+            animate-counter-clockwise-class="revealAnimation"
+            animation-target="#ui-view">
+        </animation-director>
 
-    <div class="brand" id="stickyTarget">Laura Șerban</div>
-
-    <nav class="navbar navbar-default"
-         sticky-on-scroll="125"
-         sticky-class="navbar-fixed"
-         sticky-adapt-margin="stickyTarget"
-         sticky-adapt-margin-mobile="stickyTargetMobile"
-         ng-init="stickyHeight = 0"
-         role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar top-bar"></span>
-                <span class="icon-bar middle-bar"></span>
-                <span class="icon-bar bottom-bar"></span>
-            </button>
-            <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-            <a class="navbar-brand" href="/">Laura Șerban</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" collapse-on-swipe>
-            <ul class="nav navbar-nav">
-                <li class="navbar-icon">
-                    <language-applier></language-applier>
-                    <!--<span>
-                    <span ng-repeat="lang in langs" ng-click="changeLang(lang)"
-                          class="flag-icon" ng-class="{ 'flag-icon-ro' : lang == 'ro', 'flag-icon-gb' : lang != 'ro' }">
-                    </span>
-                </span>-->
-                </li>
-                <li>
-                    <a ng-class="{ 'title-selected': $root.title == 'About'}"
-                       data-toggle="collapse"
-                       data-target=".navbar-collapse"
-                       data-translate="LAYOUT_HEADER_ABOUT"
-                       href="/">About me</a>
-                </li>
-                <li>
-                    <a ng-class="{ 'title-selected': $root.title == 'Gallery'}"
-                       data-toggle="collapse"
-                       data-target=".navbar-collapse"
-                       data-translate="LAYOUT_HEADER_GALLERY"
-                       href="/gallery">Gallery</a>
-                </li>
-                <li>
-                    <a ng-class="{ 'title-selected': $root.title == 'Music'}"
-                       data-toggle="collapse"
-                       data-target=".navbar-collapse"
-                       data-translate="LAYOUT_HEADER_MUSIC"
-                       href="/music">Music</a>
-                </li>
-                <li>
-                    <a ng-class="{ 'title-selected': $root.title == 'Repertoire'}"
-                       data-translate="LAYOUT_HEADER_REPERTOIRE"
-                       data-toggle="collapse"
-                       data-target=".navbar-collapse"
-                       href="/repertoire">Repertoire</a>
-                </li>
-                <li>
-                    <a ng-class="{ 'title-selected': $root.title == 'Blog'}"
-                       data-translate="LAYOUT_HEADER_BLOG"
-                       data-toggle="collapse"
-                       data-target=".navbar-collapse"
-                       href="/blog">Blog</a>
-                </li>
-                <li>
-                    <a ng-class="{ 'title-selected': $root.title == 'Contact'}"
-                       data-translate="LAYOUT_HEADER_CONTACT"
-                       data-toggle="collapse"
-                       data-target=".navbar-collapse"
-                       href="/contact">Contact</a>
-                </li>
-                <li class="navbar-icon">
-                    <span><a ng-href="{{instagramLink}}" target="_blank"><i class="fa fa-instagram" ria-hidden="true"></i></a></span>
-                    <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
-                    <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
-                    <span><a ng-href="{{twitterLink}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <nav class="navbar navbar-default navbar-fixed"
+             role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="/">Laura Șerban</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" collapse-on-swipe>
+                <ul class="nav navbar-nav">
+                    <li class="navbar-icon">
+                        <language-applier></language-applier>
+                        <!--<span>
+                        <span ng-repeat="lang in langs" ng-click="changeLang(lang)"
+                              class="flag-icon" ng-class="{ 'flag-icon-ro' : lang == 'ro', 'flag-icon-gb' : lang != 'ro' }">
+                        </span>
+                    </span>-->
+                    </li>
+                    <li>
+                        <a ng-class="{ 'title-selected': $root.title == 'About'}"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           data-translate="LAYOUT_HEADER_ABOUT"
+                           href="/">About me</a>
+                    </li>
+                    <li>
+                        <a ng-class="{ 'title-selected': $root.title == 'Gallery'}"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           data-translate="LAYOUT_HEADER_GALLERY"
+                           href="/gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a ng-class="{ 'title-selected': $root.title == 'Music'}"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           data-translate="LAYOUT_HEADER_MUSIC"
+                           href="/music">Music</a>
+                    </li>
+                    <li>
+                        <a ng-class="{ 'title-selected': $root.title == 'Repertoire'}"
+                           data-translate="LAYOUT_HEADER_REPERTOIRE"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           href="/repertoire">Repertoire</a>
+                    </li>
+                    <li>
+                        <a ng-class="{ 'title-selected': $root.title == 'Blog'}"
+                           data-translate="LAYOUT_HEADER_BLOG"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           href="/blog">Blog</a>
+                    </li>
+                    <li>
+                        <a ng-class="{ 'title-selected': $root.title == 'Contact'}"
+                           data-translate="LAYOUT_HEADER_CONTACT"
+                           data-toggle="collapse"
+                           data-target=".navbar-collapse"
+                           href="/contact">Contact</a>
+                    </li>
+                    <li class="navbar-icon">
+                        <span><a ng-href="{{instagramLink}}" target="_blank"><i class="fa fa-instagram" ria-hidden="true"></i></a></span>
+                        <span><a ng-href="{{facebookLink}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></span>
+                        <span><a ng-href="{{youtubeLink}}" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></span>
+                        <span><a ng-href="{{twitterLink}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     
-    <div id="stickyTargetMobile">
+    <div class="margin-fixed">
         <div id="ui-view" ui-view ng-class="{ revealAnimationClockwise: goClockwise , revealAnimation: !goClockwise }">
         </div>
     </div>
