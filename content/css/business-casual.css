@@ -81,7 +81,7 @@ hr {
 .navbar-brand {
     font-family: 'Italianno', cursive;
     text-transform: none;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 2px;
     color: #000;
     font-size: 3.5em;
@@ -494,7 +494,7 @@ footer p {
 }
 
 .margin-fixed {
-    margin-top: 35px;
+    margin-top: 60px;
 }
 
 @media (max-width: 767px){
@@ -504,6 +504,10 @@ footer p {
 }
 
 @media screen and (min-width:768px) {
+
+    .margin-fixed {
+        margin-top: 35px;
+    }
 
     body {
         font-size:17px;
