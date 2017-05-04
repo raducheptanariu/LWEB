@@ -514,6 +514,7 @@ footer p {
 
     .borderless-mobile-image {
         padding: 0;
+        top: -8px;
         width: 100vw;
         left: calc(-50vw + 50%);
     }
