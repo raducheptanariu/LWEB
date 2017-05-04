@@ -83,7 +83,7 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
 app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "blog", "contact"]);
 app.constant('availableLangs', ["ro", "en"]);
 
-app.constant('userId', '1397192335');
+http://localhost:50200/../content/img/bg.jpgapp.constant('userId', '1397192335');
 app.constant('facebookLink', 'https://www.facebook.com/LauraSerbanOfficial/?pnref=lhc');
 app.constant('youtubeLink', 'https://www.youtube.com/user/lauraserban16');
 app.constant('twitterLink', 'https://twitter.com/lauraserban?lang=en');
@@ -95,3 +95,6 @@ app.constant('postsListApi', 'api/blog/_posts.json');
 app.constant('postsApi', 'api/blog/');
 
 app.constant('disqusShortname', 'lauraserban-com');
+
+app.constant('phoneConfig', '+40 754732375');
+app.constant('emailConfig', 'lauraserbanmusic@gmail.com');

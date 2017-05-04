@@ -85,11 +85,14 @@ angular.module('app')
     }])
 
     // Path: /contact
-    .controller('ContactCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('ContactCtrl', ['$scope', '$location', '$window', 'phoneConfig', 'emailConfig', function ($scope, $location, $window, phoneConfig, emailConfig) {
         $scope.$root.title = 'Contact';
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
         });
+
+        $scope.myPhone = phoneConfig;
+        $scope.myEmail = emailConfig;
     }])
 
     // Path: /blog
