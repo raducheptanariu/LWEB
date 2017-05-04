@@ -536,7 +536,6 @@ footer p {
         color: #222;
         text-transform: none;
         font-family: 'Italianno', cursive;
-        /*text-transform: uppercase;*/
     }
 
     .box {
@@ -634,10 +633,9 @@ footer p {
         font-weight: 600;
         letter-spacing: 2px;
         padding: 15px 15px;
-        font-size: 16.5px;
+        font-size: 32px;
         height: 40px;
         line-height: 15px;
-        text-transform: uppercase;
         top: 5px;
         margin: 0;
     }
@@ -733,12 +731,9 @@ footer p {
     .youtube-icon-large {
         font-size: 4vw;
     }
-}
 
-@media screen and (min-width:1400px) {
     .nav>li.navbar-filler {
         display: block;
-        left: 5vw;
         right: 0;
     }
 }

@@ -83,7 +83,7 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
 app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "blog", "contact"]);
 app.constant('availableLangs', ["ro", "en"]);
 
-http://localhost:50200/../content/img/bg.jpgapp.constant('userId', '1397192335');
+app.constant('userId', '1397192335');
 app.constant('facebookLink', 'https://www.facebook.com/LauraSerbanOfficial/?pnref=lhc');
 app.constant('youtubeLink', 'https://www.youtube.com/user/lauraserban16');
 app.constant('twitterLink', 'https://twitter.com/lauraserban?lang=en');

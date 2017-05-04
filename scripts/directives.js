@@ -347,7 +347,7 @@ angular.module('app')
         }
     })
 
-    .directive('formWrapper', ['$timeout', function ($timeout) {
+    .directive('formWrapper', ['$timeout', 'emailConfig', function ($timeout, emailConfig) {
         return {
             restrict: 'A',
             scope:{
@@ -361,7 +361,7 @@ angular.module('app')
                     var data = elm.serialize();
 
                     $.ajax({
-                        url: "https://formspree.io/raduchept@gmail.com",
+                        url: "https://formspree.io/" + emailConfig,
                         method: "POST",
                         data: data,
                         dataType: "json"
