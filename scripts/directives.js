@@ -16,7 +16,7 @@ angular.module('app')
             },
             templateUrl: 'views/templates/carousel.html',
             link: function (scope) {
-                if (scope.hideMobile == 'true' && $window.innerHeight < 768) return;
+                if (scope.hideMobile == 'true' && $window.innerWidth < 768) return;
 
                 if (!$rootScope.slides || $rootScope.slides.length == 0) {
                     scope.carouselSlides = [];
