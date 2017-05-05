@@ -65,7 +65,7 @@ angular.module('app')
                 return list;
 
             return list.filter(function(item) {
-                return item.id.videoId != 'fDsYMaG6DVs';
+                return item.id.videoId != 'fDsYMaG6DVs' && item.id.videoId != '8DERIZbBM8A' && item.id.videoId != '7Oi3KDEaI6Q';
             });
         };
     }])
