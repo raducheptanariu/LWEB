@@ -8,12 +8,16 @@ angular.module('app')
         };
     }])
 
-    .directive('carouselLoader', ['$http', '$rootScope', function ($http, $rootScope) {
+    .directive('carouselLoader', ['$http', '$rootScope', '$window', function ($http, $rootScope, $window) {
         return {
             restrict: 'E',
+            scope: {
+                hideMobile: '@?'  
+            },
             templateUrl: 'views/templates/carousel.html',
-            replace: true,
             link: function (scope) {
+                if (scope.hideMobile == 'true' && $window.innerHeight < 768) return;
+
                 if (!$rootScope.slides || $rootScope.slides.length == 0) {
                     scope.carouselSlides = [];
                     populateCarouselAsync(0);
