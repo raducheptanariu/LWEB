@@ -53,6 +53,10 @@ angular.module('app')
         $scope.disqusConfig = {
             disqus_identifier: 'About',
         };
+
+        $scope.isDesktop = function() {
+            return $window.innerHeight > 768;
+        }
     }])
 
     // Path: /gallery

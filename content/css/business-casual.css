@@ -502,6 +502,7 @@ footer p {
     display: none;
 }
 
+
 @media (max-width: 767px){
     .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
         padding: 5px 10px 5px 10px;
@@ -518,9 +519,16 @@ footer p {
         width: 100vw;
         left: calc(-50vw + 50%);
     }
+    .desktop-only {
+        display: none;
+    }
 }
 
 @media screen and (min-width:768px) {
+
+    .mobile-only {
+        display: none;
+    }
 
     .desktop-margin {
         margin-top: 6vw;
