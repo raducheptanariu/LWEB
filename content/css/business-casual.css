@@ -512,8 +512,10 @@ footer p {
 }
 
 .modal-sub>span>img.active-like:hover {
-    -webkit-filter: invert(30%) sepia() saturate(10000%) hue-rotate(230deg);
-    filter: invert(30%) sepia() saturate(10000%) hue-rotate(230deg);
+    -webkit-filter: invert(10%) sepia() saturate(10000%) hue-rotate(250deg);
+    filter: invert(10%) sepia() saturate(10000%) hue-rotate(250deg);
+    cursor: pointer;
+    
 }
 
 .custom-tooltip {
@@ -521,8 +523,8 @@ footer p {
 
 .custom-tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    background-color: black;
+    width: 100px;
+    background-color: #7889d9;
     color: #fff;
     text-align: center;
     border-radius: 6px;
@@ -530,7 +532,10 @@ footer p {
 
     /* Position the tooltip */
     position: absolute;
+    left: 30%;
+    top: -30px;
     z-index: 1;
+    cursor: pointer;
 }
 
 .custom-tooltip:hover .tooltiptext {

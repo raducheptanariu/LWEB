@@ -1,6 +1,36 @@
 ﻿'use strict';
 
 angular.module('app')
+    .factory('instagramService', ['$http', 'instagramLikeApi', 'instagramToken', function ($http, instagramLikeApi, instagramToken) {
+        var factory = {};
+
+        factory.postLike = function(mediaId) {
+            var url = instagramLikeApi.replace('{media-id}', mediaId);
+
+            var data = {
+                access_token: instagramToken
+            };
+
+            var request = $http({
+                method: 'post',
+                url: url,
+                data: data
+            });
+
+            return (request.then(handleSuccess, handleError));
+        };
+
+        function handleSuccess(response) {
+            return response;
+        };
+
+        function handleError() {
+            //alert('err');
+        }
+
+        return factory;
+    }])
+
     .factory('youtubeService', ['$http', '$q', 'youtubeListApi', function ($http, $q, youtubeListApi) {
         var factory = {};
         // cache

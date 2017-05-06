@@ -90,6 +90,9 @@ app.constant('twitterLink', 'https://twitter.com/lauraserban?lang=en');
 app.constant('instagramLink', 'https://www.instagram.com/lauraserbanofficial/?hl=en');
 
 app.constant('youtubeListApi', 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIrOoqnoaKuGFMN3iuu3OClGthSii1ZZA&type=video&channelId=UCSVLGuqttMcRdGrWnABlt3Q&part=snippet,id&order=date&maxResults=20');
+app.constant('instagramLikeApi', 'https://api.instagram.com/v1/media/{media-id}/likes');
+app.constant('instagramToken', '1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09');
+
 app.constant('repertoireListApi', 'api/repertoire.json');
 app.constant('postsListApi', 'api/blog/_posts.json');
 app.constant('postsApi', 'api/blog/');

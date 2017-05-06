@@ -133,7 +133,7 @@ angular.module('app')
 
         });
 
-        var name = $stateParams.name
+        var name = $stateParams.name;
 
         $scope.disqusConfig = {
             disqus_identifier: name,
@@ -160,12 +160,18 @@ angular.module('app')
         });
     }])
 
-    .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', function ($scope, $uibModalInstance, model) {
+    .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', 'instagramService', function ($scope, $uibModalInstance, model, instagramService) {
         $scope.model = model;
+
+        $scope.like = function (imageId) {
+            instagramService.postLike(imageId).then(function(response) {
+                console.log(response);
+            });
+        };
 
         $scope.close = function () {
             $uibModalInstance.dismiss('close');
-        }
+        };
     }])
 
     .controller('youtubePlayerPopupCtrl', ['$scope', '$uibModalInstance', 'model', function ($scope, $uibModalInstance, model) {
