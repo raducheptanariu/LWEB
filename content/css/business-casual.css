@@ -511,6 +511,31 @@ footer p {
     display: none;
 }
 
+.modal-sub>span>img.active-like:hover {
+    -webkit-filter: invert(30%) sepia() saturate(10000%) hue-rotate(230deg);
+    filter: invert(30%) sepia() saturate(10000%) hue-rotate(230deg);
+}
+
+.custom-tooltip {
+}
+
+.custom-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.custom-tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 
 @media (max-width: 767px){
     .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {

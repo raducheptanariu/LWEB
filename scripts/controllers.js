@@ -96,7 +96,7 @@ angular.module('app')
     }])
 
     // Path: /blog
-    .controller('BlogCtrl', ['$scope', '$location', '$window', 'blogService', function ($scope, $location, $window, blogService) {
+    .controller('BlogCtrl', ['$scope', '$location', '$window', '$state', 'blogService', function ($scope, $location, $window, $state, blogService) {
         $scope.$root.title = 'Blog';
         $scope.$on('$viewContentLoaded', function () {
             //$window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -108,15 +108,19 @@ angular.module('app')
         blogService.getPosts().then(function (response) {
             postsList = response;
 
-            for (var i = 0; i < postsList.length; i++) {
-                var name = postsList[i].name;
+            if (postsList.length == 1) {
+                $state.go('blogpost', { name: postsList[0].name });
+            } else {
+                for (var i = 0; i < postsList.length; i++) {
+                    var name = postsList[i].name;
 
-                blogService.getPostContent(name).then(function (response) {
-                    var post = response.content;
+                    blogService.getPostContent(name).then(function (response) {
+                        var post = response.content;
 
-                    $scope.posts.push(post);
-                });
-            };
+                        $scope.posts.push(post);
+                    });
+                };
+            }
         });
     }])
 

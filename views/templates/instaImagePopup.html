@@ -1,5 +1,6 @@
 ﻿<div class="modal-popup">
     <a class="btn btn-primary modal-title" ng-href="{{model.link}}" target="_blank" data-translate="GALLERY_POPUP_SEE">See on Instagram</a>
+
     <button type="button" class="close close-modal" ng-click="close()">
         <img src="../../content/img/cross.png"/>
     </button>
@@ -7,7 +8,7 @@
          on-error-src="{{model.images.standard_resolution.url}}"/>
     <span class="modal-sub">
         <span class="col-md-4 col-lg-4"> {{model.created_time | intToInstaDate}} </span>
-        <span class="col-md-4 col-lg-4"> <img src="../../content/img/like.png" /> {{model.likes.count}} </span>
+        <span class="col-md-4 col-lg-4 custom-tooltip"><span class="tooltiptext">Like me!</span> <img class="active-like" src="../../content/img/like.png"/> {{model.likes.count}} </span>
         <span class="col-md-4 col-lg-4"> <img src="../../content/img/comment.png" /> {{model.comments.count}} </span>
     </span>
 </div>

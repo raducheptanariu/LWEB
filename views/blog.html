@@ -10,12 +10,11 @@
                     <img class="img-responsive img-border img-full" ng-src="{{post.img[0]}}" alt="">
                 </a>
                 
+                <h2 translate="{{post.title}}"></h2>
                 <h2>
-                    {{post.title}}
-                    <br>
-                    <small>{{post.subtitle}}</small>
+                    <small translate="{{post.subtitle}}"></small>
                 </h2>
-                <p>{{post.paragraph[0]}}</p>
+                <p translate="{{post.paragraph[0]}}"></p>
                 <a ui-sref="blogpost({ name: post.name })" class="btn btn-default btn-lg" data-translate="BLOG_MORE">Read More</a>
                 <hr>
             </div>
