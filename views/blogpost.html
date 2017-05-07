@@ -6,15 +6,16 @@
             </div>
 
             <div class="col-lg-12 text-center">
-                <img class="img-responsive img-border img-full img-spacing" ng-src="{{post.img[0]}}" alt="">
+                <img class="img-responsive img-border img-full img-spacing" ng-src="{{post.img[0]}}" alt="Blog Post {{post.title}}">
                 <h2 translate="{{post.title}}">
                 </h2>
                 <h2><small translate="{{post.subtitle}}"></small></h2>
                 <p ng-repeat="paragraph in post.paragraph" translate="{{paragraph}}"></p>
                 <hr>
-                <img class="img-responsive img-border img-full img-spacing" 
+                <img class="img-responsive img-border img-full img-spacing"
                      ng-repeat="img in post.img" ng-if="!$first"
-                     ng-src="{{img}}" />
+                     ng-src="{{img}}"
+                     alt="Blog Post {{post.title}}" />
             </div>
 
             <div class="col-lg-12 text-center">

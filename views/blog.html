@@ -7,7 +7,7 @@
 
             <div ng-repeat="post in posts" class="col-lg-12 text-center">
                 <a ng-href="/blog&name={{post.name}}">
-                    <img class="img-responsive img-border img-full" ng-src="{{post.img[0]}}" alt="">
+                    <img class="img-responsive img-border img-full" ng-src="{{post.img[0]}}" alt="Blog Post {{post.title}}">
                 </a>
                 
                 <h2 translate="{{post.title}}"></h2>

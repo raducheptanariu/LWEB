@@ -1,7 +1,7 @@
 ﻿<div ng-if="carouselReady" class="carousel slide animationIf">
     <div uib-carousel interval="5000" active="0">
         <div uib-slide ng-repeat="slide in carouselSlides track by $index" index="slide.id">
-            <img class="img-responsive img-full" ng-src="{{slide.image}}" style="width:inherit; margin:auto;" />
+            <img class="img-responsive img-full" ng-src="{{slide.image}}" style="width:inherit; margin:auto;" alt="Laura Serban Solista {{$index}}" />
         </div>
     </div>
 </div>

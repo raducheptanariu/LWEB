@@ -8,11 +8,11 @@
             <div ng-repeat="item in ngInstafeedModel.data">
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box-image" insta-image-popup="item">
                     <div hover-applier="isHovering">
-                        <div class="fade-image"><img ng-src="{{item.images.standard_resolution.url}}" /></div>
+                        <div class="fade-image"><img ng-src="{{item.images.standard_resolution.url}}" alt="Laura Serban photo" /></div>
                         <span class="image-hover" ng-show="isHovering == true">
-                            <img src="../../content/img/like.png" />
+                            <img src="/content/img/like.png" alt="Like Image" />
                             <span> {{item.likes.count}} </span>
-                            <img src="../../content/img/comment.png" />
+                            <img src="/content/img/comment.png" alt="Comment Image" />
                             <span> {{item.comments.count}} </span>
                         </span>
                     </div>

@@ -8,7 +8,7 @@
             <div ng-repeat="item in model.items | hardcodedFilter">
                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 box-image" youtube-player-popup="item">
                     <div hover-applier="isHovering">
-                        <div class="fade-image"><img ng-src="{{item.snippet.thumbnails.high.url}}" /></div>
+                        <div class="fade-image"><img ng-src="{{item.snippet.thumbnails.high.url}}" alt="{{item.snippet.title}}" /></div>
                         <span ng-show="isHovering==true">
                             <span class="text-hover">{{item.snippet.title}}</span>
                         </span>
