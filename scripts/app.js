@@ -1,60 +1,103 @@
 ﻿'use strict';
 
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
-angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers'])
+var app = angular.module('app', ['ui.router', 'pascalprecht.translate', 'ui.bootstrap', 'ngAnimate', 'ngTouch', 'ngInstafeed', 'youtube-embed', 'mobile-angular-ui.gestures.swipe']);
 
-    // Gets executed during the provider registrations and configuration phase. Only providers and constants can be
-    // injected here. This is to prevent accidental instantiation of services before they have been fully configured.
-    .config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
-
-        // UI States, URL Routing & Mapping. For more info see: https://github.com/angular-ui/ui-router
-        // ------------------------------------------------------------------------------------------------------------
-
+app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInstafeedProvider',
+    function ($stateProvider, $locationProvider, $translateProvider, ngInstafeedProvider) {
         $stateProvider
-            .state('home', {
-                url: '/',
-                templateUrl: '/index',
-                controller: 'HomeCtrl'
-
-            })
+           /* Root */
             .state('about', {
-                url: '/about',
-                templateUrl: '/views/about',
+                url: '/',
+                templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
-            .state('login', {
-                url: '/login',
-                layout: 'basic',
-                templateUrl: '/views/login',
-                controller: 'LoginCtrl'
+            .state('gallery', {
+                url: '/gallery',
+                templateUrl: 'views/gallery.html',
+                controller: 'GalleryCtrl'
+            })
+            .state('music', {
+                url: '/music',
+                templateUrl: 'views/music.html',
+                controller: 'MusicCtrl'
+            })
+            .state('repertoire', {
+                url: '/repertoire',
+                templateUrl: 'views/repertoire.html',
+                controller: 'RepertoireCtrl'
+            })
+            .state('blog', {
+                url: '/blog',
+                templateUrl: 'views/blog.html',
+                controller: 'BlogCtrl'
+            })
+            .state('blogpost', {
+                url: '/blogpost?name',
+                templateUrl: 'views/blogpost.html',
+                controller: 'BlogPostCtrl'
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: 'views/contact.html',
+                controller: 'ContactCtrl'
             })
             .state('otherwise', {
                 url: '*path',
-                templateUrl: '/404',
+                templateUrl: 'views/404.html',
                 controller: 'Error404Ctrl'
-            });
-
-        //$locationProvider.html5Mode(true);
-
-    }])
-
-    // Gets executed after the injector is created and are used to kickstart the application. Only instances and constants
-    // can be injected here. This is to prevent further system configuration during application run time.
-    .run(['$templateCache', '$rootScope', '$state', '$stateParams', function ($templateCache, $rootScope, $state, $stateParams) {
-
-        // <ui-view> contains a pre-rendered template for the current view
-        // caching it will prevent a round-trip to a server at the first page load
-        var view = angular.element('#ui-view');
-        $templateCache.put(view.data('tmpl-url'), view.html());
-
-        // Allows to retrieve UI Router state information from inside templates
-        $rootScope.$state = $state;
-        $rootScope.$stateParams = $stateParams;
-
-        $rootScope.$on('$stateChangeSuccess', function (event, toState) {
-
-            // Sets the layout name, which can be used to display different layouts (header, footer etc.)
-            // based on which page the user is located
-            $rootScope.layout = toState.layout;
         });
-    }]);
+
+       $locationProvider.html5Mode(true);
+
+       var lang = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
+       var currentLang = lang.indexOf('ro') >= 0 ? 'ro' : 'en';
+
+       $translateProvider.useStaticFilesLoader({
+           files: [{
+               prefix: 'api/translate/pages-',
+               suffix: '.json'
+           }]
+       });
+       $translateProvider.preferredLanguage(currentLang);
+
+       ngInstafeedProvider.setClientId('6dec9fed9b844f809902163e95c47009');
+       ngInstafeedProvider.setAccessToken('1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09');
+   }
+]);
+
+app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
+    $rootScope.viewTransition = 0;
+
+    $rootScope.$on("$stateChangeStart", function () {
+        $rootScope.viewTransition++;
+    });
+
+    $rootScope.$on("$stateChangeSuccess", function () {
+        $timeout(function () {
+            $rootScope.viewTransition -= 2;
+        }, 1500);
+    });
+}]);
+
+app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "blog", "contact"]);
+app.constant('availableLangs', ["ro", "en"]);
+
+app.constant('userId', '1397192335');
+app.constant('facebookLink', 'https://www.facebook.com/LauraSerbanOfficial/?pnref=lhc');
+app.constant('youtubeLink', 'https://www.youtube.com/user/lauraserban16');
+app.constant('twitterLink', 'https://twitter.com/lauraserban?lang=en');
+app.constant('instagramLink', 'https://www.instagram.com/lauraserbanofficial/?hl=en');
+
+app.constant('youtubeListApi', 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCIrOoqnoaKuGFMN3iuu3OClGthSii1ZZA&type=video&channelId=UCSVLGuqttMcRdGrWnABlt3Q&part=snippet,id&order=date&maxResults=20');
+app.constant('instagramLikeApi', 'https://api.instagram.com/v1/media/{media-id}/likes');
+app.constant('instagramToken', '1397192335.1677ed0.b8bb8d167229491dba54f27f8c8c1a09');
+
+app.constant('repertoireListApi', 'api/repertoire.json');
+app.constant('postsListApi', 'api/blog/_posts.json');
+app.constant('postsApi', 'api/blog/');
+
+app.constant('disqusShortname', 'lauraserban-com');
+
+app.constant('phoneConfig', '+40 754732375');
+app.constant('emailConfig', 'lauraserbanmusic@gmail.com');
