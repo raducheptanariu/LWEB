@@ -4,7 +4,7 @@ angular.module('app')
     .factory('instagramService', ['$http', 'instagramLikeApi', 'instagramToken', function ($http, instagramLikeApi, instagramToken) {
         var factory = {};
 
-        factory.postLike = function(mediaId) {
+        factory.postLike4 = function(mediaId) {
             var url = instagramLikeApi.replace('{media-id}', mediaId);
 
             var data = {
@@ -20,12 +20,51 @@ angular.module('app')
             return (request.then(handleSuccess, handleError));
         };
 
+        factory.postLike3 = function (mediaId) {
+            $.ajax({
+                url: instagramLikeApi.replace('{media-id}', mediaId),
+                type: 'POST',
+                data: { access_token: instagramToken },
+                //dataType: 'jsonp',
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+        };
+
+        factory.postLike2 = function (mediaId) {
+            var url = instagramLikeApi.replace('{media-id}', mediaId) + "?access_token=" + instagramToken + '&callback=?';
+
+            $.getJSON(url, function (data) {
+                    console.log(data);
+                }
+            );
+        };
+
+        factory.postLike = function(mediaId) {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "https://api.instagram.com/v1/media/" + mediaId + "/likes?access_token=" + instagramToken,
+                //data: {
+                //    access_token: instagramToken,
+                //    _method: 'POST'
+                //},
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('err');
+                }
+            });
+        }
+
         function handleSuccess(response) {
             return response;
         };
 
-        function handleError() {
-            //alert('err');
+        function handleError(err) {
+            console.log(err);
         }
 
         return factory;
