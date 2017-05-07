@@ -16,38 +16,46 @@ angular.module('app')
             },
             templateUrl: 'views/templates/carousel.html',
             link: function (scope) {
-                if (scope.hideMobile == 'true' && $window.innerWidth < 768) return;
+                var watcher = scope.$watch(
+                    function() {
+                        return $window.innerWidth;
+                    },
+                    function() {
+                        if ($window.innerWidth > 767 || !scope.hideMobile) {
+                            if (!$rootScope.slides || $rootScope.slides.length == 0) {
+                                scope.carouselSlides = [];
+                                populateCarouselAsync(0);
 
-                if (!$rootScope.slides || $rootScope.slides.length == 0) {
-                    scope.carouselSlides = [];
-                    populateCarouselAsync(0);
+                                function populateCarouselAsync(index) {
+                                    var imgPath = "content/img/slider/" + (index + 1) + ".jpg";
 
-                    function populateCarouselAsync(index) {
-                        var imgPath = "content/img/slider/" + (index + 1) + ".jpg";
+                                    var xhr = new XMLHttpRequest();
+                                    xhr.open('HEAD', imgPath, true);
+                                    xhr.onload = function(event) {
+                                        if (event.currentTarget.status == 200) {
+                                            scope.$apply(function() {
+                                                scope.carouselSlides.push({
+                                                    image: imgPath,
+                                                    id: index
+                                                });
+                                                scope.carouselReady = true;
+                                            });
+                                            $rootScope.slides = scope.carouselSlides;
+                                            populateCarouselAsync(index + 1);
+                                        }
+                                    }
 
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('HEAD', imgPath, true);
-                        xhr.onload = function (event) {
-                            if (event.currentTarget.status == 200) {
-                                scope.$apply(function () {
-                                    scope.carouselSlides.push({
-                                        image: imgPath,
-                                        id: index
-                                    });
-                                    scope.carouselReady = true;
-                                });
-                                $rootScope.slides = scope.carouselSlides;
-                                populateCarouselAsync(index + 1);
+                                    xhr.send();
+                                }
+                            } else {
+                                scope.carouselSlides = $rootScope.slides;
+                                scope.carouselReady = true;
                             }
-                        }
 
-                        xhr.send();
-                    }
-                }
-                else {
-                    scope.carouselSlides = $rootScope.slides;
-                    scope.carouselReady = true;
-                }
+                            //deregistration
+                            watcher();
+                        }
+                    });
             }
         }
     }])

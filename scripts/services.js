@@ -4,42 +4,42 @@ angular.module('app')
     .factory('instagramService', ['$http', 'instagramLikeApi', 'instagramToken', function ($http, instagramLikeApi, instagramToken) {
         var factory = {};
 
-        factory.postLike4 = function(mediaId) {
-            var url = instagramLikeApi.replace('{media-id}', mediaId);
+        //factory.postLike4 = function(mediaId) {
+        //    var url = instagramLikeApi.replace('{media-id}', mediaId);
 
-            var data = {
-                access_token: instagramToken
-            };
+        //    var data = {
+        //        access_token: instagramToken
+        //    };
 
-            var request = $http({
-                method: 'post',
-                url: url,
-                data: data
-            });
+        //    var request = $http({
+        //        method: 'post',
+        //        url: url,
+        //        data: data
+        //    });
 
-            return (request.then(handleSuccess, handleError));
-        };
+        //    return (request.then(handleSuccess, handleError));
+        //};
 
-        factory.postLike3 = function (mediaId) {
-            $.ajax({
-                url: instagramLikeApi.replace('{media-id}', mediaId),
-                type: 'POST',
-                data: { access_token: instagramToken },
-                //dataType: 'jsonp',
-                success: function (response) {
-                    console.log(response);
-                }
-            });
-        };
+        //factory.postLike3 = function (mediaId) {
+        //    $.ajax({
+        //        url: instagramLikeApi.replace('{media-id}', mediaId),
+        //        type: 'POST',
+        //        data: { access_token: instagramToken },
+        //        //dataType: 'jsonp',
+        //        success: function (response) {
+        //            console.log(response);
+        //        }
+        //    });
+        //};
 
-        factory.postLike2 = function (mediaId) {
-            var url = instagramLikeApi.replace('{media-id}', mediaId) + "?access_token=" + instagramToken + '&callback=?';
+        //factory.postLike2 = function (mediaId) {
+        //    var url = instagramLikeApi.replace('{media-id}', mediaId) + "?access_token=" + instagramToken + '&callback=?';
 
-            $.getJSON(url, function (data) {
-                    console.log(data);
-                }
-            );
-        };
+        //    $.getJSON(url, function (data) {
+        //            console.log(data);
+        //        }
+        //    );
+        //};
 
         factory.postLike = function(mediaId) {
             $.ajax({
@@ -51,10 +51,8 @@ angular.module('app')
                 //    _method: 'POST'
                 //},
                 success: function (data, textStatus, jqXHR) {
-                    console.log(data);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert('err');
                 }
             });
         }

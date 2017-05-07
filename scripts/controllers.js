@@ -163,11 +163,11 @@ angular.module('app')
     .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', 'instagramService', function ($scope, $uibModalInstance, model, instagramService) {
         $scope.model = model;
 
-        $scope.like = function (imageId) {
-            instagramService.postLike(imageId).then(function(response) {
-                console.log(response);
-            });
-        };
+        //$scope.like = function (imageId) {
+        //    instagramService.postLike(imageId).then(function(response) {
+        //        console.log(response);
+        //    });
+        //};
 
         $scope.close = function () {
             $uibModalInstance.dismiss('close');
