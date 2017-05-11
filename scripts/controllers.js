@@ -44,7 +44,7 @@ angular.module('app')
     }])
 
     // Path: /about
-    .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('AboutCtrl', ['$scope', '$location', '$window', '$timeout', function ($scope, $location, $window, $timeout) {
         $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -53,6 +53,16 @@ angular.module('app')
         $scope.disqusConfig = {
             disqus_identifier: 'About',
         };
+
+        if ($window.stButtons) {
+            $window.stButtons.makeButtons();
+        } else {
+            $timeout(function () {
+                if ($window.stButtons) {
+                    $window.stButtons.makeButtons();
+                }
+            }, 3000);
+        }
     }])
 
     // Path: /gallery
