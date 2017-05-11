@@ -54,12 +54,12 @@ angular.module('app')
             disqus_identifier: 'About',
         };
 
-        if ($window.stButtons) {
-            $window.stButtons.makeButtons();
+        if (window.stButtons) {
+            window.stButtons.locateElements();
         } else {
             $timeout(function () {
-                if ($window.stButtons) {
-                    $window.stButtons.makeButtons();
+                if (window.stButtons) {
+                    window.stButtons.locateElements();
                 }
             }, 3000);
         }
