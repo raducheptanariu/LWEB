@@ -479,13 +479,18 @@ angular.module('app')
         }
     }])
 
-    .directive('sharethisLoader', ['shareThisApi', function (shareThisApi) {
+    .directive('sharethisLoader', ['shareThisApi', '$rootScope', function (shareThisApi, $rootScope) {
         return{
             restrict: 'A',
-            link: function(scope, elm, attrs) {
-                var script = '<script type="text/javascript" src="' + shareThisApi +'"></script>';
-                var scriptElem = angular.element(script);
-                elm.append(scriptElem);
+            link: function (scope, elm, attrs) {
+                if (!$rootScope.shareThisInit) {
+                    var script = '<script type="text/javascript" src="' + shareThisApi + '"></script>';
+                    var scriptElem = angular.element(script);
+                    $rootScope.shareThisInit = true;
+                    elm.append(scriptElem);
+                } else if (window.__sharethis__) {
+                    window.__sharethis__.initialize();
+                }
             }
         }
     }])
