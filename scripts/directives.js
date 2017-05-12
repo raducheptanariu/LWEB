@@ -489,8 +489,8 @@ angular.module('app')
                     $rootScope.shareThisInit = true;
                     elm.append(scriptElem);
                 } else if (window.__sharethis__) {
-                    window.__sharethis__.initialize();
                     window.__sharethis__.href = $location.absUrl();
+                    window.__sharethis__.initialize();
                 }
             }
         }
