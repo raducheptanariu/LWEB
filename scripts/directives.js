@@ -478,4 +478,15 @@ angular.module('app')
             }
         }
     }])
+
+    .directive('sharethisLoader', ['shareThisApi', function (shareThisApi) {
+        return{
+            restrict: 'A',
+            link: function(scope, elm, attrs) {
+                var script = '<script type="text/javascript" src="' + shareThisApi +'"></script>';
+                var scriptElem = angular.element(script);
+                elm.append(scriptElem);
+            }
+        }
+    }])
 ;

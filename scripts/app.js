@@ -99,5 +99,7 @@ app.constant('postsApi', 'api/blog/');
 
 app.constant('disqusShortname', 'lauraserban-com');
 
+app.constant('shareThisApi', '//platform-api.sharethis.com/js/sharethis.js#property=590dc7d8ef4e140012286ac2&product=inline-share-buttons');
+
 app.constant('phoneConfig', '+40 754732375');
 app.constant('emailConfig', 'lauraserbanmusic@gmail.com');
