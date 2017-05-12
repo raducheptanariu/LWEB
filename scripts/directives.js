@@ -479,7 +479,7 @@ angular.module('app')
         }
     }])
 
-    .directive('sharethisLoader', ['shareThisApi', '$rootScope', function (shareThisApi, $rootScope) {
+    .directive('sharethisLoader', ['shareThisApi', '$rootScope', '$location', function (shareThisApi, $rootScope, $location) {
         return{
             restrict: 'A',
             link: function (scope, elm, attrs) {
@@ -490,6 +490,7 @@ angular.module('app')
                     elm.append(scriptElem);
                 } else if (window.__sharethis__) {
                     window.__sharethis__.initialize();
+                    window.__sharethis__.href = $location.absUrl();
                 }
             }
         }
