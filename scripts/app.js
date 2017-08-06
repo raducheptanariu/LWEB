@@ -103,3 +103,5 @@ app.constant('shareThisApi', '//platform-api.sharethis.com/js/sharethis.js#prope
 
 app.constant('phoneConfig', '+40 754732375');
 app.constant('emailConfig', 'lauraserbanmusic@gmail.com');
+
+app.constant('cloudnoApi', 'http://lweb.cloudno.de');

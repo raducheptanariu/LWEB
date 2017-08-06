@@ -170,14 +170,20 @@ angular.module('app')
         });
     }])
 
-    .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', 'instagramService', function ($scope, $uibModalInstance, model, instagramService) {
+    .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', 'cloudnoService', function ($scope, $uibModalInstance, model, cloudnoService) {
         $scope.model = model;
 
-        //$scope.like = function (imageId) {
-        //    instagramService.postLike(imageId).then(function(response) {
-        //        console.log(response);
-        //    });
-        //};
+        $scope.like = function (imageId) {
+            return;
+
+            cloudnoService.getResponse(imageId).then(function (response) {
+                alert(response.data);
+            });
+
+            //instagramService.postLike(imageId).then(function(response) {
+            //    console.log(response);
+            //});
+        };
 
         $scope.close = function () {
             $uibModalInstance.dismiss('close');
