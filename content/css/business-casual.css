@@ -274,7 +274,7 @@ footer p {
     left: 5%;*/
     /*height:90%;*/
     /*left: 1%;*/
-    top:10%;
+    top:5%;
 }
 
 .image-hover {
@@ -721,9 +721,9 @@ footer p {
     }
 
     .modal-dialog {
-        width: 650px;
+        width: 600px;
         left:0;
-        top:0;
+        /*top:0;*/
     }
 
     .navbar-icon>span>a>i{
@@ -784,9 +784,9 @@ footer p {
     }
 
     .modal-dialog {
-        width: 700px;
+        width: 650px;
         left: 0;
-        top: 0;
+        /*top: 0;*/
     }
 
     .youtube-icon-large {
