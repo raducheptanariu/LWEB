@@ -495,4 +495,18 @@ angular.module('app')
             }
         }
     }])
+
+    .directive('heightWatcher', ['$timeout', function ($timeout) {
+        return {
+            restrict: 'A',
+            link: function (scope, elm, attrs) {
+                $timeout(function () {
+                    var currentHeight = elm[0].offsetHeight;
+                    if (currentHeight > scope.$parent.maxHeight) {
+                        scope.$parent.maxHeight = currentHeight;
+                    }
+                }, 200);
+            }
+        }
+    }])
 ;

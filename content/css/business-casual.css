@@ -191,6 +191,9 @@ footer p {
     background-color:#ddd;
     cursor: pointer;
 }
+.image-container{
+    display: table;
+}
 
 .modal-popup{
     margin:20px;
@@ -274,7 +277,7 @@ footer p {
     left: 5%;*/
     /*height:90%;*/
     /*left: 1%;*/
-    top:5%;
+    top:10%;
 }
 
 .image-hover {
@@ -304,6 +307,12 @@ footer p {
     transform: translate(-50%, 0);
     color:#fff;
     padding:3px; 
+}
+
+.fade-image{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
 }
 
 .fade-image>img{
