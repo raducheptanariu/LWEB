@@ -808,6 +808,14 @@ footer p {
     }
 }
 
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) {
+    
+.modal-dialog {
+    top:15%;
+}
+
 .animationIf.ng-enter,
 .animationIf.ng-leave {
   -webkit-transition: opacity ease-in-out 2s, max-height 1s ease-in-out;
