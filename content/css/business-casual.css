@@ -586,7 +586,7 @@ button.close {
         height: 100%;
         margin: 0;
         padding: 0;
-        /*top:5%;*/
+        top:0;
     }
     button.close {
         background-image: url('/content/img/cross-grey.png')
