@@ -552,6 +552,10 @@ footer p {
     visibility: visible;
 }
 
+button.close {
+    background-image: url('/content/img/cross.png')
+}
+
 @media (max-width: 767px){
     .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
         padding: 5px 10px 5px 10px;
@@ -573,6 +577,41 @@ footer p {
     }
     .desktop-only {
         display: none;
+    }
+
+    .modal-dialog{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        top:5%;
+    }
+    button.close {
+        background-image: url('/content/img/cross-grey.png')
+    }
+
+    .btn-primary.modal-title{
+        border:none;
+    }
+
+    .close-modal{
+        width:20px;
+        height:20px;
+        top:1.5%;
+        right:1.5%;
+    }
+
+    .modal-title{
+        top:0;
+    }
+
+    .modal-popup{
+        margin:0;
+    }
+
+    .modal-content{
+        padding-top:40px;
+        padding-bottom:30px;
     }
 }
 
