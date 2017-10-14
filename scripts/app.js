@@ -80,7 +80,7 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
     });
 }]);
 
-app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "blog", "contact"]);
+app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "contact"]); // "blog",
 app.constant('availableLangs', ["ro", "en"]);
 
 app.constant('userId', '1397192335');
