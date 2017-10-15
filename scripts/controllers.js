@@ -200,39 +200,37 @@ angular.module('app')
         $scope.nextPhoto = function () {
             $scope.goClockwise = false;
             applyAnimationClass(false);
-            $timeout(function () {
-                if (ngInstafeed.model && ngInstafeed.model.data) {
-                    for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
-                        if ($scope.model.id === ngInstafeed.model.data[i].id) {
-                            $scope.model = ngInstafeed.model.data[i + 1];
-                            break;
-                        }
+            if (ngInstafeed.model && ngInstafeed.model.data) {
+                for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
+                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
+                        $scope.model = ngInstafeed.model.data[i + 1];
+                        break;
                     }
                 }
-            }, 0);
+            }
         };
 
         $scope.previousPhoto = function () {
             $scope.goClockwise = true;
             applyAnimationClass(true);
-            $timeout(function () {
-                if (ngInstafeed.model && ngInstafeed.model.data) {
-                    for (var i = 1; i < ngInstafeed.model.data.length; i++) {
-                        if ($scope.model.id === ngInstafeed.model.data[i].id) {
-                            $scope.model = ngInstafeed.model.data[i - 1];
-                            break;
-                        }
+            if (ngInstafeed.model && ngInstafeed.model.data) {
+                for (var i = 1; i < ngInstafeed.model.data.length; i++) {
+                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
+                        $scope.model = ngInstafeed.model.data[i - 1];
+                        break;
                     }
                 }
-            });
+            }
         };
 
         function applyAnimationClass(goClockwise) {
             var height = animatedTarget.height();
 
-            $scope.imageHeight = {
-                'height': height + 'px'
-            }
+            animationContainer.height(height);
+
+            //$scope.imageHeight = {
+            //    'height': height + 'px'
+            //}
 
             if (goClockwise) {
                 animatedTarget.removeClass('revealAnimation');
@@ -242,9 +240,13 @@ angular.module('app')
                 animatedTarget.addClass('revealAnimation');
             }
 
-            $timeout(function () {
-                $scope.imageHeight = {};
+            setTimeout(function () {
+                animationContainer.css("height", "auto");
             }, 1000);
+
+            //$timeout(function () {
+            //    $scope.imageHeight = {};
+            //}, 1000);
         };
     }])
 
