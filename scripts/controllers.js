@@ -200,29 +200,31 @@ angular.module('app')
         $scope.nextPhoto = function () {
             $scope.goClockwise = false;
             applyAnimationClass(false);
-            if (ngInstafeed.model && ngInstafeed.model.data) {
-                for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
-                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
-                        $scope.model = ngInstafeed.model.data[i + 1];
-                        break;
+            $timeout(function () {
+                if (ngInstafeed.model && ngInstafeed.model.data) {
+                    for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
+                        if ($scope.model.id === ngInstafeed.model.data[i].id) {
+                            $scope.model = ngInstafeed.model.data[i + 1];
+                            break;
+                        }
                     }
                 }
-            }
-
-            //alert('next');
+            }, 0);
         };
 
         $scope.previousPhoto = function () {
             $scope.goClockwise = true;
             applyAnimationClass(true);
-            if (ngInstafeed.model && ngInstafeed.model.data) {
-                for (var i = 1; i < ngInstafeed.model.data.length; i++) {
-                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
-                        $scope.model = ngInstafeed.model.data[i - 1];
-                        break;
+            $timeout(function () {
+                if (ngInstafeed.model && ngInstafeed.model.data) {
+                    for (var i = 1; i < ngInstafeed.model.data.length; i++) {
+                        if ($scope.model.id === ngInstafeed.model.data[i].id) {
+                            $scope.model = ngInstafeed.model.data[i - 1];
+                            break;
+                        }
                     }
                 }
-            }
+            });
         };
 
         function applyAnimationClass(goClockwise) {
