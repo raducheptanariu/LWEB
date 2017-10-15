@@ -170,8 +170,11 @@ angular.module('app')
         });
     }])
 
-    .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', 'cloudnoService', function ($scope, $uibModalInstance, model, cloudnoService) {
+    .controller('instaImagePopupCtrl', ['$scope', '$timeout', '$uibModalInstance', 'model', 'cloudnoService', 'ngInstafeed',
+        function ($scope, $timeout, $uibModalInstance, model, cloudnoService, ngInstafeed) {
         $scope.model = model;
+        var animatedTarget, animationContainer;
+        $scope.imageHeight = { };
 
         $scope.like = function (imageId) {
             return;
@@ -187,6 +190,59 @@ angular.module('app')
 
         $scope.close = function () {
             $uibModalInstance.dismiss('close');
+        };
+
+        $scope.initCtrl = function () {
+            animatedTarget = $('#instaImage');
+            animationContainer = $('.modal-content');
+        };
+
+        $scope.nextPhoto = function () {
+            $scope.goClockwise = false;
+            applyAnimationClass(false);
+            if (ngInstafeed.model && ngInstafeed.model.data) {
+                for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
+                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
+                        $scope.model = ngInstafeed.model.data[i + 1];
+                        break;
+                    }
+                }
+            }
+
+            //alert('next');
+        };
+
+        $scope.previousPhoto = function () {
+            $scope.goClockwise = true;
+            applyAnimationClass(true);
+            if (ngInstafeed.model && ngInstafeed.model.data) {
+                for (var i = 1; i < ngInstafeed.model.data.length; i++) {
+                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
+                        $scope.model = ngInstafeed.model.data[i - 1];
+                        break;
+                    }
+                }
+            }
+        };
+
+        function applyAnimationClass(goClockwise) {
+            var height = animatedTarget.height();
+
+            $scope.imageHeight = {
+                'height': height + 'px'
+            }
+
+            if (goClockwise) {
+                animatedTarget.removeClass('revealAnimation');
+                animatedTarget.addClass('revealAnimationClockwise');
+            } else {
+                animatedTarget.removeClass('revealAnimationClockwise');
+                animatedTarget.addClass('revealAnimation');
+            }
+
+            $timeout(function () {
+                $scope.imageHeight = {};
+            }, 1000);
         };
     }])
 
