@@ -938,7 +938,7 @@ button.close {
     opacity: 0;
 }
 
-.modal-image.ng-enter,
+/*.modal-image.ng-enter,
 .modal-image.ng-leave{
     padding-bottom:70px;
 }
@@ -947,7 +947,7 @@ button.close {
     -o-transition: linear 1s all, padding-bottom 0s linear;
     -webkit-transition: linear 1s all, padding-bottom 0s linear;
     transition: linear 1s all, padding-bottom 0s linear;
-}
+}*/
 
 
 .collapsed>span.top-bar {

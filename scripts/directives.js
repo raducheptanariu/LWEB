@@ -509,30 +509,4 @@ angular.module('app')
             }
         }
     }])
-
-    .directive('animationApplier', [function () {
-        return {
-            restrict: 'A',
-            scope: {
-                animateCounterClockwiseClass: '@',
-                animateClockwiseClass: '@',
-                animateClockwise: '='
-            },
-            link: function (scope, elm, attrs) {
-                var animatedTarget = elm;
-
-                scope.$watch(function () {
-                    return scope.animateClockwise
-                }, function () {
-                    if (scope.animateClockwise) {
-                        animatedTarget.removeClass('revealAnimation');
-                        animatedTarget.addClass('revealAnimationClockwise');
-                    } else {
-                        animatedTarget.removeClass('revealAnimationClockwise');
-                        animatedTarget.addClass('revealAnimation');
-                    }
-                });
-            }
-        }
-    }]);
 ;
