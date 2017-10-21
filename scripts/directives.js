@@ -182,7 +182,7 @@ angular.module('app')
         return {
             restrict: 'A',
             scope: {
-                instaImagePopup: '='
+                imageIndex: '=instaImagePopup'
             },
             link: function (scope, elm) {
                 elm.on('click', function () {
@@ -191,7 +191,7 @@ angular.module('app')
                         controller: 'instaImagePopupCtrl',
                         templateUrl: 'views/templates/instaImagePopup.html',
                         resolve: {
-                            model: function () { return scope.instaImagePopup; }
+                            index: function () { return scope.imageIndex; }
                         }
                     });
 

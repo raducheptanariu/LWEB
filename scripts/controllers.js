@@ -170,13 +170,50 @@ angular.module('app')
         });
     }])
 
-    .controller('instaImagePopupCtrl', ['$scope', '$timeout', '$uibModalInstance', 'model', 'cloudnoService', 'ngInstafeed',
-        function ($scope, $timeout, $uibModalInstance, model, cloudnoService, ngInstafeed) {
-        $scope.model = model;
+    .controller('instaImagePopupCtrl', ['$scope', '$timeout', '$uibModalInstance', 'index', 'cloudnoService', 'ngInstafeed',
+        function ($scope, $timeout, $uibModalInstance, index, cloudnoService, ngInstafeed) {
+        $scope.imageIndex = index;
+        $scope.model = ngInstafeed.model.data;
         var animatedTarget, animationContainer;
         $scope.imageHeight = { };
+        $scope.like = like;
 
-        $scope.like = function (imageId) {
+        $scope.close = function () {
+            $uibModalInstance.dismiss('close');
+        };
+
+        //$scope.initCtrl = function () {
+        //    animatedTarget = $('#instaImage');
+        //    animationContainer = $('.modal-content');
+        //};
+
+        //$scope.nextPhoto = function () {
+        //    $scope.goClockwise = false;
+        //    applyAnimationClass(false);
+        //    if (ngInstafeed.model && ngInstafeed.model.data) {
+        //        for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
+        //            if ($scope.model.id === ngInstafeed.model.data[i].id) {
+        //                $scope.model = ngInstafeed.model.data[i + 1];
+        //                break;
+        //            }
+        //        }
+        //    }
+        //};
+
+        //$scope.previousPhoto = function () {
+        //    $scope.goClockwise = true;
+        //    applyAnimationClass(true);
+        //    if (ngInstafeed.model && ngInstafeed.model.data) {
+        //        for (var i = 1; i < ngInstafeed.model.data.length; i++) {
+        //            if ($scope.model.id === ngInstafeed.model.data[i].id) {
+        //                $scope.model = ngInstafeed.model.data[i - 1];
+        //                break;
+        //            }
+        //        }
+        //    }
+        //};
+
+        function like(imageId) {
             return;
 
             cloudnoService.getResponse(imageId).then(function (response) {
@@ -186,41 +223,6 @@ angular.module('app')
             //instagramService.postLike(imageId).then(function(response) {
             //    console.log(response);
             //});
-        };
-
-        $scope.close = function () {
-            $uibModalInstance.dismiss('close');
-        };
-
-        $scope.initCtrl = function () {
-            animatedTarget = $('#instaImage');
-            animationContainer = $('.modal-content');
-        };
-
-        $scope.nextPhoto = function () {
-            $scope.goClockwise = false;
-            applyAnimationClass(false);
-            if (ngInstafeed.model && ngInstafeed.model.data) {
-                for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
-                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
-                        $scope.model = ngInstafeed.model.data[i + 1];
-                        break;
-                    }
-                }
-            }
-        };
-
-        $scope.previousPhoto = function () {
-            $scope.goClockwise = true;
-            applyAnimationClass(true);
-            if (ngInstafeed.model && ngInstafeed.model.data) {
-                for (var i = 1; i < ngInstafeed.model.data.length; i++) {
-                    if ($scope.model.id === ngInstafeed.model.data[i].id) {
-                        $scope.model = ngInstafeed.model.data[i - 1];
-                        break;
-                    }
-                }
-            }
         };
 
         function applyAnimationClass(goClockwise) {
