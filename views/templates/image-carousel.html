@@ -1,8 +1,7 @@
 ﻿<div class="carousel-inner"
      ng-transclude
-     ui-swipe-left="next()"
-     ui-swipe-right="prev()"
-     ng-init="count = 0">
+     ui-swipe-left="clickOn('#right');$event.stopPropagation();"
+     ui-swipe-right="clickOn('#left');$event.stopPropagation();">
 </div>
 <a id="left"
    role="button"
