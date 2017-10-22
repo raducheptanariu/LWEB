@@ -9,6 +9,8 @@
    class="left carousel-control"
    ng-click="prev()"
    ng-class="{ disabled: isPrevDisabled() }"
+   ui-swipe-left="clickOn('#right');$event.stopPropagation();"
+   ui-swipe-right="clickOn('#left');$event.stopPropagation();"
    ng-show="slides.length > 1">
     <span aria-hidden="true"
           class="glyphicon glyphicon-chevron-left">
@@ -21,6 +23,8 @@
    role="button"
    href
    class="right carousel-control"
+   ui-swipe-left="clickOn('#right');$event.stopPropagation();"
+   ui-swipe-right="clickOn('#left');$event.stopPropagation();"
    ng-click="next()"
    ng-class="{ disabled: isNextDisabled() }"
    ng-show="slides.length > 1">

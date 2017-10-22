@@ -8,9 +8,11 @@
     <button type="button" class="close close-modal" ng-click="close()"></button>
     
     <div class="carousel slide">
-        <div uib-carousel interval="5000" active="imageIndex" template-url="views/templates/image-carousel.html">
+        <div uib-carousel 
+             interval="5000" 
+             active="imageIndex" 
+             template-url="views/templates/image-carousel.html">
             <div uib-slide ng-repeat="slide in model track by $index" index="$index">
-                <!---->
                 <img class="img-responsive img-full" ng-src="{{slide.images.standard_resolution.url | instaResizeOrig}}" style="width:inherit; margin:auto;" alt="Laura Serban Solista {{$index}}" />
             </div>
         </div>
