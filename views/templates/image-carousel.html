@@ -1,11 +1,15 @@
-﻿<div class="carousel-inner"
+﻿<div>
+    {{count}}
+</div>
+<div class="carousel-inner"
      ng-transclude
-     ui-swipe-left="next()"
-     ui-swipe-right="prev()">
+     ui-swipe-left="next();count=count+1;"
+     ui-swipe-right="prev();count=count+1"
+     ng-init="count = 0">
 </div>
 <a role="button"
-   ui-swipe-left="next()"
-   ui-swipe-right="prev()"
+   ui-swipe-left="next();count=count+1"
+   ui-swipe-right="prev();count=count+1"
    href
    class="left carousel-control"
    ng-click="prev()"
@@ -19,8 +23,8 @@
     </span>
 </a>
 <a role="button"
-   ui-swipe-left="next()"
-   ui-swipe-right="prev()"
+   ui-swipe-left="next();count=count+1"
+   ui-swipe-right="prev();count=count+1"
    href
    class="right carousel-control"
    ng-click="next()"
