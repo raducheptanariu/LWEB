@@ -13,7 +13,8 @@
              active="imageIndex" 
              template-url="views/templates/image-carousel.html">
             <div uib-slide ng-repeat="slide in model track by $index" index="$index">
-                <img class="img-responsive img-full" ng-src="{{slide.images.standard_resolution.url | instaResizeOrig}}" style="width:inherit; margin:auto;" alt="Laura Serban Solista {{$index}}" />
+                <img class="img-responsive img-full" ng-src="{{slide.images.standard_resolution.url }}" style="width:inherit; margin:auto;" alt="Laura Serban Solista {{$index}}" />
+                <!-- instaResizeOrig filter to above img -->
             </div>
         </div>
     </div>
