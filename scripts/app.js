@@ -44,8 +44,10 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
             })
             .state('otherwise', {
                 url: '*path',
-                templateUrl: 'views/404.html',
-                controller: 'Error404Ctrl'
+                templateUrl: 'views/about.html',
+                controller: 'AboutCtrl'
+                //templateUrl: 'views/404.html',
+                //controller: 'Error404Ctrl'
         });
 
        $locationProvider.html5Mode(true);
