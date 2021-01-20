@@ -44,8 +44,10 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
             })
             .state('otherwise', {
                 url: '*path',
-                templateUrl: 'views/404.html',
-                controller: 'Error404Ctrl'
+                templateUrl: 'views/about.html',
+                controller: 'AboutCtrl'
+                //templateUrl: 'views/404.html',
+                //controller: 'Error404Ctrl'
         });
 
        $locationProvider.html5Mode(true);
@@ -80,7 +82,7 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
     });
 }]);
 
-app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "blog", "contact"]);
+app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "contact"]); // "blog",
 app.constant('availableLangs', ["ro", "en"]);
 
 app.constant('userId', '1397192335');
@@ -99,5 +101,9 @@ app.constant('postsApi', 'api/blog/');
 
 app.constant('disqusShortname', 'lauraserban-com');
 
+app.constant('shareThisApi', '//platform-api.sharethis.com/js/sharethis.js#property=590dc7d8ef4e140012286ac2&product=inline-share-buttons');
+
 app.constant('phoneConfig', '+40 754732375');
 app.constant('emailConfig', 'lauraserbanmusic@gmail.com');
+
+app.constant('cloudnoApi', 'http://lweb.cloudno.de');

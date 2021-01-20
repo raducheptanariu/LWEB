@@ -12,15 +12,15 @@ angular.module('app')
         return {
             restrict: 'E',
             scope: {
-                hideMobile: '@?'  
+                hideMobile: '@?'
             },
             templateUrl: 'views/templates/carousel.html',
             link: function (scope) {
                 var watcher = scope.$watch(
-                    function() {
+                    function () {
                         return $window.innerWidth;
                     },
-                    function() {
+                    function () {
                         if ($window.innerWidth > 767 || !scope.hideMobile) {
                             if (!$rootScope.slides || $rootScope.slides.length == 0) {
                                 scope.carouselSlides = [];
@@ -31,9 +31,9 @@ angular.module('app')
 
                                     var xhr = new XMLHttpRequest();
                                     xhr.open('HEAD', imgPath, true);
-                                    xhr.onload = function(event) {
+                                    xhr.onload = function (event) {
                                         if (event.currentTarget.status == 200) {
-                                            scope.$apply(function() {
+                                            scope.$apply(function () {
                                                 scope.carouselSlides.push({
                                                     image: imgPath,
                                                     id: index
@@ -128,8 +128,8 @@ angular.module('app')
                         scope.hoverApplier = true;
                     });
                 });
-                elm.bind('mouseleave', function() {
-                    scope.$apply(function() {
+                elm.bind('mouseleave', function () {
+                    scope.$apply(function () {
                         scope.hoverApplier = false;
                     });
                 });
@@ -181,8 +181,8 @@ angular.module('app')
     .directive('instaImagePopup', ['$uibModal', function ($uibModal) {
         return {
             restrict: 'A',
-            scope:{
-                instaImagePopup: '='
+            scope: {
+                imageIndex: '=instaImagePopup'
             },
             link: function (scope, elm) {
                 elm.on('click', function () {
@@ -191,7 +191,7 @@ angular.module('app')
                         controller: 'instaImagePopupCtrl',
                         templateUrl: 'views/templates/instaImagePopup.html',
                         resolve: {
-                            model: function () { return scope.instaImagePopup; }
+                            index: function () { return scope.imageIndex; }
                         }
                     });
 
@@ -221,7 +221,7 @@ angular.module('app')
             link: function (scope) {
                 scope.youtubeModel = [];
 
-                youtubeService.getChannelVideos().then(function(data) {
+                youtubeService.getChannelVideos().then(function (data) {
                     if (data) {
                         scope.youtubeModel = data;
                     }
@@ -265,68 +265,68 @@ angular.module('app')
 
     .directive('animationDirector', ['$rootScope', '$state', '$timeout', 'navigationLinks',
         function ($rootScope, $state, $timeout, navigationLinks) {
-        return {
-            restrict: 'E',
-            scope: {
-                animateClockwise: '=',
-                animationTarget: '@',
-                animateClockwiseClass: '@',
-                animateCounterClockwiseClass: '@'
-            },
-            link: function (scope) {
-                var animationIsSet = false;
+            return {
+                restrict: 'E',
+                scope: {
+                    animateClockwise: '=',
+                    animationTarget: '@',
+                    animateClockwiseClass: '@',
+                    animateCounterClockwiseClass: '@'
+                },
+                link: function (scope) {
+                    var animationIsSet = false;
 
-                scope.$on('$stateChangeStart', function (event, targetState, params) {
-                    if (targetState && targetState.name == 'otherwise') return;
+                    scope.$on('$stateChangeStart', function (event, targetState, params) {
+                        if (targetState && targetState.name == 'otherwise') return;
 
-                    if (!animationIsSet) {
-                        animationIsSet = true;
-                        event.preventDefault();
+                        if (!animationIsSet) {
+                            animationIsSet = true;
+                            event.preventDefault();
 
-                        var currentIndex = navigationLinks.indexOf($rootScope.title ? $rootScope.title.toLowerCase() : '');
-                        var targetIndex = navigationLinks.indexOf(targetState.name);
+                            var currentIndex = navigationLinks.indexOf($rootScope.title ? $rootScope.title.toLowerCase() : '');
+                            var targetIndex = navigationLinks.indexOf(targetState.name);
 
-                        if (currentIndex > -1 && targetIndex > -1) {
-                            if (currentIndex < targetIndex) {
-                                if (currentIndex == 0 && targetIndex == (navigationLinks.length - 1)) {
-                                    scope.animateClockwise = true;
+                            if (currentIndex > -1 && targetIndex > -1) {
+                                if (currentIndex < targetIndex) {
+                                    if (currentIndex == 0 && targetIndex == (navigationLinks.length - 1)) {
+                                        scope.animateClockwise = true;
+                                    }
+                                    else {
+                                        scope.animateClockwise = false;
+                                    }
                                 }
                                 else {
-                                    scope.animateClockwise = false;
+                                    if (currentIndex == (navigationLinks.length - 1) && targetIndex == 0) {
+                                        scope.animateClockwise = false;
+                                    }
+                                    else {
+                                        scope.animateClockwise = true;
+                                    }
                                 }
                             }
                             else {
-                                if (currentIndex == (navigationLinks.length - 1) && targetIndex == 0) {
-                                    scope.animateClockwise = false;
-                                }
-                                else {
-                                    scope.animateClockwise = true;
-                                }
+                                scope.animateClockwise = false;
                             }
-                        }
-                        else {
-                            scope.animateClockwise = false;
-                        }
 
-                        var animatedTarget = $(scope.animationTarget);
-                        if (scope.animateClockwise) {
-                            animatedTarget.removeClass(scope.animateCounterClockwiseClass);
-                            animatedTarget.addClass(scope.animateClockwiseClass);
-                        } else {
-                            animatedTarget.removeClass(scope.animateClockwiseClass);
-                            animatedTarget.addClass(scope.animateCounterClockwiseClass);
+                            var animatedTarget = $(scope.animationTarget);
+                            if (scope.animateClockwise) {
+                                animatedTarget.removeClass(scope.animateCounterClockwiseClass);
+                                animatedTarget.addClass(scope.animateClockwiseClass);
+                            } else {
+                                animatedTarget.removeClass(scope.animateClockwiseClass);
+                                animatedTarget.addClass(scope.animateCounterClockwiseClass);
+                            }
+
+                            $state.go(targetState.name, params);
                         }
+                    });
 
-                        $state.go(targetState.name, params);
-                    }
-                });
-
-                scope.$on('$stateChangeSuccess', function () {
-                    animationIsSet = false;
-                });
+                    scope.$on('$stateChangeSuccess', function () {
+                        animationIsSet = false;
+                    });
+                }
             }
-        }
-    }])
+        }])
 
     .directive('ngError', ['$parse', function ($parse) {
         return {
@@ -362,7 +362,7 @@ angular.module('app')
     .directive('formWrapper', ['$timeout', 'emailConfig', function ($timeout, emailConfig) {
         return {
             restrict: 'A',
-            scope:{
+            scope: {
                 hideForm: '='
             },
             link: function (scope, elm) {
@@ -403,7 +403,7 @@ angular.module('app')
             template: '<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink"></a>',
             link: function (scope, elm) {
 
-                scope.$watch('config', function() {
+                scope.$watch('config', function () {
                     $timeout(configChanged, 1000);
                 }, true);
 
@@ -462,9 +462,9 @@ angular.module('app')
     }])
 
     .directive('collapseOnSwipe', [function () {
-        return{
+        return {
             restrict: 'A',
-            link: function(scope, elm) {
+            link: function (scope, elm) {
                 elm.swipe('swipeup', function () {
                     elm.collapse('hide');
                 });
@@ -475,6 +475,37 @@ angular.module('app')
                     },
                     threshold: 100
                 });
+            }
+        }
+    }])
+
+    .directive('sharethisLoader', ['shareThisApi', '$rootScope', '$location', function (shareThisApi, $rootScope, $location) {
+        return {
+            restrict: 'A',
+            link: function (scope, elm, attrs) {
+                if (!$rootScope.shareThisInit) {
+                    var script = '<script type="text/javascript" src="' + shareThisApi + '"></script>';
+                    var scriptElem = angular.element(script);
+                    $rootScope.shareThisInit = true;
+                    elm.append(scriptElem);
+                } else if (window.__sharethis__) {
+                    window.__sharethis__.href = $location.absUrl();
+                    window.__sharethis__.initialize();
+                }
+            }
+        }
+    }])
+
+    .directive('heightWatcher', ['$timeout', function ($timeout) {
+        return {
+            restrict: 'A',
+            link: function (scope, elm, attrs) {
+                $timeout(function () {
+                    var currentHeight = elm[0].offsetHeight;
+                    if (currentHeight > scope.$parent.maxHeight) {
+                        scope.$parent.maxHeight = currentHeight;
+                    }
+                }, 300);
             }
         }
     }])

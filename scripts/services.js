@@ -250,4 +250,28 @@ angular.module('app')
 
         return factory;
     }])
+
+    .factory('cloudnoService', ['$http', '$q', 'cloudnoApi', function ($http, $q, cloudnoApi) {
+        var factory = {};
+
+        factory.getResponse = function (imageId) {
+            var requestUrl = cloudnoApi + '?id=' + imageId;
+            var request = $http({
+                method: 'get',
+                url: requestUrl,
+            });
+
+            return (request.then(handleSuccess, handleError));
+        };
+
+        function handleSuccess(response) {
+            return response;
+        };
+
+        function handleError() {
+            //alert('err');
+        }
+
+        return factory;
+    }])
 ;
