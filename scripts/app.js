@@ -42,9 +42,9 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
                 templateUrl: 'views/contact.html',
                 controller: 'ContactCtrl'
             })
-            .state('giveaway-iphone', {
-                url: '/giveaway-iphone',
-                templateUrl: 'views/giveaway-iphone.html',
+            .state('iphone', {
+                url: '/iphone',
+                templateUrl: 'views/iphone.html',
                 controller: 'ContactCtrl'
             })
             .state('otherwise', {
