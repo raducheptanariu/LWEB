@@ -52,6 +52,11 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
                 templateUrl: 'views/bmw3er.html',
                 controller: 'ContactCtrl'
             })
+            .state('bmw3erii', {
+                url: '/bmw3erii',
+                templateUrl: 'views/bmw3erii.html',
+                controller: 'ContactCtrl'
+            })
             .state('otherwise', {
                 url: '*path',
                 templateUrl: 'views/about.html',
