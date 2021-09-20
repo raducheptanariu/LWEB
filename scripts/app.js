@@ -12,21 +12,21 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
-            .state('gallery', {
-                url: '/gallery',
-                templateUrl: 'views/gallery.html',
-                controller: 'GalleryCtrl'
-            })
-            .state('music', {
-                url: '/music',
-                templateUrl: 'views/music.html',
-                controller: 'MusicCtrl'
-            })
-            .state('repertoire', {
-                url: '/repertoire',
-                templateUrl: 'views/repertoire.html',
-                controller: 'RepertoireCtrl'
-            })
+            //.state('gallery', {
+            //    url: '/gallery',
+            //    templateUrl: 'views/gallery.html',
+            //    controller: 'GalleryCtrl'
+            //})
+            //.state('music', {
+            //    url: '/music',
+            //    templateUrl: 'views/music.html',
+            //    controller: 'MusicCtrl'
+            //})
+            //.state('repertoire', {
+            //    url: '/repertoire',
+            //    templateUrl: 'views/repertoire.html',
+            //    controller: 'RepertoireCtrl'
+            //})
             .state('blog', {
                 url: '/blog',
                 templateUrl: 'views/blog.html',
@@ -45,6 +45,11 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
             .state('iphone', {
                 url: '/iphone',
                 templateUrl: 'views/iphone.html',
+                controller: 'ContactCtrl'
+            })
+            .state('iphone13', {
+                url: '/iphone13',
+                templateUrl: 'views/iphone13.html',
                 controller: 'ContactCtrl'
             })
             .state('bmw3er', {
@@ -97,7 +102,7 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
     });
 }]);
 
-app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "contact"]); // "blog",
+app.constant('navigationLinks', ["about", /*"gallery", "music", "repertoire",*/ "contact"]); // "blog",
 app.constant('availableLangs', ["ro", "en"]);
 
 app.constant('userId', '1397192335');
@@ -119,6 +124,7 @@ app.constant('disqusShortname', 'lauraserban-com');
 app.constant('shareThisApi', '//platform-api.sharethis.com/js/sharethis.js#property=590dc7d8ef4e140012286ac2&product=inline-share-buttons');
 
 app.constant('phoneConfig', '+40 754732375');
-app.constant('emailConfig', 'lauraserbanmusic@gmail.com');
+app.constant('emailConfig', 'lauraserban10@gmail.com');
+app.constant('instagramPathConfig', 'https://www.instagram.com/lauraserbanofficial/');
 
 app.constant('cloudnoApi', 'http://lweb.cloudno.de');

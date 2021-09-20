@@ -95,7 +95,7 @@ angular.module('app')
     }])
 
     // Path: /contact
-    .controller('ContactCtrl', ['$scope', '$location', '$window', 'phoneConfig', 'emailConfig', function ($scope, $location, $window, phoneConfig, emailConfig) {
+    .controller('ContactCtrl', ['$scope', '$location', '$window', 'phoneConfig', 'emailConfig', 'instagramPathConfig', function ($scope, $location, $window, phoneConfig, emailConfig, instagramPathConfig) {
         $scope.$root.title = 'Contact';
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -103,6 +103,7 @@ angular.module('app')
 
         $scope.myPhone = phoneConfig;
         $scope.myEmail = emailConfig;
+        $scope.myInstagram = instagramPathConfig;
     }])
 
     // Path: /blog
