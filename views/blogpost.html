@@ -11,6 +11,7 @@
                 </h2>
                 <h2><small translate="{{post.subtitle}}"></small></h2>
                 <p ng-repeat="paragraph in post.paragraph" translate="{{paragraph}}"></p>
+                <div sharethis-loader class="sharethis-inline-share-buttons"></div>
                 <hr>
                 <img class="img-responsive img-border img-full img-spacing"
                      ng-repeat="img in post.img" ng-if="!$first"

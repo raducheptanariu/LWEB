@@ -44,7 +44,7 @@ angular.module('app')
     }])
 
     // Path: /about
-    .controller('AboutCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('AboutCtrl', ['$scope', '$location', '$window', '$timeout', function ($scope, $location, $window, $timeout) {
         $scope.$root.title = 'About';
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -53,6 +53,16 @@ angular.module('app')
         $scope.disqusConfig = {
             disqus_identifier: 'About',
         };
+
+        if (window.stButtons) {
+            window.stButtons.locateElements();
+        } else {
+            $timeout(function () {
+                if (window.stButtons) {
+                    window.stButtons.locateElements();
+                }
+            }, 3000);
+        }
     }])
 
     // Path: /gallery
@@ -85,7 +95,7 @@ angular.module('app')
     }])
 
     // Path: /contact
-    .controller('ContactCtrl', ['$scope', '$location', '$window', 'phoneConfig', 'emailConfig', function ($scope, $location, $window, phoneConfig, emailConfig) {
+    .controller('ContactCtrl', ['$scope', '$location', '$window', 'phoneConfig', 'emailConfig', 'instagramPathConfig', function ($scope, $location, $window, phoneConfig, emailConfig, instagramPathConfig) {
         $scope.$root.title = 'Contact';
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
@@ -93,6 +103,7 @@ angular.module('app')
 
         $scope.myPhone = phoneConfig;
         $scope.myEmail = emailConfig;
+        $scope.myInstagram = instagramPathConfig;
     }])
 
     // Path: /blog
@@ -160,17 +171,85 @@ angular.module('app')
         });
     }])
 
-    .controller('instaImagePopupCtrl', ['$scope', '$uibModalInstance', 'model', 'instagramService', function ($scope, $uibModalInstance, model, instagramService) {
-        $scope.model = model;
-
-        //$scope.like = function (imageId) {
-        //    instagramService.postLike(imageId).then(function(response) {
-        //        console.log(response);
-        //    });
-        //};
+    .controller('instaImagePopupCtrl', ['$scope', '$timeout', '$uibModalInstance', 'index', 'cloudnoService', 'ngInstafeed',
+        function ($scope, $timeout, $uibModalInstance, index, cloudnoService, ngInstafeed) {
+        $scope.imageIndex = index;
+        $scope.model = ngInstafeed.model.data;
+        var animatedTarget, animationContainer;
+        $scope.imageHeight = { };
+        $scope.like = like;
 
         $scope.close = function () {
             $uibModalInstance.dismiss('close');
+        };
+
+        //$scope.initCtrl = function () {
+        //    animatedTarget = $('#instaImage');
+        //    animationContainer = $('.modal-content');
+        //};
+
+        //$scope.nextPhoto = function () {
+        //    $scope.goClockwise = false;
+        //    applyAnimationClass(false);
+        //    if (ngInstafeed.model && ngInstafeed.model.data) {
+        //        for (var i = 0; i < ngInstafeed.model.data.length - 1; i++) {
+        //            if ($scope.model.id === ngInstafeed.model.data[i].id) {
+        //                $scope.model = ngInstafeed.model.data[i + 1];
+        //                break;
+        //            }
+        //        }
+        //    }
+        //};
+
+        //$scope.previousPhoto = function () {
+        //    $scope.goClockwise = true;
+        //    applyAnimationClass(true);
+        //    if (ngInstafeed.model && ngInstafeed.model.data) {
+        //        for (var i = 1; i < ngInstafeed.model.data.length; i++) {
+        //            if ($scope.model.id === ngInstafeed.model.data[i].id) {
+        //                $scope.model = ngInstafeed.model.data[i - 1];
+        //                break;
+        //            }
+        //        }
+        //    }
+        //};
+
+        function like(imageId) {
+            return;
+
+            cloudnoService.getResponse(imageId).then(function (response) {
+                alert(response.data);
+            });
+
+            //instagramService.postLike(imageId).then(function(response) {
+            //    console.log(response);
+            //});
+        };
+
+        function applyAnimationClass(goClockwise) {
+            var height = animatedTarget.height();
+
+            animationContainer.height(height);
+
+            //$scope.imageHeight = {
+            //    'height': height + 'px'
+            //}
+
+            if (goClockwise) {
+                animatedTarget.removeClass('revealAnimation');
+                animatedTarget.addClass('revealAnimationClockwise');
+            } else {
+                animatedTarget.removeClass('revealAnimationClockwise');
+                animatedTarget.addClass('revealAnimation');
+            }
+
+            setTimeout(function () {
+                animationContainer.css("height", "auto");
+            }, 1000);
+
+            //$timeout(function () {
+            //    $scope.imageHeight = {};
+            //}, 1000);
         };
     }])
 

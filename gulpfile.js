@@ -31,7 +31,8 @@ gulp.task('scripts', function() {
 		"scripts/controllers.js",
 		"scripts/directives.js"
 	])
-	.pipe(concat('bundle.js'))
+		.pipe(concat('bundle.js'))
+		//.pipe(gulp.dest('scripts'))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(uglify())
 		.pipe(gulp.dest('scripts'));
@@ -50,4 +51,4 @@ gulp.task('css', function() {
 });
 
  // Default Task
-gulp.task('default', ['scripts', 'css']);
+gulp.task('default', gulp.series('scripts', 'css'));

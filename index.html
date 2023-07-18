@@ -14,14 +14,12 @@
         <link rel="canonical" href="https://www.lauraserban.com" />
         
         <link rel="shortcut icon" type="image/x-icon" href="/content/img/LauraIcon.png" />
-    
-        <link href="content/css/bundle.min.css?update=005" rel="stylesheet" />
+
+        <link href="content/css/bundle.min.css?update=023" rel="stylesheet" />
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Italianno" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <!--<link href="https://fonts.googleapis.com/css?family=Andika" rel="stylesheet">-->
-        <!--<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">-->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
         <script>
@@ -45,20 +43,17 @@
                 }
             }(window.location))
         </script>
-        
-        <!-- Share This -->
-        <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=590dc7d8ef4e140012286ac2&product=inline-share-buttons" async="async"></script>
     </head>
-    <body ng-controller="IndexCtrl"
-          ui-swipe-left="changeLocation(1)"
-          ui-swipe-right="changeLocation(-1)">
+    <body ng-controller="IndexCtrl">
+          <!--ui-swipe-left="changeLocation(1)"
+          ui-swipe-right="changeLocation(-1)">-->
         <p style="display:none">Singer, songwriter, make-up artist and fashion blogger. You can expect everything from original songs, covers, videos singing live as well as fashion, beauty, fitness and lifestyle posts</p>
-        <animation-director
+        <!--<animation-director
             animate-clockwise="goClockwise"
             animate-clockwise-class="revealAnimationClockwise"
             animate-counter-clockwise-class="revealAnimation"
             animation-target="#ui-view">
-        </animation-director>
+        </animation-director>-->
 
         <nav class="navbar navbar-default navbar-fixed"
              role="navigation">
@@ -91,7 +86,7 @@
                            data-target=".navbar-collapse"
                            data-translate="LAYOUT_HEADER_ABOUT"
                            href="/">About me</a>
-                        <a ng-class="{ 'title-selected': $root.title == 'Gallery'}"
+                        <!--<a ng-class="{ 'title-selected': $root.title == 'Gallery'}"
                            data-toggle="collapse"
                            data-target=".navbar-collapse"
                            data-translate="LAYOUT_HEADER_GALLERY"
@@ -110,7 +105,7 @@
                            data-translate="LAYOUT_HEADER_BLOG"
                            data-toggle="collapse"
                            data-target=".navbar-collapse"
-                           href="/blog">Blog</a>
+                           href="/blog">Blog</a>-->
                         <a ng-class="{ 'title-selected': $root.title == 'Contact'}"
                            data-translate="LAYOUT_HEADER_CONTACT"
                            data-toggle="collapse"
@@ -136,8 +131,8 @@
             </div>
         </div>
     </footer>
-
-    <script src="scripts/bundle.min.js?update=005"></script>
+        
+    <script src="scripts/bundle.min.js?update=026"></script>
     <script src="https://www.youtube.com/iframe_api" type="text/javascript"></script>
 </body>
 </html>

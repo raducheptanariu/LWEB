@@ -12,21 +12,21 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
                 templateUrl: 'views/about.html',
                 controller: 'AboutCtrl'
             })
-            .state('gallery', {
-                url: '/gallery',
-                templateUrl: 'views/gallery.html',
-                controller: 'GalleryCtrl'
-            })
-            .state('music', {
-                url: '/music',
-                templateUrl: 'views/music.html',
-                controller: 'MusicCtrl'
-            })
-            .state('repertoire', {
-                url: '/repertoire',
-                templateUrl: 'views/repertoire.html',
-                controller: 'RepertoireCtrl'
-            })
+            //.state('gallery', {
+            //    url: '/gallery',
+            //    templateUrl: 'views/gallery.html',
+            //    controller: 'GalleryCtrl'
+            //})
+            //.state('music', {
+            //    url: '/music',
+            //    templateUrl: 'views/music.html',
+            //    controller: 'MusicCtrl'
+            //})
+            //.state('repertoire', {
+            //    url: '/repertoire',
+            //    templateUrl: 'views/repertoire.html',
+            //    controller: 'RepertoireCtrl'
+            //})
             .state('blog', {
                 url: '/blog',
                 templateUrl: 'views/blog.html',
@@ -42,10 +42,47 @@ app.config(['$stateProvider', '$locationProvider', '$translateProvider', 'ngInst
                 templateUrl: 'views/contact.html',
                 controller: 'ContactCtrl'
             })
+            .state('iphone', {
+                url: '/iphone',
+                templateUrl: 'views/iphone.html',
+                controller: 'ContactCtrl'
+            })
+            .state('iphone13', {
+                url: '/iphone13',
+                templateUrl: 'views/iphone13.html',
+                controller: 'ContactCtrl'
+            })
+            .state('iphone14', {
+                url: '/iphone14',
+                templateUrl: 'views/iphone14.html',
+                controller: 'ContactCtrl'
+            })
+            .state('bmw3er', {
+                url: '/bmw3er',
+                templateUrl: 'views/bmw3er.html',
+                controller: 'ContactCtrl'
+            })
+            .state('bmw3erii', {
+                url: '/bmw3erii',
+                templateUrl: 'views/bmw3erii.html',
+                controller: 'ContactCtrl'
+            })
+            .state('bmw5', {
+                url: '/bmw5',
+                templateUrl: 'views/bmw5.html',
+                controller: 'ContactCtrl'
+            })
+            .state('beauty', {
+                url: '/beauty',
+                templateUrl: 'views/beauty.html',
+                controller: 'ContactCtrl'
+            })
             .state('otherwise', {
                 url: '*path',
-                templateUrl: 'views/404.html',
-                controller: 'Error404Ctrl'
+                templateUrl: 'views/about.html',
+                controller: 'AboutCtrl'
+                //templateUrl: 'views/404.html',
+                //controller: 'Error404Ctrl'
         });
 
        $locationProvider.html5Mode(true);
@@ -80,7 +117,7 @@ app.run(['$rootScope', '$timeout', function ($rootScope, $timeout) {
     });
 }]);
 
-app.constant('navigationLinks', ["about", "gallery", "music", "repertoire", "blog", "contact"]);
+app.constant('navigationLinks', ["about", /*"gallery", "music", "repertoire",*/ "contact"]); // "blog",
 app.constant('availableLangs', ["ro", "en"]);
 
 app.constant('userId', '1397192335');
@@ -99,5 +136,10 @@ app.constant('postsApi', 'api/blog/');
 
 app.constant('disqusShortname', 'lauraserban-com');
 
+app.constant('shareThisApi', '//platform-api.sharethis.com/js/sharethis.js#property=590dc7d8ef4e140012286ac2&product=inline-share-buttons');
+
 app.constant('phoneConfig', '+40 754732375');
-app.constant('emailConfig', 'lauraserbanmusic@gmail.com');
+app.constant('emailConfig', 'lauraserban10@gmail.com');
+app.constant('instagramPathConfig', 'https://www.instagram.com/lauraserbanofficial/');
+
+app.constant('cloudnoApi', 'http://lweb.cloudno.de');
